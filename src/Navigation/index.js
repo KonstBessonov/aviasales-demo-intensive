@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { WhiteSection } from "../assets";
 
 const Title = styled.h2`
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 500;
   padding-top: 4rem;
 `;
@@ -11,7 +11,7 @@ const Title = styled.h2`
 const Link = styled.a`
   display: block;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #5B5B5C;
   padding-top: 1rem;
   }
