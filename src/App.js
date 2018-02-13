@@ -3,6 +3,7 @@ import MainForm from "./MainForm";
 import TopDestination from "./TopDestination";
 import PopularDirections from "./PopularDirections";
 import SpecialOffers from "./SpecialOffers";
+import Articles from "./Articles";
 
 import "./App.css";
 
@@ -14,6 +15,7 @@ class App extends Component {
         <TopDestination />
         <PopularDirections />
         <SpecialOffers />
+        <Articles />
       </div>
     );
   }

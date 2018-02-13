@@ -19,4 +19,5 @@ export const WhiteSection = styled.section`
   background: #ffffff;
   padding-bottom: 5rem;
   font-size: 2rem;
+  color: #4a4a4a;
 `;
