@@ -5,6 +5,7 @@ import PopularDirections from "./PopularDirections";
 import SpecialOffers from "./SpecialOffers";
 import Articles from "./Articles";
 import MobileApp from "./MobileApp";
+import Navigation from "./Navigation";
 
 import "./App.css";
 
@@ -18,6 +19,7 @@ class App extends Component {
         <SpecialOffers />
         <Articles />
         <MobileApp />
+        <Navigation />
       </div>
     );
   }
