@@ -39,11 +39,11 @@ const DirectionForm = styled.div`
 `;
 
 const PlaceInput = styled.input`
-  display: inline-block;
-  color: inherit;
+  ${"" /* display: inline-block; */} color: inherit;
   padding: 2rem 0 2rem 2rem;
   width: 70%;
   border: none;
+  border-radius: inherit;
   ::placeholder {
     color: #a0b0b9;
   }
@@ -71,6 +71,7 @@ const Calendar = styled.img`
 const PaxButton = styled.button`
   background: #ffffff;
   color: inherit;
+  border-radius: inherit;
   border: none;
   padding: 2rem;
   width: 100%;
