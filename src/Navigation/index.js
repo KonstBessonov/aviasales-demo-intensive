@@ -14,6 +14,10 @@ const Link = styled.a`
   font-size: 1.5rem;
   color: #5B5B5C;
   padding-top: 1rem;
+  transition: color 0.3s;
+  &:hover {
+    color: #FD8A27;
+  }
   }
 `;
 
@@ -32,7 +36,7 @@ export default () => {
     <WhiteSection>
       <div className="container">
         <div className="row">
-          <div class="col-xs-6 col-md-3 col-lg-2">
+          <div className="col-xs-6 col-md-3 col-lg-2">
             <Title>СТРАНЫ</Title>
             <nav>
               <Link href="#">Россия</Link>

@@ -21,9 +21,9 @@ const Text = styled.p`
 export default () => {
   return (
     <WhiteSection>
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-12 col-lg-10 col-lg-offset-1">
             <Title>
               <img src={plane} alt="" /> КАК КУПИТЬ ДЕШЕВЫЕ АВИАБИЛЕТЫ?
             </Title>

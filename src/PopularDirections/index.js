@@ -16,17 +16,17 @@ const OfferText = styled.p``;
 
 export default () => {
   return (
-    <div class="container">
-      <div class="row center-xs">
-        <div class="col-xs-12 col-md-8">
+    <div className="container">
+      <div className="row center-xs">
+        <div className="col-xs-12 col-md-8">
           <Compass src={calend} alt="Calendar" />
           <OriginText>Лучшие цены на авиабилеты за последний месяц</OriginText>
         </div>
       </div>
-      <div class="row">
+      <div className="row">
         {/* 1 контейнер */}
-        <div class="col-xs-12 col-lg-4">
-          <div class="row middle-xs">
+        <div className="col-xs-12 col-lg-4">
+          <div className="row middle-xs">
             <div>картинка </div>
             <div>
               <p>Симферополь (Крым)</p>
@@ -34,19 +34,19 @@ export default () => {
             </div>
           </div>
           <div>
-            <div class="row berween-xs">
-              <div class="col-xs-8">Из Москвы</div>
-              <div class="col-xs-4">от 4813 р.</div>
-              <div class="col-xs-8">Из Санкт-Петербурга</div>
-              <div class="col-xs-4">от 7857 р.</div>
-              <div class="col-xs-8">Из Новосибирска</div>
-              <div class="col-xs-4">от 15127 р.</div>
+            <div className="row berween-xs">
+              <div className="col-xs-8">Из Москвы</div>
+              <div className="col-xs-4">от 4813 р.</div>
+              <div className="col-xs-8">Из Санкт-Петербурга</div>
+              <div className="col-xs-4">от 7857 р.</div>
+              <div className="col-xs-8">Из Новосибирска</div>
+              <div className="col-xs-4">от 15127 р.</div>
             </div>
           </div>
         </div>
         {/* 2 контейнер */}
-        <div class="col-xs-12 col-lg-4">
-          <div class="row middle-xs">
+        <div className="col-xs-12 col-lg-4">
+          <div className="row middle-xs">
             <div>картинка </div>
             <div>
               <p>Ереван</p>
@@ -54,15 +54,15 @@ export default () => {
             </div>
           </div>
           <div>
-            <div class="row berween-xs">
-              <div class="col-xs-8 col-lg-3">Из Москвы</div>
-              <div class="col-xs-4 col-lg-1">от 4813 р.</div>
+            <div className="row berween-xs">
+              <div className="col-xs-8 col-lg-3">Из Москвы</div>
+              <div className="col-xs-4 col-lg-1">от 4813 р.</div>
             </div>
           </div>
         </div>
         {/* 3 контейнер */}
-        <div class="col-xs-12 col-lg-4">
-          <div class="row middle-xs">
+        <div className="col-xs-12 col-lg-4">
+          <div className="row middle-xs">
             <div>картинка </div>
             <div>
               <p>Кишинев</p>
@@ -70,22 +70,22 @@ export default () => {
             </div>
           </div>
           <div>
-            <div class="row berween-xs">
-              <div class="col-xs-8 col-lg-3">Из Москвы</div>
-              <div class="col-xs-4 col-lg-1">от 4813 р.</div>
+            <div className="row berween-xs">
+              <div className="col-xs-8 col-lg-3">Из Москвы</div>
+              <div className="col-xs-4 col-lg-1">от 4813 р.</div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="row">
+      <div className="row">
         <AdvertiseText>
           Мы знаем, где купить авиабилеты дешево. Билеты на самолет в 220 стран
           мира. Поиск и сравнение цен на авиабилеты среди 100 агентств и 728
           авиакомпаний.
         </AdvertiseText>
       </div>
-      <div class="row">
+      <div className="row">
         <OfferText>
           Цены, найденные пользователями за последние 48 часов, не являются
           офертой.

@@ -17,9 +17,9 @@ const OriginText = styled.p`
 
 export default () => {
   return (
-    <div class="container">
-      <div class="row center-xs">
-        <div class="col-xs-12 col-md-8">
+    <div className="container">
+      <div className="row center-xs">
+        <div className="col-xs-12 col-md-8">
           <Compass src={compass} alt="compass" />
           <OriginText>
             Популярные направления перелетов из города <span>Москва</span>
@@ -27,49 +27,49 @@ export default () => {
         </div>
       </div>
       <p>Категории</p>
-      <div class="row center-xs">
-        <div class="col-xs-4 col-md-2 col-lg-1">
+      <div className="row center-xs">
+        <div className="col-xs-4 col-md-2 col-lg-1">
           картинка<br />текст
         </div>
-        <div class="col-xs-4 col-md-2 col-lg-1">
+        <div className="col-xs-4 col-md-2 col-lg-1">
           картинка<br />текст
         </div>
-        <div class="col-xs-4 col-md-2 col-lg-1">
+        <div className="col-xs-4 col-md-2 col-lg-1">
           картинка<br />текст
         </div>
-        <div class="col-xs-4 col-md-2 col-lg-1">
+        <div className="col-xs-4 col-md-2 col-lg-1">
           картинка<br />текст
         </div>
-        <div class="col-xs-4 col-md-2 col-lg-1">
+        <div className="col-xs-4 col-md-2 col-lg-1">
           картинка<br />текст
         </div>
-        <div class="col-xs-4 col-md-2 col-lg-1">
+        <div className="col-xs-4 col-md-2 col-lg-1">
           картинка<br />текст
         </div>
       </div>
       <p>Направления</p>
-      <div class="row">
-        <div class="col-xs-12 col-md-10 col-lg-5">
+      <div className="row">
+        <div className="col-xs-12 col-md-10 col-lg-5">
           картинка<br />
           стоимость
         </div>
-        <div class="col-xs-12 col-md-10 col-lg-5">
+        <div className="col-xs-12 col-md-10 col-lg-5">
           картинка<br />
           стоимость
         </div>
-        <div class="col-xs-12 col-md-10 col-lg-5">
+        <div className="col-xs-12 col-md-10 col-lg-5">
           картинка<br />
           стоимость
         </div>
-        <div class="col-xs-12 col-md-10 col-lg-5">
+        <div className="col-xs-12 col-md-10 col-lg-5">
           картинка<br />
           стоимость
         </div>
-        <div class="col-xs-12 col-md-10 col-lg-5">
+        <div className="col-xs-12 col-md-10 col-lg-5">
           картинка<br />
           стоимость
         </div>
-        <div class="col-xs-12 col-md-10 col-lg-5">
+        <div className="col-xs-12 col-md-10 col-lg-5">
           картинка<br />
           стоимость
         </div>

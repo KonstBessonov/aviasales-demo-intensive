@@ -104,37 +104,37 @@ const SubmitButton = styled.button`
 export default () => {
   return (
     <Header>
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-2">
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-2">
             <Logo src={logo} alt="logo" />
           </div>
         </div>
-        <div class="row center-xs">
-          <div class="col-xs-12">
+        <div className="row center-xs">
+          <div className="col-xs-12">
             <Title>Поиск дешевых авиабилетов</Title>
           </div>
         </div>
         <DirectionForm>
-          <div class="row">
-            <div class="col-xs-12 col-md-6">
+          <div className="row">
+            <div className="col-xs-12 col-md-6">
               <PlaceInput value="Оренбург" placeholder="Город вылета" />
               <SwapPlaces src={arrows} alt="Swap places" />
               <IATACode>REN</IATACode>
             </div>
-            <div class="col-xs-12 col-md-6">
+            <div className="col-xs-12 col-md-6">
               <PlaceInput value="" placeholder="Город прибытия" />
               <IATACode />
             </div>
-            <div class="col-xs-6 col-md-3">
+            <div className="col-xs-6 col-md-3">
               <PlaceInput value="" placeholder="Туда" />
               <Calendar src={calendar} alt="Calendar depart" />
             </div>
-            <div class="col-xs-6 col-md-3">
+            <div className="col-xs-6 col-md-3">
               <PlaceInput value="" placeholder="Обратно" />
               <Calendar src={calendar} alt="Calendar return" />
             </div>
-            <div class="col-xs-12 col-md-6">
+            <div className="col-xs-12 col-md-6">
               <PaxButton>
                 1 пассажир, <PaxAdditional>эконом</PaxAdditional>
                 <PopDownMark src={popdown} alt="Dropdown" />
@@ -142,8 +142,8 @@ export default () => {
             </div>
           </div>
         </DirectionForm>
-        <div class="row center-xs">
-          <div class="col-xs-12 col-md-6">
+        <div className="row center-xs">
+          <div className="col-xs-12 col-md-6">
             <SubmitButton>
               Найти билеты <img src={aero} alt="aero" />
             </SubmitButton>

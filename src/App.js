@@ -6,6 +6,7 @@ import SpecialOffers from "./SpecialOffers";
 import Articles from "./Articles";
 import MobileApp from "./MobileApp";
 import Navigation from "./Navigation";
+import Footer from "./Footer";
 
 import "./App.css";
 
@@ -20,6 +21,7 @@ class App extends Component {
         <Articles />
         <MobileApp />
         <Navigation />
+        <Footer />
       </div>
     );
   }

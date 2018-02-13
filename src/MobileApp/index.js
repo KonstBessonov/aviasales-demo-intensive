@@ -12,9 +12,9 @@ const Title = styled.h2`
 export default () => {
   return (
     <BlueSection>
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-12 col-lg-10 col-lg-offset-1">
             <Title>Скачай мобильное приложение Aviasales.ru</Title>
           </div>
         </div>
