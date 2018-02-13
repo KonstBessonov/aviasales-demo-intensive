@@ -118,7 +118,7 @@ export default () => {
         <DirectionForm>
           <div className="row">
             <div className="col-xs-12 col-md-6">
-              <PlaceInput value="Оренбург" placeholder="Город вылета" />
+              <PlaceInput defaultValue="Оренбург" placeholder="Город вылета" />
               <SwapPlaces src={arrows} alt="Swap places" />
               <IATACode>REN</IATACode>
             </div>
