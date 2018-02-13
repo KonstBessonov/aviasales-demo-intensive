@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import BlueHeader from "./BlueHeader";
+import MainForm from "./MainForm";
 import TopDestination from "./TopDestination";
 import PopularDirections from "./PopularDirections";
 import SpecialOffers from "./SpecialOffers";
@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <BlueHeader />
+        <MainForm />
         <TopDestination />
         <PopularDirections />
         <SpecialOffers />
