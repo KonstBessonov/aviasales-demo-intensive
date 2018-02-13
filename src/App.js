@@ -4,6 +4,7 @@ import TopDestination from "./TopDestination";
 import PopularDirections from "./PopularDirections";
 import SpecialOffers from "./SpecialOffers";
 import Articles from "./Articles";
+import MobileApp from "./MobileApp";
 
 import "./App.css";
 
@@ -16,6 +17,7 @@ class App extends Component {
         <PopularDirections />
         <SpecialOffers />
         <Articles />
+        <MobileApp />
       </div>
     );
   }
