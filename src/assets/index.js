@@ -10,14 +10,12 @@ export const BlueSection = styled.section`
     #02abdb 33.81%,
     #196ebd 122.26%
   );
-  padding-bottom: 10rem;
   color: #ffffff;
   font-size: 2rem;
 `;
 
 export const WhiteSection = styled.section`
   background: #ffffff;
-  padding-bottom: 5rem;
   font-size: 2rem;
   color: #4a4a4a;
 `;
