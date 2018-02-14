@@ -13,11 +13,6 @@ const Details = styled.div`
   margin: 2.5rem 0;
 `;
 
-const OfferName = styled.div`
-  font-size: 2rem;
-  padding: 2.5rem 2rem;
-`;
-
 const Image = styled.img`
   margin-right: 2rem;
 `;
