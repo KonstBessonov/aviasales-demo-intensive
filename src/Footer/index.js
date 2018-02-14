@@ -18,6 +18,7 @@ const Footer = WhiteSection.extend`
 `;
 
 const Link = styled.a`
+  color: inherit;
   text-decoration: none;
   padding: 1rem;
   transition: color 0.3s;
@@ -37,6 +38,7 @@ const Apps = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 3rem;
 `;
 
 const AppLink = styled.a`
