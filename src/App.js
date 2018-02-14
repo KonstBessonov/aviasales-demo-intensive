@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import MainForm from "./MainForm";
 import TopDestination from "./TopDestination";
-import PopularDirections from "./PopularDirections";
+import BestPrices from "./BestPrices";
 import SpecialOffers from "./SpecialOffers";
 import Articles from "./Articles";
 import MobileApp from "./MobileApp";
@@ -16,7 +16,7 @@ class App extends Component {
       <div className="App">
         <MainForm />
         <TopDestination />
-        <PopularDirections />
+        <BestPrices />
         <SpecialOffers />
         <Articles />
         <MobileApp />
