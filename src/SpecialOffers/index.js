@@ -2,15 +2,41 @@ import React from "react";
 import styled from "styled-components";
 import { BlueSection } from "../assets";
 
+import SpecialOffer from "./SpecialOffer";
+import { specialOffers } from "./data";
+
+const SpecialOffers = BlueSection.extend`
+  padding-bottom: 3rem;
+`;
+
 const Title = styled.h2`
   font-size: 3.5rem;
   font-weight: 500;
   padding: 2rem 0;
 `;
 
+const Footer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+`;
+
+const Link = styled.a`
+  color: inherit;
+  transition: color 0.3s;
+  &:hover {
+    color: #fd8a27;
+  }
+`;
+
+const StarNote = styled.div`
+  margin-top: 1rem;
+`;
+
 export default () => {
   return (
-    <BlueSection>
+    <SpecialOffers>
       <div className="container">
         <div className="row">
           <div className="col-xs-12">
@@ -18,15 +44,23 @@ export default () => {
           </div>
         </div>
         <div className="row around-lg">
-          <div className="col-xs-12 col-lg-3">Компонент спецпредложения</div>
-          <div className="col-xs-12 col-lg-3">Компонент спецпредложения</div>
-          <div className="col-xs-12 col-lg-3">Компонент спецпредложения</div>
+          <div className="col-xs-12 col-lg-3">
+            <SpecialOffer offer={specialOffers[0]} />
+          </div>
+          <div className="col-xs-12 col-lg-3">
+            <SpecialOffer offer={specialOffers[1]} />
+          </div>
+          <div className="col-xs-12 col-lg-3">
+            <SpecialOffer offer={specialOffers[2]} />
+          </div>
         </div>
-        <a href="#">Смотреть все спецпредложения</a>
-        <p>
-          <sup>*</sup>Средняя цена по направлению
-        </p>
       </div>
-    </BlueSection>
+      <Footer>
+        <Link href="#">Смотреть все спецпредложения</Link>
+        <StarNote>
+          <sup>*</sup>средняя цена по направлению
+        </StarNote>
+      </Footer>
+    </SpecialOffers>
   );
 };
