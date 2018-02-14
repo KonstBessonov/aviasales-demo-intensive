@@ -33,6 +33,12 @@ const Link = styled.a`
   }
 `;
 
+const Apps = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const AppLink = styled.a`
   display: block;
   align: flex;
@@ -72,7 +78,7 @@ export default () => {
         <div className="row center-xs">
           <Link href="#">Поиск и бронирование отелей</Link>
         </div>
-        <div className="row center-xs">
+        <Apps>
           <AppLink href="#">
             <img src={appstore} alt="App Store" />
           </AppLink>
@@ -82,7 +88,7 @@ export default () => {
           <AppLink href="#">
             <img src={winphone} alt="Windows Phone" />
           </AppLink>
-        </div>
+        </Apps>
         <div className="row center-xs">
           &copy; 2007–2018, Aviasales — дешевые авиабилеты
         </div>
