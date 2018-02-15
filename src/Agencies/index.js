@@ -16,8 +16,12 @@ export default () => {
   return (
     <Agencies>
       <div className="container">
-        <Title />
-        <Slider />
+        <div className="row">
+          <div className="col-xs-12 col-xl-10 col-xl-offset-1">
+            <Title />
+            <Slider />
+          </div>
+        </div>
       </div>
     </Agencies>
   );

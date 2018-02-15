@@ -30,7 +30,7 @@ export default () => {
     <Subscribe>
       <div className="container">
         <div className="row">
-          <div className="col-md-12 col-lg-10 col-lg-offset-1">
+          <div className="col-md-12 col-xl-10 col-xl-offset-1">
             <FlexWrapper>
               <Title />
               <Socials />

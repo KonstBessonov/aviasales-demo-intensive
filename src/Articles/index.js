@@ -23,7 +23,7 @@ export default () => {
     <WhiteSection>
       <div className="container">
         <div className="row">
-          <div className="col-xs-12 col-lg-10 col-lg-offset-1">
+          <div className="col-xs-12 col-xl-10 col-xl-offset-1">
             <Title>
               <img src={plane} alt="" /> КАК КУПИТЬ ДЕШЕВЫЕ АВИАБИЛЕТЫ?
             </Title>

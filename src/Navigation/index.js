@@ -36,7 +36,7 @@ export default () => {
     <WhiteSection>
       <div className="container">
         <div className="row">
-          <div className="col-xs-6 col-md-3 col-lg-2">
+          <div className="col-xs-6 col-md-3 col-xl-2">
             <Title>СТРАНЫ</Title>
             <nav>
               <Link href="#">Россия</Link>
@@ -48,7 +48,7 @@ export default () => {
               <LinkAll href="#">Все страны</LinkAll>
             </nav>
           </div>
-          <div className="col-xs-6 col-md-3 col-lg-2">
+          <div className="col-xs-6 col-md-3 col-xl-2">
             <Title>ГОРОДА</Title>
             <nav>
               <Link href="#">Москва</Link>
@@ -60,7 +60,7 @@ export default () => {
               <LinkAll href="#">Все города</LinkAll>
             </nav>
           </div>
-          <div className="col-xs-6 col-md-3 col-lg-2">
+          <div className="col-xs-6 col-md-3 col-xl-2">
             <Title>АВИАКОМПАНИИ</Title>
             <nav>
               <Link href="#">Air Berlin</Link>
@@ -72,7 +72,7 @@ export default () => {
               <LinkAll href="#">Все авиакомпании</LinkAll>
             </nav>
           </div>
-          <div className="col-xs-6 col-md-3 col-lg-2">
+          <div className="col-xs-6 col-md-3 col-xl-2">
             <Title>АЭРОПОРТЫ</Title>
             <nav>
               <Link href="#">Шереметьево</Link>
@@ -84,7 +84,7 @@ export default () => {
               <LinkAll href="#">Все аэропорты</LinkAll>
             </nav>
           </div>
-          <div className="col-xs-6 col-md-3 col-lg-2">
+          <div className="col-xs-6 col-md-3 col-xl-2">
             <Title>НАПРАВЛЕНИЯ</Title>
             <nav>
               <Link href="#">MOW – SIP</Link>
@@ -95,7 +95,7 @@ export default () => {
               <Link href="#">MOW – BKK</Link>
             </nav>
           </div>
-          <div className="col-xs-6 col-md-3 col-lg-2">
+          <div className="col-xs-6 col-md-3 col-xl-2">
             <Title>СЕРВИСЫ</Title>
             <nav>
               <Link href="#">Горящие авиабилеты</Link>

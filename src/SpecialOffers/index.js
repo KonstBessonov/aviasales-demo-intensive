@@ -39,21 +39,24 @@ export default () => {
     <SpecialOffers>
       <div className="container">
         <div className="row">
-          <div className="col-xs-12 col-lg col-lg-offset-1">
+          <div className="col-xs-12 col-xl col-xl-offset-1">
             <Title>Спецпредложения на авиабилеты</Title>
           </div>
         </div>
-        <div className="row between-lg">
-          <div className="col-xs-12 col-md-4 col-lg-3 col-lg-offset-1">
-            <SpecialOffer offer={specialOffers[0]} />
+        <div className="row">
+          <div className="col-xs-12 col-xl-10 col-xl-offset-1">
+            <div className="row between-xl">
+              <div className="col-xs-12 col-md-4 col-xl-4">
+                <SpecialOffer offer={specialOffers[0]} />
+              </div>
+              <div className="col-xs-12 col-md-4 col-xl-4">
+                <SpecialOffer offer={specialOffers[1]} />
+              </div>
+              <div className="col-xs-12 col-md-4 col-xl-4">
+                <SpecialOffer offer={specialOffers[2]} />
+              </div>
+            </div>
           </div>
-          <div className="col-xs-12 col-md-4 col-lg-3">
-            <SpecialOffer offer={specialOffers[1]} />
-          </div>
-          <div className="col-xs-12 col-md-4 col-lg-3">
-            <SpecialOffer offer={specialOffers[2]} />
-          </div>
-          <div className="col-lg-1" />
         </div>
       </div>
       <Footer>
