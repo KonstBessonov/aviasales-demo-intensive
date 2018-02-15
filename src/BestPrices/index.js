@@ -10,7 +10,7 @@ const BestPrices = WhiteSection.extend``;
 
 const Compass = styled.img``;
 
-const OriginText = styled.h2`
+const Title = styled.h2`
   font-size: 2.25rem;
   font-weight: 500;
   color: #4a4a4a;
@@ -32,9 +32,7 @@ export default () => {
         <div className="row center-xs">
           <div className="col-xs-12 col-md-8">
             <Compass src={calend} alt="Calendar" />
-            <OriginText>
-              Лучшие цены на авиабилеты за последний месяц
-            </OriginText>
+            <Title>Лучшие цены на авиабилеты за последний месяц</Title>
           </div>
         </div>
         <div className="row">

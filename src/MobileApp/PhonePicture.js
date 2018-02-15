@@ -16,12 +16,6 @@ const Picture = styled.picture`
   }
 `;
 
-// @media screen and (min-width: 75rem) {
-//   position: absolute;
-//   bottom: 0;
-//   margin-left: 8.33333333333%;
-// }
-
 export default () => {
   return (
     <Wrapper>

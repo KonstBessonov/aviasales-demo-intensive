@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import logo from "./logo.svg";
 
-const Div = styled.div`
+const Logo = styled.div`
   padding-top: 1rem;
   position: relative;
 `;
 
-const Logo = styled.img`
+const Image = styled.img`
   vertical-align: middle;
 `;
 
@@ -21,9 +21,9 @@ const Text = styled.span`
 
 export default () => {
   return (
-    <Div>
-      <Logo src={logo} alt="logo" />
+    <Logo>
+      <Image src={logo} alt="logo" />
       <Text> aviasales</Text>
-    </Div>
+    </Logo>
   );
 };

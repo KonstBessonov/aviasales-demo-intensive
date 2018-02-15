@@ -17,7 +17,7 @@ const Footer = WhiteSection.extend`
   color: #5b5b5c;
 `;
 
-const Outer = styled.div`
+const OutWrapper = styled.div`
   display: flex;
   flex-direction: column;
   @media screen and (min-width: 75rem) {
@@ -27,7 +27,7 @@ const Outer = styled.div`
   }
 `;
 
-const TopLeft = styled.div`
+const TopLeftSection = styled.div`
   margin-bottom: 2rem;
 `;
 
@@ -48,12 +48,6 @@ const Link = styled.a`
     color: #fd8a27;
   }
 `;
-
-// &::before {
-//   content: url(${props => props.image});
-//   position: relative;
-//   right: 0.5rem;
-// }
 
 const Booking = styled.div`
   text-align: center;
@@ -76,7 +70,7 @@ const AppsList = styled.div`
   }
 `;
 
-const BottomRight = styled.div`
+const BottomRightSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -108,8 +102,8 @@ export default () => {
   return (
     <Footer>
       <div className="container">
-        <Outer>
-          <TopLeft>
+        <OutWrapper>
+          <TopLeftSection>
             <LinksList>
               <Link href="#">О компании</Link>
               <Link href="#">Партнёрская программа</Link>
@@ -139,8 +133,8 @@ export default () => {
             <Booking>
               <Link href="#">Поиск и бронирование отелей</Link>
             </Booking>
-          </TopLeft>
-          <BottomRight>
+          </TopLeftSection>
+          <BottomRightSection>
             <AppsList>
               <AppLink href="#">
                 <img src={appstore} alt="App Store" />
@@ -155,8 +149,8 @@ export default () => {
             <Copyright>
               &copy; 2007–2018, Aviasales — дешевые авиабилеты
             </Copyright>
-          </BottomRight>
-        </Outer>
+          </BottomRightSection>
+        </OutWrapper>
       </div>
     </Footer>
   );
