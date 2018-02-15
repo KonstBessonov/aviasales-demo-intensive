@@ -1,21 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 import { WhiteSection } from "../assets";
-import plane from "./plane.svg";
-import atSign from "./at.svg";
-import list from "./list.svg";
+import plane from "./plane.png";
+import atSign from "./at.png";
+import list from "./list.png";
 
 const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: bold;
   padding: 2rem 0;
+  vertical-align: middle;
+`;
+
+const TitleImg = styled.img`
+  vertical-align: middle;
+  margin-right: 1rem;
 `;
 
 const Text = styled.p`
   font-size: 1.75rem;
-  > a {
-    color: #00ace2;
-  }
+`;
+
+const MoreLink = styled.a`
+  color: #00ace2;
 `;
 
 export default () => {
@@ -25,7 +32,7 @@ export default () => {
         <div className="row">
           <div className="col-xs-12 col-xl-10 col-xl-offset-1">
             <Title>
-              <img src={plane} alt="" /> КАК КУПИТЬ ДЕШЕВЫЕ АВИАБИЛЕТЫ?
+              <TitleImg src={plane} alt="" /> КАК КУПИТЬ ДЕШЕВЫЕ АВИАБИЛЕТЫ?
             </Title>
             <Text>
               Aviasales.ru — это метапоисковик авиабилетов. Мы ищем билеты на
@@ -38,10 +45,10 @@ export default () => {
               дешевые билеты на самолет в Европу, Азию и на другие континенты.
               Мы написали для вас простую инструкцию о том, как пользоваться
               поиском и экономить на перелетах от 1000 до 20 000 руб в год.{" "}
-              <a href="#">Подробнее</a>
+              <MoreLink href="#">Подробнее</MoreLink>
             </Text>
             <Title>
-              <img src={atSign} alt="" /> ЭЛЕКТРОННЫЙ АВИАБИЛЕТ
+              <TitleImg src={atSign} alt="" /> ЭЛЕКТРОННЫЙ АВИАБИЛЕТ
             </Title>
             <Text>
               Электронный авиабилет — это, по сути, обычный билет на самолет, но
@@ -57,17 +64,18 @@ export default () => {
               вместе с удостоверением личности точно так же, как предъявляют
               обыкновенный бумажный билет. Следует отметить, что электронный
               билет, приобретенный онлайн, стоит дешевле своего бумажного
-              аналога. <a href="#">Подробнее</a>
+              аналога. <MoreLink href="#">Подробнее</MoreLink>
             </Text>
             <Title>
-              <img src={list} alt="" /> 20 СОВЕТОВ АВИАПУТЕШЕСТВЕННИКАМ
+              <TitleImg src={list} alt="" /> 20 СОВЕТОВ АВИАПУТЕШЕСТВЕННИКАМ
             </Title>
             <Text>
               Есть масса путеводителей по странам, но ни одного о том, как
               провести время в самолете. Для того, чтобы сделать ваш перелет
               максимально комфортным, мы написали 20 советов о подготовке к
               путешествию. Ведь настоящее путешествие начинается со слов «Добро
-              пожаловать на борт нашего самолета»! <a href="#">Подробнее</a>
+              пожаловать на борт нашего самолета»!{" "}
+              <MoreLink href="#">Подробнее</MoreLink>
             </Text>
           </div>
         </div>
