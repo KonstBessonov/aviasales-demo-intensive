@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MainForm from "./MainForm";
 import TopDestination from "./TopDestination";
 import BestPrices from "./BestPrices";
+import Agencies from "./Agencies";
 import SpecialOffers from "./SpecialOffers";
 import Articles from "./Articles";
 import MobileApp from "./MobileApp";
@@ -17,6 +18,7 @@ class App extends Component {
         <MainForm />
         <TopDestination />
         <BestPrices />
+        <Agencies />
         <SpecialOffers />
         <Articles />
         <MobileApp />
