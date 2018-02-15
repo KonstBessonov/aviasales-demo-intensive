@@ -19,13 +19,15 @@ const Category = styled.button`
 
 const Image = styled.img`
   padding: 13px;
+  width: 48px;
+  height: 48px;
   box-shadow: 0 2px 4px rgba(74, 74, 74, 0.1);
   border-radius: 50%;
 `;
 
 const Text = styled.p`
-  padding-bottom: 0.5rem;
-  margin-bottom: 3rem;
+  padding-bottim: 0.5rem;
+  margin: 0 -1rem 3rem -1rem;
   ${props =>
     props.isActive &&
     css`
