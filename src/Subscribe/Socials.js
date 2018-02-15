@@ -8,6 +8,8 @@ import rss from "./rss.svg";
 const Socials = styled.div`
   text-align: center;
   margin-top: 2rem;
+  flex-wrap: nowrap;
+  flex: 0 0 auto;
   @media screen and (min-width: 75rem) {
     text-align: left;
     margin-top: 0;

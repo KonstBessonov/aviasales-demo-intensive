@@ -2,17 +2,22 @@ import React from "react";
 import styled from "styled-components";
 
 const Subscription = styled.div`
-  text-align: center;
+  justify-content: center;
   margin-top: 2rem;
+  display: flex;
+  flex-wrap: nowrap;
+  flex: 0 1 auto;
   @media screen and (min-width: 75rem) {
     margin-top: 0;
     margin-left: 2rem;
-    text-align: left;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 `;
 
 const Form = styled.form`
-  display: inline-block;
+  display: flex;
+  flex-wrap: nowrap;
   width: fit-content;
   border-radius: 2px;
   border: 1px #a0b0b9 solid;

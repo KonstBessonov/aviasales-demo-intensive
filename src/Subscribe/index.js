@@ -19,6 +19,7 @@ const Subscribe = WhiteSection.extend`
 const FlexWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
   @media screen and (min-width: 75rem) {
     flex-direction: row;
   }
@@ -28,11 +29,15 @@ export default () => {
   return (
     <Subscribe>
       <div className="container">
-        <FlexWrapper>
-          <Title />
-          <Socials />
-          <Subscription />
-        </FlexWrapper>
+        <div className="row">
+          <div className="col-md-12 col-lg-10 col-lg-offset-1">
+            <FlexWrapper>
+              <Title />
+              <Socials />
+              <Subscription />
+            </FlexWrapper>
+          </div>
+        </div>
       </div>
     </Subscribe>
   );

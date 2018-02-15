@@ -22,6 +22,8 @@ const Subtitle = styled.h3`
   width: ;
 `;
 
+//ToDo: убрать <br> переделать паддингами!
+
 export default () => {
   return (
     <Wrapper>
