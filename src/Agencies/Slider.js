@@ -6,8 +6,8 @@ import s7 from "./s7.png";
 import ott from "./ott.png";
 import korean from "./korean.png";
 import israel from "./israel.png";
-import dot_e from "./dot_e.svg";
-import dot_f from "./dot_f.svg";
+import dot_e from "./dot-e.svg";
+import dot_f from "./dot-f.svg";
 
 const Slider = styled.div`
   margin: 1rem 0;

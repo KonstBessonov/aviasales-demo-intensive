@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import phone_sm from "./phone_sm.png";
-import phone_lg from "./phone_lg.png";
+import phone_sm from "./phone-sm.png";
+import phone_lg from "./phone-lg.png";
 
 const Wrapper = styled.div`
   height: 100%;

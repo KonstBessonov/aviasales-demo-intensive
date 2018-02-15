@@ -5,15 +5,15 @@ import temple from "./temple.svg";
 import glass from "./glass.svg";
 import baby from "./baby.svg";
 
-import krasnodar from "./city_krasnodar.png";
-import adler from "./city_adler.png";
-import spb from "./city_spb.png";
-import minvody from "./city_minvody.png";
-import simferopol from "./city_simferopol.png";
-import barcelona from "./city_barcelona.png";
+import krasnodar from "./city-krasnodar.png";
+import adler from "./city-adler.png";
+import spb from "./city-spb.png";
+import minvody from "./city-minvody.png";
+import simferopol from "./city-simferopol.png";
+import barcelona from "./city-barcelona.png";
 
-import flag_ru from "./flag_ru.png";
-import flag_es from "./flag_es.png";
+import flag_ru from "./flag-ru.png";
+import flag_es from "./flag-es.png";
 
 export const category = {
   anywhere: { text: "КУДА УГОДНО", img: earth },

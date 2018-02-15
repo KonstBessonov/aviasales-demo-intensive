@@ -1,6 +1,6 @@
-import flag_ru from "./flag_ru.png";
-import flag_am from "./flag_am.png";
-import flag_md from "./flag_md.png";
+import flag_ru from "./flag-ru.png";
+import flag_am from "./flag-am.png";
+import flag_md from "./flag-md.png";
 
 export const bestPrices = [
   {
