@@ -17,83 +17,146 @@ const Footer = WhiteSection.extend`
   color: #5b5b5c;
 `;
 
-const Link = styled.a`
-  color: inherit;
-  text-decoration: none;
-  margin: 1rem;
-  transition: color 0.3s;
-  &:hover {
-    color: #FD8A27;
-  }
-  &::before {
-    content: url(${props => props.image});
-    position: relative;
-    right: 0.5rem;
-    vertical-align: sub;
-  }
+const Outer = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: 75rem) {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
   }
 `;
 
-const Apps = styled.div`
+const TopLeft = styled.div`
+  margin-bottom: 2rem;
+`;
+
+const LinksList = styled.div`
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+`;
+
+const Link = styled.a`
+  color: inherit;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  margin-right: 2rem;
+  transition: color 0.3s;
+  &:hover {
+    color: #fd8a27;
+  }
+`;
+
+// &::before {
+//   content: url(${props => props.image});
+//   position: relative;
+//   right: 0.5rem;
+// }
+
+const Booking = styled.div`
+  text-align: center;
+  @media screen and (min-width: 48rem) {
+    text-align: left;
+  }
+`;
+
+const AppsList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 3rem;
+  justify-content: center;
+  @media screen and (min-width: 48rem) {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  @media screen and (min-width: 75rem) {
+    justify-content: flex-end;
+  }
+`;
+
+const BottomRight = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media screen and (min-width: 48rem) {
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 75rem) {
+    align-items: flex-end;
+  }
 `;
 
 const AppLink = styled.a`
   display: block;
   align: flex;
   margin: 1rem 0 0 0;
+  @media screen and (min-width: 48rem) {
+    margin: 0 1rem 0 0;
+  }
+  @media screen and (min-width: 75rem) {
+    margin: 0 0 0 1rem;
+  }
+`;
+
+const Copyright = styled.p`
+  margin: 3rem 0;
 `;
 
 export default () => {
   return (
     <Footer>
       <div className="container">
-        <div className="row">
-          <Link href="#">О компании</Link>
-          <Link href="#">Партнёрская программа</Link>
-          <Link href="#">Реклама</Link>
-          <Link href="#">Вакансии</Link>
-          <Link href="#">Помощь</Link>
-          <Link href="#">Правила</Link>
-          <Link href="#">White Label авиабилеты</Link>
-        </div>
-        <div className="row">
-          <Link href="#" image={vk}>
-            Вконтакте
-          </Link>
-          <Link href="#" image={facebook}>
-            Фейсбук
-          </Link>
-          <Link href="#" image={insta}>
-            Инстаграм
-          </Link>
-          <Link href="#" image={twi}>
-            Твиттер
-          </Link>
-          <Link href="#" image={viber}>
-            Вайбер
-          </Link>
-        </div>
-        <div className="row center-xs">
-          <Link href="#">Поиск и бронирование отелей</Link>
-        </div>
-        <Apps>
-          <AppLink href="#">
-            <img src={appstore} alt="App Store" />
-          </AppLink>
-          <AppLink href="#">
-            <img src={googleplay} alt="Google Play" />
-          </AppLink>
-          <AppLink href="#">
-            <img src={winphone} alt="Windows Phone" />
-          </AppLink>
-        </Apps>
-        <div className="row center-xs">
-          &copy; 2007–2018, Aviasales — дешевые авиабилеты
-        </div>
+        <Outer>
+          <TopLeft>
+            <LinksList>
+              <Link href="#">О компании</Link>
+              <Link href="#">Партнёрская программа</Link>
+              <Link href="#">Реклама</Link>
+              <Link href="#">Вакансии</Link>
+              <Link href="#">Помощь</Link>
+              <Link href="#">Правила</Link>
+              <Link href="#">White Label авиабилеты</Link>
+            </LinksList>
+            <LinksList>
+              <Link href="#">
+                <img src={vk} alt="" /> Вконтакте
+              </Link>
+              <Link href="#">
+                <img src={facebook} alt="" /> Фейсбук
+              </Link>
+              <Link href="#">
+                <img src={insta} alt="" /> Инстаграм
+              </Link>
+              <Link href="#">
+                <img src={twi} alt="" /> Твиттер
+              </Link>
+              <Link href="#">
+                <img src={viber} alt="" /> Вайбер
+              </Link>
+            </LinksList>
+            <Booking>
+              <Link href="#">Поиск и бронирование отелей</Link>
+            </Booking>
+          </TopLeft>
+          <BottomRight>
+            <AppsList>
+              <AppLink href="#">
+                <img src={appstore} alt="App Store" />
+              </AppLink>
+              <AppLink href="#">
+                <img src={googleplay} alt="Google Play" />
+              </AppLink>
+              <AppLink href="#">
+                <img src={winphone} alt="Windows Phone" />
+              </AppLink>
+            </AppsList>
+            <Copyright>
+              &copy; 2007–2018, Aviasales — дешевые авиабилеты
+            </Copyright>
+          </BottomRight>
+        </Outer>
       </div>
     </Footer>
   );
