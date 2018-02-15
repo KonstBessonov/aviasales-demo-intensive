@@ -34,7 +34,6 @@ const PriceText = styled.div`
   font-size: 2rem;
 `;
 
-//ToDo: переделать на цикл по элементам массива!
 export default props => {
   return (
     <BestPrice last={props.last}>
