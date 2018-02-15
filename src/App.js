@@ -3,6 +3,7 @@ import MainForm from "./MainForm";
 import TopDestination from "./TopDestination";
 import BestPrices from "./BestPrices";
 import Agencies from "./Agencies";
+import Subscribe from "./Subscribe";
 import SpecialOffers from "./SpecialOffers";
 import Articles from "./Articles";
 import MobileApp from "./MobileApp";
@@ -19,6 +20,7 @@ class App extends Component {
         <TopDestination />
         <BestPrices />
         <Agencies />
+        <Subscribe />
         <SpecialOffers />
         <Articles />
         <MobileApp />
