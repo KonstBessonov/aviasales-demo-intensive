@@ -13,25 +13,41 @@ const Details = styled.div`
   margin: 2.5rem 0;
 `;
 
-const Image = styled.img`
+const ImageWrapper = styled.div`
+  flex: 0 1 auto;
   margin-right: 2rem;
+`;
+
+const Image = styled.img`
+  width: 100%;
+`;
+
+const PriceDayWrapper = styled.div`
+  flex: 0 0 auto;
 `;
 
 const Price = styled.div`
   text-align: right;
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  > span {
-    font-size: 2.5rem;
-  }
 `;
+
+const PriceSpan = styled.span`
+  font-size: 2.5rem;
+`;
+
 const Days = styled.div`
   text-align: right;
   font-size: 1.5rem;
   color: #d93633;
 `;
 
-const Button = styled.a`
+const OfferText = styled.p`
+  line-height: 2.5rem;
+  min-height: 12rem;
+`;
+
+const Link = styled.a`
   display: block;
   border: 2px solid #cd1f27;
   border-radius: 0.5rem;
@@ -39,7 +55,7 @@ const Button = styled.a`
   width: 100%;
   color: #cd1f27;
   text-decoration: none;
-  text-justify: center;
+  text-align: center;
   padding: 1.2rem;
 `;
 
@@ -47,21 +63,19 @@ export default props => {
   return (
     <Body>
       <Details>
-        <div>
+        <ImageWrapper>
           <Image src={props.offer.partner} alt="" />
-        </div>
-        <div>
+        </ImageWrapper>
+        <PriceDayWrapper>
           <Price>
-            от<span> {props.offer.price} ₽</span>
+            от<PriceSpan> {props.offer.price} ₽</PriceSpan>
           </Price>
           <Days>Осталось {props.offer.days} дней</Days>
-        </div>
+        </PriceDayWrapper>
       </Details>
 
-      <p>{props.offer.text}</p>
-      <Button href="#">
-        <center>Узнать подробности</center>
-      </Button>
+      <OfferText>{props.offer.text}</OfferText>
+      <Link href="#">Узнать подробности</Link>
     </Body>
   );
 };
