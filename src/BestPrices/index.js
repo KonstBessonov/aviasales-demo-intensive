@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { WhiteSection } from "../assets";
 import calend from "./calend.svg";
 
-import BestPrice from "./BestPrice.js";
-import { bestPrices } from "./data.js";
+import BestPrice from "./BestPrice";
+import { bestPrices } from "./data";
 
 const BestPrices = WhiteSection.extend``;
 
@@ -16,9 +16,12 @@ const OriginText = styled.h2`
   color: #4a4a4a;
 `;
 
-const AdvertiseText = styled.p``;
+const AdvertiseText = styled.p`
+  text-align: center;
+`;
 
 const OfferText = styled.p`
+  text-align: center;
   color: #a0b0b9;
 `;
 
@@ -35,29 +38,33 @@ export default () => {
           </div>
         </div>
         <div className="row">
-          <div className="col-xs-12 col-lg-4">
-            <BestPrice data={bestPrices[0]} />
-          </div>
-          <div className="col-xs-12 col-lg-4">
-            <BestPrice data={bestPrices[1]} />
-          </div>
-          <div className="col-xs-12 col-lg-4">
-            <BestPrice data={bestPrices[2]} />
+          <div className="col-xs-12 col-xl-10 col-xl-offset-1">
+            <div className="row between-xl">
+              <div className="col-xs-12 col-xl-4">
+                <BestPrice data={bestPrices[0]} />
+              </div>
+              <div className="col-xs-12 col-xl-4">
+                <BestPrice data={bestPrices[1]} />
+              </div>
+              <div className="col-xs-12 col-xl-4">
+                <BestPrice data={bestPrices[2]} last />
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="row center-xs">
-          <AdvertiseText>
-            Мы знаем, где купить авиабилеты дешево. Билеты на самолет в 220
-            стран мира. Поиск и сравнение цен на авиабилеты среди 100 агентств и
-            728 авиакомпаний.
-          </AdvertiseText>
-        </div>
-        <div className="row center-xs">
-          <OfferText>
-            Цены, найденные пользователями за последние 48 часов, не являются
-            офертой.
-          </OfferText>
+        <div className="row">
+          <div className="col-xs-12 col-md-10 col-md-offset-1 col-xl-6 col-xl-offset-3">
+            <AdvertiseText>
+              Мы знаем, где купить авиабилеты дешево. Билеты на самолет в 220
+              стран мира. Поиск и сравнение цен на авиабилеты среди 100 агентств
+              и 728 авиакомпаний.
+            </AdvertiseText>
+            <OfferText>
+              Цены, найденные пользователями за последние 48 часов, не являются
+              офертой.
+            </OfferText>
+          </div>
         </div>
       </div>
     </BestPrices>
