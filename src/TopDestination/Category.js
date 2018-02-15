@@ -1,9 +1,11 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const Category = styled.div`
+const Category = styled.button`
   font-size: 1.5rem;
   transition: color 0.3s;
+  border: none;
+  background: inherit;
   ${props =>
     props.isActive ||
     css`

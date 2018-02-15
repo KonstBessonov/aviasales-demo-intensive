@@ -16,7 +16,7 @@ const Compass = styled.img`
   display: inline-block;
 `;
 
-const OriginText = styled.p`
+const OriginText = styled.h2`
   font-size: 2.25rem;
   font-weight: 500;
   line-height: 3rem;

@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const Div = styled.div``;
+const Div = styled.div`
+  text-align: center;
+`;
 
 const Title = styled.h1`
   vertical-align: middle;
@@ -31,10 +33,8 @@ const Subtitle = styled.h2`
 export default () => {
   return (
     <Div>
-      <center>
-        <Title>Поиск дешевых авиабилетов</Title>
-        <Subtitle>Лучший способ купить авиабилеты дешево</Subtitle>
-      </center>
+      <Title>Поиск дешевых авиабилетов</Title>
+      <Subtitle>Лучший способ купить авиабилеты дешево</Subtitle>
     </Div>
   );
 };

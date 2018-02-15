@@ -20,7 +20,7 @@ const Footer = WhiteSection.extend`
 const Link = styled.a`
   color: inherit;
   text-decoration: none;
-  padding: 1rem;
+  margin: 1rem;
   transition: color 0.3s;
   &:hover {
     color: #FD8A27;

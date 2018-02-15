@@ -78,6 +78,7 @@ const PaxButton = styled.button`
   width: 100%;
   box-sizing: border-box;
   text-align: left;
+  position: relative;
 `;
 
 const PaxAdditional = styled.span`
@@ -85,9 +86,11 @@ const PaxAdditional = styled.span`
 `;
 
 const PopDownMark = styled.img`
+  position: absolute;
+  right: 1rem;
+  top: 2rem;
   padding-top: 1rem;
   padding-right: 1rem;
-  float: right;
 `;
 
 export default () => {

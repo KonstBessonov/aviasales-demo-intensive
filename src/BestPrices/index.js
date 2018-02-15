@@ -10,7 +10,7 @@ const BestPrices = WhiteSection.extend``;
 
 const Compass = styled.img``;
 
-const OriginText = styled.p`
+const OriginText = styled.h2`
   font-size: 2.25rem;
   font-weight: 500;
   color: #4a4a4a;
