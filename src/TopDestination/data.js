@@ -5,12 +5,12 @@ import temple from "./temple.svg";
 import glass from "./glass.svg";
 import baby from "./baby.svg";
 
-import krasnodar from "./city-krasnodar.png";
-import adler from "./city-adler.png";
-import spb from "./city-spb.png";
-import minvody from "./city-minvody.png";
-import simferopol from "./city-simferopol.png";
-import barcelona from "./city-barcelona.png";
+import krasnodar from "./city-krasnodar.jpg";
+import adler from "./city-adler.jpg";
+import spb from "./city-spb.jpg";
+import minvody from "./city-minvody.jpg";
+import simferopol from "./city-simferopol.jpg";
+import barcelona from "./city-barcelona.jpg";
 
 import flag_ru from "./flag-ru.png";
 import flag_es from "./flag-es.png";
