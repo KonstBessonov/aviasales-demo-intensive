@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BlueSection } from "../assets";
+import { BlueSection, displaySize } from "../assets";
 
 import rating from "./rating.svg";
 import apple from "./apple.svg";
@@ -12,7 +12,7 @@ import PhonePicture from "./PhonePicture";
 const MobileApp = BlueSection.extend`
   padding: 0;
   margin: 0;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${displaySize.md}) {
     margin-top: 6rem;
   }
 `;
@@ -20,13 +20,13 @@ const MobileApp = BlueSection.extend`
 const Title = styled.h2`
   font-size: 3rem;
   font-weight: 500;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${displaySize.md}) {
     text-align: left;
   }
 `;
 
 const Rating = styled.div`
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${displaySize.md}) {
     text-align: left;
   }
 `;
@@ -36,12 +36,12 @@ const AppList = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 4rem 0;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${displaySize.md}) {
     flex-direction: row;
     justify-content: flex-start;
     padding: 8rem 0;
   }
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: ${displaySize.lg}) {
     padding: 10rem 0;
   }
 `;
@@ -50,7 +50,7 @@ const AppLink = styled.a`
   color: inherit;
   text-decoration: none;
   padding: 1.5rem 0;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${displaySize.md}) {
     padding: 0 1.5rem;
   }
   &:hover {

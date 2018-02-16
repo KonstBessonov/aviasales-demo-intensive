@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { WhiteSection } from "../assets";
+import { WhiteSection, displaySize } from "../assets";
 import vk from "./vk.svg";
 import facebook from "./facebook.svg";
 import insta from "./insta.svg";
@@ -20,7 +20,7 @@ const Footer = WhiteSection.extend`
 const OutWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  @media screen and (min-width: 75rem) {
+  @media screen and (min-width: ${displaySize.xl}) {
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
@@ -51,7 +51,7 @@ const Link = styled.a`
 
 const Booking = styled.div`
   text-align: center;
-  @media screen and (min-width: 48rem) {
+  @media screen and (min-width: ${displaySize.md}) {
     text-align: left;
   }
 `;
@@ -61,11 +61,11 @@ const AppsList = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  @media screen and (min-width: 48rem) {
+  @media screen and (min-width: ${displaySize.md}) {
     flex-direction: row;
     justify-content: flex-start;
   }
-  @media screen and (min-width: 75rem) {
+  @media screen and (min-width: ${displaySize.xl}) {
     justify-content: flex-end;
   }
 `;
@@ -74,10 +74,10 @@ const BottomRightSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media screen and (min-width: 48rem) {
+  @media screen and (min-width: ${displaySize.md}) {
     align-items: flex-start;
   }
-  @media screen and (min-width: 75rem) {
+  @media screen and (min-width: ${displaySize.xl}) {
     align-items: flex-end;
   }
 `;
@@ -86,10 +86,10 @@ const AppLink = styled.a`
   display: block;
   align: flex;
   margin: 1rem 0 0 0;
-  @media screen and (min-width: 48rem) {
+  @media screen and (min-width: ${displaySize.md}) {
     margin: 0 1rem 0 0;
   }
-  @media screen and (min-width: 75rem) {
+  @media screen and (min-width: ${displaySize.xl}) {
     margin: 0 0 0 1rem;
   }
 `;

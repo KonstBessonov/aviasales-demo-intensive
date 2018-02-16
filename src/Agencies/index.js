@@ -1,13 +1,12 @@
 import React from "react";
-// import styled from "styled-components";
 
-import { WhiteSection } from "../assets";
+import { WhiteSection, displaySize } from "../assets";
 import Title from "./Title";
 import Slider from "./Slider";
 
 const Agencies = WhiteSection.extend`
   padding: 3rem 0;
-  @media screen and (max-width: 48rem) {
+  @media screen and (max-width: ${displaySize.md}) {
     display: none;
   }
 `;

@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import post from "./post.png";
 
-import { WhiteSection } from "../assets";
+import { WhiteSection, displaySize } from "../assets";
 import Title from "./Title";
 import Socials from "./Socials";
 import Subscription from "./Subscription";
 
 const Subscribe = WhiteSection.extend`
   padding: 3rem 0;
-  @media screen and (max-width: 48rem) {
+  @media screen and (max-width: ${displaySize.md}) {
     display: none;
   }
   background: url(${post});
@@ -20,7 +20,7 @@ const FlexWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  @media screen and (min-width: 75rem) {
+  @media screen and (min-width: ${displaySize.xl}) {
     flex-direction: row;
   }
 `;

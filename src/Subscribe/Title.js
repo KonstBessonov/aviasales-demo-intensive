@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { displaySize } from "../assets";
 
 const Wrapper = styled.div`
   flex-basis: 50%;
   text-align: center;
-  @media screen and (min-width: 75rem) {
+  @media screen and (min-width: ${displaySize.xl}) {
     text-align: left;
   }
 `;

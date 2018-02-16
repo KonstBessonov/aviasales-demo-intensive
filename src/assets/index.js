@@ -19,3 +19,10 @@ export const WhiteSection = styled.section`
   font-size: 2rem;
   color: #4a4a4a;
 `;
+
+export const displaySize = {
+  sm: "576px",
+  md: "768px",
+  lg: "992px",
+  xl: "1200px"
+};

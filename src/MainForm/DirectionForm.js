@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { displaySize } from "../assets";
+
 import arrows from "./arrows.svg";
 import calendar from "./calendar.svg";
 import popdown from "./popdn.svg";
@@ -14,20 +16,20 @@ const DirectionForm = styled.div`
 
 const InputBig = styled.div`
   flex-basis: 100%;
-  @media screen and (min-width: 48rem) {
+  @media screen and (min-width: ${displaySize.md}) {
     flex-basis: 50%;
   }
-  @media screen and (min-width: 75rem) {
+  @media screen and (min-width: ${displaySize.xl}) {
     flex-basis: 20%;
   }
 `;
 
 const InputSmall = styled.div`
   flex-basis: 50%;
-  @media screen and (min-width: 48rem) {
+  @media screen and (min-width: ${displaySize.md}) {
     flex-basis: 25%;
   }
-  @media screen and (min-width: 75rem) {
+  @media screen and (min-width: ${displaySize.xl}) {
     flex-basis: 12%;
   }
 `;

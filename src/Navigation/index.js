@@ -2,6 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { WhiteSection } from "../assets";
 
+const Navigation = WhiteSection.extend`
+  padding-bottom: 3rem;
+`;
+
 const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: 500;
@@ -28,7 +32,7 @@ const LinkEm = Link.extend`
 
 export default () => {
   return (
-    <WhiteSection>
+    <Navigation>
       <div className="container">
         <div className="row">
           <div className="col-xs-6 col-md-3 col-xl-2">
@@ -104,6 +108,6 @@ export default () => {
           </div>
         </div>
       </div>
-    </WhiteSection>
+    </Navigation>
   );
 };

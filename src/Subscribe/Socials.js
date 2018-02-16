@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { displaySize } from "../assets";
+
 import twi from "./twi.svg";
 import fb from "./fb.svg";
 import vk from "./vk.svg";
@@ -10,7 +12,7 @@ const Socials = styled.div`
   margin-top: 2rem;
   flex-wrap: nowrap;
   flex: 0 0 auto;
-  @media screen and (min-width: 75rem) {
+  @media screen and (min-width: ${displaySize.xl}) {
     text-align: left;
     margin-top: 0;
   }

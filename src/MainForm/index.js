@@ -8,7 +8,8 @@ import Title from "./Title";
 import DirectionForm from "./DirectionForm";
 
 const Header = BlueSection.extend`
-  height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 2rem;
 `;
 
 const SubmitButton = styled.button`
