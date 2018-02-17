@@ -7,7 +7,7 @@ const Destination = styled.div`
   color: #5b5b5c;
   padding-bottom: 1.5rem;
   box-shadow: 0px 0.25rem 1.5rem rgba(0, 75, 93, 0.12);
-  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
 `;
 
 const Overlay = styled.img`

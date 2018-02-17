@@ -1,23 +1,11 @@
 import React from "react";
-import styled, { css } from "styled-components";
-import { displaySize } from "../assets";
+import styled from "styled-components";
 
 import Header from "./Header";
 
 const BestPrice = styled.div`
   margin-top: 3rem;
   padding-bottom: 3rem;
-  ${props =>
-    props.last ||
-    css`
-      border-bottom: 1px dashed #afbec6;
-      @media screen and (min-width: ${displaySize.xl}) {
-      padding-right: 3rem;
-      padding-bottom: 0;
-      border-right: 1px dashed #afbec6;
-      border-bottom: none;
-    `}
-  }
 `;
 
 const Row = styled.div`

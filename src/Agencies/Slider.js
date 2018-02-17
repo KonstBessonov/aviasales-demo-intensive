@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import arrow from "./arrow.svg";
 import aeroflot from "./aeroflot.png";
 import s7 from "./s7.png";
@@ -18,18 +18,17 @@ const Pages = styled.div`
   align-items: center;
 `;
 
-const Arrow = styled.button`
+const Back = styled.button`
   border: none;
   background: url(${arrow}) center no-repeat;
   width: 20px;
   height: 34px;
   padding: 0;
   cursor: pointer;
-  ${props =>
-    props.right &&
-    css`
-      transform: scale(-1, 1);
-    `};
+`;
+
+const Forward = Back.extend`
+  transform: scale(-1, 1);
 `;
 
 const Page = styled.div`
@@ -54,7 +53,7 @@ const Indicator = styled.div`
   justify-content: center;
 `;
 
-const Dot = styled.button`
+const PageDot = styled.button`
   border: none;
   background: url(${props => (props.current ? dot_f : dot_e)}) center no-repeat;
   width: 20px;
@@ -67,7 +66,7 @@ export default () => {
   return (
     <Slider>
       <Pages>
-        <Arrow />
+        <Back />
         <Page>
           <Slides>
             <Slide src={aeroflot} />
@@ -77,12 +76,12 @@ export default () => {
             <Slide src={israel} />
           </Slides>
         </Page>
-        <Arrow right />
+        <Forward />
       </Pages>
       <Indicator>
-        <Dot current />
-        <Dot />
-        <Dot />
+        <PageDot current />
+        <PageDot />
+        <PageDot />
       </Indicator>
     </Slider>
   );

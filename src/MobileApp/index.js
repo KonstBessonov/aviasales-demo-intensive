@@ -71,7 +71,7 @@ export default () => {
             </Rating>
           </div>
         </div>
-        <div className="row">
+        <div className="row bottom-xs">
           <div className="col-xs-6 col-md-4 col-xl-3 col-xl-offset-1">
             <PhonePicture />
           </div>

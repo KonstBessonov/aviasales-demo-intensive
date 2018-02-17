@@ -14,6 +14,7 @@ const Subscribe = WhiteSection.extend`
   }
   background: url(${post});
   background-repeat-y: no-repeat;
+  background-repeat: repeat-x;
 `;
 
 const FlexWrapper = styled.div`

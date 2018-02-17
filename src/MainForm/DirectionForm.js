@@ -65,10 +65,17 @@ const IATACode = styled.span`
 const InputButton = styled.button`
   margin-right: 1rem;
   border: none;
-  background: url(${props => props.src}) center no-repeat;
   width: 20px;
   height: 24px;
   padding: 0;
+`;
+
+const SwapPlaces = InputButton.extend`
+  background: url(${arrows}) center no-repeat;
+`;
+
+const Calendar = InputButton.extend`
+  background: url(${calendar}) center no-repeat;
 `;
 
 const PaxButton = styled.button`
@@ -92,7 +99,9 @@ const PopDownMark = styled.img`
   right: 1rem;
   top: 2rem;
   padding-top: 1rem;
+  padding-bottom: 1rem;
   padding-right: 1rem;
+  background: url(${popdown}) center no-repeat;
 `;
 
 export default () => {
@@ -101,7 +110,7 @@ export default () => {
       <InputBig>
         <InputDiv>
           <PlaceInput defaultValue="Оренбург" placeholder="Город вылета" />
-          <InputButton src={arrows} />
+          <SwapPlaces />
           <IATACode>REN</IATACode>
         </InputDiv>
       </InputBig>
@@ -114,20 +123,20 @@ export default () => {
       <InputSmall>
         <InputDiv>
           <PlaceInput value="" placeholder="Туда" />
-          <InputButton src={calendar} />
+          <Calendar />
         </InputDiv>
       </InputSmall>
       <InputSmall>
         <InputDiv>
           <PlaceInput value="" placeholder="Обратно" />
-          <InputButton src={calendar} />
+          <Calendar />
         </InputDiv>
       </InputSmall>
       <InputBig>
         <InputDiv>
           <PaxButton>
             1 пассажир, <PaxAdditional>эконом</PaxAdditional>
-            <PopDownMark src={popdown} alt="Dropdown" />
+            <PopDownMark />
           </PaxButton>
         </InputDiv>
       </InputBig>

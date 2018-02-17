@@ -26,8 +26,8 @@ const Image = styled.img`
 `;
 
 const Text = styled.p`
-  padding-bottim: 0.5rem;
-  margin: 0 -1rem 3rem -1rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 3rem;
   ${props =>
     props.isActive &&
     css`

@@ -42,7 +42,7 @@ export default () => {
   return (
     <TopDestination>
       <div className="container">
-        <div classname="row">
+        <div className="row">
           <div className="col-xs-12 col-md-10 col-md-offset-1">
             <div className="row center-xs">
               <div className="col-xs-12 col-md-8">
@@ -75,22 +75,22 @@ export default () => {
               </div>
             </div>
             <div className="row center-md">
-              <div className="col-xs-12 col-md-12 col-xl-6">
+              <div className="col-xs-12 col-xl-6">
                 <Destination destination={destination[0]} />
               </div>
-              <div className="col-xs-12 col-md-12 col-xl-6">
+              <div className="col-xs-12 col-xl-6">
                 <Destination destination={destination[1]} />
               </div>
-              <div className="col-xs-12 col-md-12 col-xl-6">
+              <div className="col-xs-12 col-xl-6">
                 <Destination destination={destination[2]} />
               </div>
-              <div className="col-xs-12 col-md-12 col-xl-6">
+              <div className="col-xs-12 col-xl-6">
                 <Destination destination={destination[3]} />
               </div>
-              <div className="col-xs-12 col-md-12 col-xl-6">
+              <div className="col-xs-12 col-xl-6">
                 <Destination destination={destination[4]} />
               </div>
-              <div className="col-xs-12 col-md-12 col-xl-6">
+              <div className="col-xs-12 col-xl-6">
                 <Destination destination={destination[5]} />
               </div>
             </div>

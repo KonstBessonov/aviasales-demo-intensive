@@ -25,7 +25,7 @@ const Link = styled.a`
   }
 `;
 
-const LinkEm = Link.extend`
+const LinkBold = Link.extend`
   padding-top: 1.5rem;
   font-weight: 500;
 `;
@@ -44,7 +44,7 @@ export default () => {
               <Link href="#">Кипр</Link>
               <Link href="#">Болгария</Link>
               <Link href="#">Грузия</Link>
-              <LinkEm href="#">Все страны &rarr;</LinkEm>
+              <LinkBold href="#">Все страны &rarr;</LinkBold>
             </nav>
           </div>
           <div className="col-xs-6 col-md-3 col-xl-2">
@@ -56,7 +56,7 @@ export default () => {
               <Link href="#">Адлер</Link>
               <Link href="#">Екатеринбург</Link>
               <Link href="#">Лондон</Link>
-              <LinkEm href="#">Все города &rarr;</LinkEm>
+              <LinkBold href="#">Все города &rarr;</LinkBold>
             </nav>
           </div>
           <div className="col-xs-6 col-md-3 col-xl-2">
@@ -68,7 +68,7 @@ export default () => {
               <Link href="#">Air Baltic</Link>
               <Link href="#">Emirates</Link>
               <Link href="#">KLM</Link>
-              <LinkEm href="#">Все авиакомпании &rarr;</LinkEm>
+              <LinkBold href="#">Все авиакомпании &rarr;</LinkBold>
             </nav>
           </div>
           <div className="col-xs-6 col-md-3 col-xl-2">
@@ -80,7 +80,7 @@ export default () => {
               <Link href="#">Толмачево</Link>
               <Link href="#">Владивосток</Link>
               <Link href="#">Гамбург</Link>
-              <LinkEm href="#">Все аэропорты &rarr;</LinkEm>
+              <LinkBold href="#">Все аэропорты &rarr;</LinkBold>
             </nav>
           </div>
           <div className="col-xs-6 col-md-3 col-xl-2">
