@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { minWidth } from "../assets";
 import logo from "./logo.svg";
 
 const Logo = styled.div`
@@ -15,9 +16,9 @@ const Text = styled.span`
   vertical-align: middle;
   font-size: 2.5rem;
   display: none;
-  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
+  ${minWidth.md`
     display: initial;
-  }
+  `};
 `;
 
 export default () => {

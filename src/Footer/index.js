@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { WhiteSection } from "../assets";
+import { WhiteSection, minWidth } from "../assets";
 import vk from "./vk.svg";
 import facebook from "./facebook.svg";
 import insta from "./insta.svg";
@@ -20,11 +20,11 @@ const Footer = WhiteSection.extend`
 const OuterWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
-  }
+  ${minWidth.xl`
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+  `};
 `;
 
 const TopLeftSection = styled.div`
@@ -51,9 +51,9 @@ const Link = styled.a`
 
 const Booking = styled.div`
   text-align: center;
-  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
+  ${minWidth.md`
     text-align: left;
-  }
+  `};
 `;
 
 const AppsList = styled.div`
@@ -61,37 +61,34 @@ const AppsList = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
+  ${minWidth.md`
     flex-direction: row;
     justify-content: flex-start;
-  }
-  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
+  `} ${minWidth.xl`
     justify-content: flex-end;
-  }
+  `};
 `;
 
 const BottomRightSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
+  ${minWidth.md`
     align-items: flex-start;
-  }
-  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
+  `} ${minWidth.xl`
     align-items: flex-end;
-  }
+  `};
 `;
 
 const AppLink = styled.a`
   display: block;
   align: flex;
   margin: 1rem 0 0 0;
-  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
+  ${minWidth.md`
     margin: 0 1rem 0 0;
-  }
-  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
+  `} ${minWidth.xl`
     margin: 0 0 0 1rem;
-  }
+  `};
 `;
 
 const Copyright = styled.p`

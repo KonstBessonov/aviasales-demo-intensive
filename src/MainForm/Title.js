@@ -1,8 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { minWidth } from "../assets";
 
 const Wrapper = styled.div`
   text-align: center;
+  margin-bottom: 2rem;
+  ${minWidth.md`
+    margin-bottom: 5rem;
+  `};
 `;
 
 const Title = styled.h1`
@@ -11,25 +16,23 @@ const Title = styled.h1`
   margin-top: 6rem;
   margin-bottom: 1rem;
   font-weight: bold;
-  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
+  ${minWidth.md`
     margin-top: 11rem;
     font-size: 4rem;
-  }
-  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
+  `} ${minWidth.xl`
     margin-top: 25rem;
     font-size: 5rem;
-  }
+  `};
 `;
 
 const Subtitle = styled.h2`
   font-size: 2.5rem;
   display: none;
-  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
+  ${minWidth.md`
     display: initial;
-  }
-  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
+  `} ${minWidth.xl`
     font-size: 3rem;
-  }
+  `};
 `;
 
 export default () => {

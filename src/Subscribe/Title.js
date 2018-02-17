@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { minWidth } from "../assets";
 
 const Wrapper = styled.div`
   flex-basis: 50%;
   text-align: center;
-  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
+  ${minWidth.xl`
     text-align: left;
-  }
+  `};
 `;
 
 const Title = styled.h2`

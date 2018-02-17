@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { minWidth } from "../assets";
 
 import phone_sm from "./phone-sm.png";
 import phone_lg from "./phone-lg.png";
@@ -10,18 +11,18 @@ const Wrapper = styled.div`
 `;
 
 const Picture = styled.picture`
-  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
+  ${minWidth.md`
     position: absolute;
     bottom: 0;
     left: 0;
-  }
+  `};
 `;
 
 export default () => {
   return (
     <Wrapper>
       <Picture>
-        <source srcSet={phone_lg} media="(min-width: 48rem)" />
+        <source srcSet={phone_lg} media={minWidth.md.asString} />
         <img src={phone_sm} alt="" />
       </Picture>
     </Wrapper>

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import post from "./post.png";
 
-import { WhiteSection } from "../assets";
+import { WhiteSection, minWidth } from "../assets";
 import Title from "./Title";
 import Socials from "./Socials";
 import Subscription from "./Subscription";
@@ -13,18 +13,18 @@ const Subscribe = WhiteSection.extend`
   background-repeat-y: no-repeat;
   background-repeat: repeat-x;
   display: none;
-  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
+  ${minWidth.md`
     display: block;
-  }
+  `};
 `;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
+  ${minWidth.xl`
     flex-direction: row;
-  }
+  `};
 `;
 
 export default () => {

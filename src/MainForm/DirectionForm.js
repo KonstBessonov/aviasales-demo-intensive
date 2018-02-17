@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { minWidth } from "../assets";
 
 import arrows from "./arrows.svg";
 import calendar from "./calendar.svg";
@@ -15,22 +16,20 @@ const DirectionForm = styled.div`
 
 const InputBig = styled.div`
   flex-basis: 100%;
-  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
+  ${minWidth.md`
     flex-basis: 50%;
-  }
-  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
+  `} ${minWidth.xl`
     flex-basis: 20%;
-  }
+  `};
 `;
 
 const InputSmall = styled.div`
   flex-basis: 50%;
-  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
+  ${minWidth.md`
     flex-basis: 25%;
-  }
-  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
+  `} ${minWidth.xl`
     flex-basis: 12%;
-  }
+  `};
 `;
 
 const InputWrapper = styled.div`

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { minWidth } from "../assets";
 
 import twi from "./twi.svg";
 import fb from "./fb.svg";
@@ -11,10 +12,10 @@ const Socials = styled.div`
   margin-top: 2rem;
   flex-wrap: nowrap;
   flex: 0 0 auto;
-  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
+  ${minWidth.xl`
     text-align: left;
     margin-top: 0;
-  }
+  `};
 `;
 
 const Button = styled.button`

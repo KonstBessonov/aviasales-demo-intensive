@@ -1,20 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 
-import { WhiteSection } from "../assets";
+import { WhiteSection, minWidth } from "../assets";
 import Slider from "./Slider";
 
 const Agencies = WhiteSection.extend`
   padding: 3rem 0;
   display: none;
-  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
+  ${minWidth.md`
     display: block;
-  }
+  `};
 `;
 
 const Title = styled.h2`
   vertical-align: middle;
-  color: ##5c5c5c;
+  color: #5c5c5c;
   font-size: 4rem;
   text-align: center;
 `;

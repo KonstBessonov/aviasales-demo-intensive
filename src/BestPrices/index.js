@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { WhiteSection } from "../assets";
+import { WhiteSection, minWidth } from "../assets";
 import calend from "./calend.svg";
 
 import BestPrice from "./BestPrice";
@@ -19,13 +19,13 @@ const Title = styled.h2`
 const SplitLine = styled.div`
   border-bottom: 1px dashed #afbec6;
   margin: 3rem 0;
-  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
+  ${minWidth.xl`
     border: none;
     border-right: 1px dashed #afbec6;
     min-height: 100%;
     width: 1px;
     margin: 0 auto;
-  }
+  `};
 `;
 
 const Advertising = styled.p`
