@@ -12,7 +12,7 @@ const Title = styled.h2`
   vertical-align: middle;
 `;
 
-const TitleImg = styled.img`
+const Icon = styled.img`
   vertical-align: middle;
   margin-right: 1rem;
 `;
@@ -32,7 +32,7 @@ export default () => {
         <div className="row">
           <div className="col-xs-12 col-xl-10 col-xl-offset-1">
             <Title>
-              <TitleImg src={plane} alt="" /> КАК КУПИТЬ ДЕШЕВЫЕ АВИАБИЛЕТЫ?
+              <Icon src={plane} alt="" /> КАК КУПИТЬ ДЕШЕВЫЕ АВИАБИЛЕТЫ?
             </Title>
             <Text>
               Aviasales.ru — это метапоисковик авиабилетов. Мы ищем билеты на
@@ -48,7 +48,7 @@ export default () => {
               <MoreLink href="#">Подробнее</MoreLink>
             </Text>
             <Title>
-              <TitleImg src={atSign} alt="" /> ЭЛЕКТРОННЫЙ АВИАБИЛЕТ
+              <Icon src={atSign} alt="" /> ЭЛЕКТРОННЫЙ АВИАБИЛЕТ
             </Title>
             <Text>
               Электронный авиабилет — это, по сути, обычный билет на самолет, но
@@ -67,7 +67,7 @@ export default () => {
               аналога. <MoreLink href="#">Подробнее</MoreLink>
             </Text>
             <Title>
-              <TitleImg src={list} alt="" /> 20 СОВЕТОВ АВИАПУТЕШЕСТВЕННИКАМ
+              <Icon src={list} alt="" /> 20 СОВЕТОВ АВИАПУТЕШЕСТВЕННИКАМ
             </Title>
             <Text>
               Есть масса путеводителей по странам, но ни одного о том, как

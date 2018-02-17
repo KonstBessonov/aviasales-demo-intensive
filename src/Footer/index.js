@@ -17,7 +17,7 @@ const Footer = WhiteSection.extend`
   color: #5b5b5c;
 `;
 
-const OutWrapper = styled.div`
+const OuterWrapper = styled.div`
   display: flex;
   flex-direction: column;
   @media screen and (min-width: ${displaySize.xl}) {
@@ -102,7 +102,7 @@ export default () => {
   return (
     <Footer>
       <div className="container">
-        <OutWrapper>
+        <OuterWrapper>
           <TopLeftSection>
             <LinksList>
               <Link href="#">О компании</Link>
@@ -150,7 +150,7 @@ export default () => {
               &copy; 2007–2018, Aviasales — дешевые авиабилеты
             </Copyright>
           </BottomRightSection>
-        </OutWrapper>
+        </OuterWrapper>
       </div>
     </Footer>
   );

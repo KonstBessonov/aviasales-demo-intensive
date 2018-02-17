@@ -23,19 +23,21 @@ const OriginText = styled.h2`
   color: #4a4a4a;
 `;
 
-const OriginCity = styled.span`
+const OriginCity = styled.button`
   color: #00ace2;
+  border: none;
+  cursor: pointer;
+  background: none;
   &:hover {
     color: #ff8b00;
   }
 `;
 
-const EditOrigin = styled.button`
-  width: 2.25rem;
-  height: 2.25rem;
+const Img = styled.img`
   border: none;
   cursor: pointer;
-  background: url(${props => props.img}) center no-repeat;
+  width: 16px;
+  height: 16px;
 `;
 
 export default () => {
@@ -49,8 +51,9 @@ export default () => {
                 <Compass src={compass} alt="compass" />
                 <OriginText>
                   Популярные направления перелетов из города{" "}
-                  <OriginCity>Оренбург </OriginCity>
-                  <EditOrigin img={pen} />
+                  <OriginCity>
+                    Оренбург <Img src={pen} />
+                  </OriginCity>
                 </OriginText>
               </div>
             </div>

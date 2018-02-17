@@ -17,7 +17,7 @@ const Subscribe = WhiteSection.extend`
   background-repeat: repeat-x;
 `;
 
-const FlexWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -32,11 +32,11 @@ export default () => {
       <div className="container">
         <div className="row">
           <div className="col-md-12 col-xl-10 col-xl-offset-1">
-            <FlexWrapper>
+            <Wrapper>
               <Title />
               <Socials />
               <Subscription />
-            </FlexWrapper>
+            </Wrapper>
           </div>
         </div>
       </div>

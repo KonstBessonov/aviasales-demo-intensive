@@ -34,7 +34,7 @@ const InputSmall = styled.div`
   }
 `;
 
-const InputDiv = styled.div`
+const InputWrapper = styled.div`
   display: flex;
   align-items: center;
   border-radius: 0.5rem;
@@ -108,37 +108,37 @@ export default () => {
   return (
     <DirectionForm>
       <InputBig>
-        <InputDiv>
+        <InputWrapper>
           <PlaceInput defaultValue="Оренбург" placeholder="Город вылета" />
           <SwapPlaces />
           <IATACode>REN</IATACode>
-        </InputDiv>
+        </InputWrapper>
       </InputBig>
       <InputBig>
-        <InputDiv>
+        <InputWrapper>
           <PlaceInput value="" placeholder="Город прибытия" />
           <IATACode />
-        </InputDiv>
+        </InputWrapper>
       </InputBig>
       <InputSmall>
-        <InputDiv>
+        <InputWrapper>
           <PlaceInput value="" placeholder="Туда" />
           <Calendar />
-        </InputDiv>
+        </InputWrapper>
       </InputSmall>
       <InputSmall>
-        <InputDiv>
+        <InputWrapper>
           <PlaceInput value="" placeholder="Обратно" />
           <Calendar />
-        </InputDiv>
+        </InputWrapper>
       </InputSmall>
       <InputBig>
-        <InputDiv>
+        <InputWrapper>
           <PaxButton>
             1 пассажир, <PaxAdditional>эконом</PaxAdditional>
             <PopDownMark />
           </PaxButton>
-        </InputDiv>
+        </InputWrapper>
       </InputBig>
     </DirectionForm>
   );

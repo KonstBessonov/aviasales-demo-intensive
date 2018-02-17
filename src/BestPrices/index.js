@@ -28,11 +28,11 @@ const SplitLine = styled.div`
   }
 `;
 
-const AdvertiseText = styled.p`
+const Advertising = styled.p`
   text-align: center;
 `;
 
-const OfferText = styled.p`
+const NotOffer = styled.p`
   text-align: center;
   color: #a0b0b9;
 `;
@@ -68,15 +68,15 @@ export default () => {
 
         <div className="row">
           <div className="col-xs-12 col-md-10 col-md-offset-1 col-xl-6 col-xl-offset-3">
-            <AdvertiseText>
+            <Advertising>
               Мы знаем, где купить авиабилеты дешево. Билеты на самолет в 220
               стран мира. Поиск и сравнение цен на авиабилеты среди 100 агентств
               и 728 авиакомпаний.
-            </AdvertiseText>
-            <OfferText>
+            </Advertising>
+            <NotOffer>
               Цены, найденные пользователями за последние 48 часов, не являются
               офертой.
-            </OfferText>
+            </NotOffer>
           </div>
         </div>
       </div>
