@@ -29,7 +29,7 @@ const OriginCity = styled.button`
   cursor: pointer;
   background: none;
   &:hover {
-    color: #ff8b00;
+    color: ${props => props.theme.hover};
   }
 `;
 

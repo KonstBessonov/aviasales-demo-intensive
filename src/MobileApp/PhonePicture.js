@@ -18,12 +18,18 @@ const Picture = styled.picture`
   `};
 `;
 
+const Img = styled.img`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+`;
+
 export default () => {
   return (
     <Wrapper>
       <Picture>
         <source srcSet={phone_lg} media={minWidth.md.asString} />
-        <img src={phone_sm} alt="" />
+        <Img src={phone_sm} alt="" />
       </Picture>
     </Wrapper>
   );
