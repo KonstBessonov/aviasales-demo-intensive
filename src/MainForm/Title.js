@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { displaySize } from "../assets";
 
 const Wrapper = styled.div`
   text-align: center;
@@ -12,11 +11,11 @@ const Title = styled.h1`
   margin-top: 6rem;
   margin-bottom: 1rem;
   font-weight: bold;
-  @media screen and (min-width: ${displaySize.md}) {
+  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
     margin-top: 11rem;
     font-size: 4rem;
   }
-  @media screen and (min-width: ${displaySize.xl}) {
+  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
     margin-top: 25rem;
     font-size: 5rem;
   }
@@ -24,10 +23,11 @@ const Title = styled.h1`
 
 const Subtitle = styled.h2`
   font-size: 2.5rem;
-  @media screen and (max-width: ${displaySize.md}) {
-    display: none;
+  display: none;
+  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
+    display: initial;
   }
-  @media screen and (min-width: ${displaySize.xl}) {
+  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
     font-size: 3rem;
   }
 `;

@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import logo from "./logo.svg";
-import { displaySize } from "../assets";
 
 const Logo = styled.div`
   padding-top: 1rem;
@@ -15,8 +14,9 @@ const Image = styled.img`
 const Text = styled.span`
   vertical-align: middle;
   font-size: 2.5rem;
-  @media screen and (max-width: ${displaySize.md}) {
-    display: none;
+  display: none;
+  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
+    display: initial;
   }
 `;
 

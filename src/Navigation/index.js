@@ -20,7 +20,7 @@ const Link = styled.a`
   padding-top: 1rem;
   transition: color 0.3s;
   &:hover {
-    color: #FD8A27;
+    color: ${props => props.theme.hover};
   }
   }
 `;

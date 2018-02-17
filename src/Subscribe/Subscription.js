@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { displaySize } from "../assets";
 
 const Subscription = styled.div`
   justify-content: center;
@@ -8,7 +7,7 @@ const Subscription = styled.div`
   display: flex;
   flex-wrap: nowrap;
   flex: 0 1 auto;
-  @media screen and (min-width: ${displaySize.xl}) {
+  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
     margin-top: 0;
     margin-left: 2rem;
     justify-content: flex-start;
@@ -22,7 +21,7 @@ const Form = styled.form`
   width: fit-content;
   border-radius: 2px;
   border: 1px #a0b0b9 solid;
-  @media screen and (min-width: ${displaySize.xl}) {
+  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
     text-align: left;
   }
 `;

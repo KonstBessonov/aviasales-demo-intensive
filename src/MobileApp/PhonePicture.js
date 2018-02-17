@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { displaySize } from "../assets";
 
 import phone_sm from "./phone-sm.png";
 import phone_lg from "./phone-lg.png";
@@ -11,7 +10,7 @@ const Wrapper = styled.div`
 `;
 
 const Picture = styled.picture`
-  @media screen and (min-width: ${displaySize.md}) {
+  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
     position: absolute;
     bottom: 0;
     left: 0;

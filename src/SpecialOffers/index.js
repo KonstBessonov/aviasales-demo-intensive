@@ -26,7 +26,7 @@ const Link = styled.a`
   color: inherit;
   transition: color 0.3s;
   &:hover {
-    color: #fd8a27;
+    color: ${props => props.theme.hover};
   }
 `;
 

@@ -12,7 +12,7 @@ const Category = styled.button`
       color: #00ace2;
       cursor: pointer;
       &:hover {
-        color: #fd8a27;
+        color: ${props => props.theme.hover};
       }
     `};
 `;

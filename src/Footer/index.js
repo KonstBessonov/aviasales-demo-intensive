@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { WhiteSection, displaySize } from "../assets";
+import { WhiteSection } from "../assets";
 import vk from "./vk.svg";
 import facebook from "./facebook.svg";
 import insta from "./insta.svg";
@@ -20,7 +20,7 @@ const Footer = WhiteSection.extend`
 const OuterWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  @media screen and (min-width: ${displaySize.xl}) {
+  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
@@ -45,13 +45,13 @@ const Link = styled.a`
   margin-right: 2rem;
   transition: color 0.3s;
   &:hover {
-    color: #fd8a27;
+    color: ${props => props.theme.hover};
   }
 `;
 
 const Booking = styled.div`
   text-align: center;
-  @media screen and (min-width: ${displaySize.md}) {
+  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
     text-align: left;
   }
 `;
@@ -61,11 +61,11 @@ const AppsList = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  @media screen and (min-width: ${displaySize.md}) {
+  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
     flex-direction: row;
     justify-content: flex-start;
   }
-  @media screen and (min-width: ${displaySize.xl}) {
+  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
     justify-content: flex-end;
   }
 `;
@@ -74,10 +74,10 @@ const BottomRightSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media screen and (min-width: ${displaySize.md}) {
+  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
     align-items: flex-start;
   }
-  @media screen and (min-width: ${displaySize.xl}) {
+  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
     align-items: flex-end;
   }
 `;
@@ -86,10 +86,10 @@ const AppLink = styled.a`
   display: block;
   align: flex;
   margin: 1rem 0 0 0;
-  @media screen and (min-width: ${displaySize.md}) {
+  @media screen and (min-width: ${props => props.theme.displaySizes.md}) {
     margin: 0 1rem 0 0;
   }
-  @media screen and (min-width: ${displaySize.xl}) {
+  @media screen and (min-width: ${props => props.theme.displaySizes.xl}) {
     margin: 0 0 0 1rem;
   }
 `;
