@@ -1,0 +1,14 @@
+<svg width="12" height="12" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>csssliderDot 1</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-1899 -4434)">
+<g id="csssliderDot 1">
+<use xlink:href="#path0_fill" transform="translate(1900 4435)" fill="#818181"/>
+<use xlink:href="#path1_stroke" transform="translate(1900 4435)" fill="#818181"/>
+</g>
+</g>
+<defs>
+<path id="path0_fill" fill-rule="evenodd" d="M 0 5C 0 2.23858 2.23858 0 5 0C 7.76142 0 10 2.23858 10 5C 10 7.76142 7.76142 10 5 10C 2.23858 10 0 7.76142 0 5Z"/>
+<path id="path1_stroke" d="M 5 9.5C 2.51472 9.5 0.5 7.48528 0.5 5L -0.5 5C -0.5 8.03757 1.96243 10.5 5 10.5L 5 9.5ZM 9.5 5C 9.5 7.48528 7.48528 9.5 5 9.5L 5 10.5C 8.03757 10.5 10.5 8.03757 10.5 5L 9.5 5ZM 5 0.5C 7.48528 0.5 9.5 2.51472 9.5 5L 10.5 5C 10.5 1.96243 8.03757 -0.5 5 -0.5L 5 0.5ZM 5 -0.5C 1.96243 -0.5 -0.5 1.96243 -0.5 5L 0.5 5C 0.5 2.51472 2.51472 0.5 5 0.5L 5 -0.5Z"/>
+</defs>
+</svg>
