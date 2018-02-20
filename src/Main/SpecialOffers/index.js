@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BlueSection } from "../assets";
+import { BlueSection } from "../../assets";
 
 import SpecialOffer from "./SpecialOffer";
 import { specialOffers } from "./data";

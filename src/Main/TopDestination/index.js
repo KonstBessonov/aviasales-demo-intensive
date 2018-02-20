@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { WhiteSection } from "../assets";
+import { WhiteSection } from "../../assets";
 import compass from "./compass.svg";
 import pen from "./pen.svg";
 

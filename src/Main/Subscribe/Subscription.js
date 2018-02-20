@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { minWidth } from "../assets";
+import { minWidth } from "../../assets";
 
 const Subscription = styled.div`
   justify-content: center;

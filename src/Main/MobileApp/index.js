@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BlueSection, minWidth } from "../assets";
+import { BlueSection, minWidth } from "../../assets";
 
 import rating from "./rating.svg";
 import apple from "./apple.svg";

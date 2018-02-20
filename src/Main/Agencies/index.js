@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { WhiteSection, minWidth } from "../assets";
+import { WhiteSection, minWidth } from "../../assets";
 import Slider from "./Slider";
 
 const Agencies = WhiteSection.extend`

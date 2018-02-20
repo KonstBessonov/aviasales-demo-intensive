@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { WhiteSection, minWidth } from "../assets";
+import { WhiteSection, minWidth } from "../../assets";
 import calend from "./calend.svg";
 
 import BestPrice from "./BestPrice";

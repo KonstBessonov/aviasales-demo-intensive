@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import post from "./post.png";
 
-import { WhiteSection, minWidth } from "../assets";
+import { WhiteSection, minWidth } from "../../assets";
 import Title from "./Title";
 import Socials from "./Socials";
 import Subscription from "./Subscription";

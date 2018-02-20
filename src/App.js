@@ -1,14 +1,8 @@
 import React, { Component } from "react";
-import { theme } from "./Main/assets";
-import MainForm from "./Main/MainForm";
-import TopDestination from "./Main/TopDestination";
-import BestPrices from "./Main/BestPrices";
-import Agencies from "./Main/Agencies";
-import Subscribe from "./Main/Subscribe";
-import SpecialOffers from "./Main/SpecialOffers";
-import Articles from "./Main/Articles";
-import MobileApp from "./Main/MobileApp";
-import Navigation from "./Main/Navigation";
+import { Route } from "react-router-dom";
+import { theme } from "./assets";
+import Main from "./Main";
+import Search from "./Forms/Search";
 import Footer from "./Footer";
 
 import "./App.css";
@@ -19,15 +13,8 @@ class App extends Component {
     return (
       <ThemeProvider theme={theme}>
         <div className="App">
-          <MainForm />
-          <TopDestination />
-          <BestPrices />
-          <Agencies />
-          <Subscribe />
-          <SpecialOffers />
-          <Articles />
-          <MobileApp />
-          <Navigation />
+          <Route exact path="/" component={Main} />
+          <Route path="/search" component={Search} />
           <Footer />
         </div>
       </ThemeProvider>

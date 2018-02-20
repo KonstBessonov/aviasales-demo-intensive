@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import aero from "./aero.svg";
 
-import { BlueSection } from "../assets";
+import { BlueSection } from "../../assets";
 import Logo from "./Logo";
 import Title from "./Title";
 import DirectionForm from "./DirectionForm";
@@ -34,9 +35,11 @@ export default () => {
         <DirectionForm />
         <div className="row center-xs">
           <div className="col-xs-12 col-md-6">
-            <SubmitButton>
-              Найти билеты <img src={aero} alt="aero" />
-            </SubmitButton>
+            <Link to="/search">
+              <SubmitButton>
+                Найти билеты <img src={aero} alt="aero" />
+              </SubmitButton>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { minWidth } from "../assets";
+import { minWidth } from "../../assets";
 import logo from "./logo.svg";
 
 const Logo = styled.div`

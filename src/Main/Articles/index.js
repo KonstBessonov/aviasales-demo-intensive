@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { WhiteSection } from "../assets";
+import { WhiteSection } from "../../assets";
 import plane from "./plane.png";
 import atSign from "./at.png";
 import list from "./list.png";

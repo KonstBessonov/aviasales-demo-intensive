@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { minWidth } from "../assets";
+import { minWidth } from "../../assets";
 
 import phone_sm from "./phone-sm.png";
 import phone_lg from "./phone-lg.png";
