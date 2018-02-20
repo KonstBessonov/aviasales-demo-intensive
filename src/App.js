@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import { theme } from "./assets";
-import MainForm from "./MainForm";
-import TopDestination from "./TopDestination";
-import BestPrices from "./BestPrices";
-import Agencies from "./Agencies";
-import Subscribe from "./Subscribe";
-import SpecialOffers from "./SpecialOffers";
-import Articles from "./Articles";
-import MobileApp from "./MobileApp";
-import Navigation from "./Navigation";
+import { theme } from "./Main/assets";
+import MainForm from "./Main/MainForm";
+import TopDestination from "./Main/TopDestination";
+import BestPrices from "./Main/BestPrices";
+import Agencies from "./Main/Agencies";
+import Subscribe from "./Main/Subscribe";
+import SpecialOffers from "./Main/SpecialOffers";
+import Articles from "./Main/Articles";
+import MobileApp from "./Main/MobileApp";
+import Navigation from "./Main/Navigation";
 import Footer from "./Footer";
 
 import "./App.css";
