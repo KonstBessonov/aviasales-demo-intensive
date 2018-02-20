@@ -22,6 +22,7 @@ const SubmitButton = styled.button`
   padding: 2rem;
   width: 100%;
   box-sizing: border-box;
+  cursor: pointer;
 `;
 
 export default () => {
