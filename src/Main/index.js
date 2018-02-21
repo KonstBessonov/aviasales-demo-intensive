@@ -9,7 +9,6 @@ import Subscribe from "./Subscribe";
 import SpecialOffers from "./SpecialOffers";
 import Articles from "./Articles";
 import MobileApp from "./MobileApp";
-import Navigation from "./Navigation";
 
 const Main = styled.div``;
 
@@ -24,7 +23,6 @@ export default () => {
       <SpecialOffers />
       <Articles />
       <MobileApp />
-      <Navigation />
     </Main>
   );
 };
