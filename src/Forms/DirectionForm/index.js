@@ -15,7 +15,7 @@ import popdown from "./popdn.svg";
 import aero from "./aero.svg";
 
 const formatDate = date =>
-  date === null ? "" : format(date, "D MMMM, dd", { locale: ruLocale });
+  date === undefined ? "" : format(date, "D MMMM, dd", { locale: ruLocale });
 
 const Container = styled.div`
   font-size: 2rem;
@@ -132,7 +132,8 @@ const Calendar = InputButton.extend`
 `;
 
 const ClearDate = InputButton.extend`
-  background: url(${({ value }) => (value === null ? calendar : clear_date)})
+  background: url(${({ value }) =>
+      value === undefined ? calendar : clear_date})
     center no-repeat;
 `;
 
@@ -224,17 +225,24 @@ class DirectionForm extends React.Component {
     super(props);
     this.state = {
       from: new Date(),
-      to: null,
+      to: undefined,
       isPicker: false,
       pickerField: "from"
     };
   }
   handleDateInputClick = pickerField =>
-    this.setState({ isPicker: true, pickerField: pickerField });
+    this.setState(prevState => ({ isPicker: true, pickerField: pickerField }));
+
+  handleClearDateClick = () => {
+    if (this.state.to) {
+      this.setState({ to: undefined, isPicker: false });
+    } else {
+      this.handleDateInputClick("to");
+    }
+  };
 
   handleClickOutside = () => this.setState({ isPicker: false });
   handleDayClick = day => {
-    console.dir(day);
     this.setState(prevState => {
       const newState = {};
       newState.isPicker = prevState.pickerField === "from";
@@ -287,7 +295,7 @@ class DirectionForm extends React.Component {
             />
             <ClearDate
               value={this.state.to}
-              onClick={() => this.handleDateInputClick("to")}
+              onClick={() => this.handleClearDateClick()}
             />
             {this.state.isPicker &&
               this.state.pickerField === "to" && (

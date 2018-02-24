@@ -3,7 +3,7 @@ import styled from "styled-components";
 import DayPicker from "react-day-picker";
 import { withClickOutside } from "react-clickoutside";
 
-import "react-day-picker/lib/style.css";
+import "./daypicker.css";
 
 const WEEKDAYS_SHORT = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
 const WEEKDAYS_LONG = [
