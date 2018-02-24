@@ -63,6 +63,7 @@ class Picker extends React.Component {
           labels={LABELS}
           onDayClick={this.props.onDayClick}
           selectedDays={this.props.selectedDays}
+          disabledDays={[{ before: new Date() }]}
         />
       </Container>
     );

@@ -2,6 +2,7 @@
 
 .DayPicker {
   display: inline-block;
+  font-family: "Roboto";
 }
 
 .DayPicker-wrapper {
@@ -51,9 +52,9 @@
   margin-top: 2px;
   color: #8b9898;
   width: 1.25rem;
-  height: 1.25rem;
+  height: 1.75rem;
   display: inline-block;
-  background-size: 50%;
+  background-size: 75%;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -63,12 +64,12 @@
 }
 
 .DayPicker-NavButton--prev {
-  margin-right: 1.5rem;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAVVJREFUWAnN2G0KgjAYwPHpGfRkaZeqvgQaK+hY3SUHrk1YzNLay/OiEFp92I+/Mp2F2Mh2lLISWnflFjzH263RQjzMZ19wgs73ez0o1WmtW+dgA01VxrE3p6l2GLsnBy1VYQOtVSEH/atCCgqpQgKKqYIOiq2CBkqtggLKqQIKgqgCBjpJ2Y5CdJ+zrT9A7HHSTA1dxUdHgzCqJIEwq0SDsKsEg6iqBIEoq/wEcVRZBXFV+QJxV5mBtlDFB5VjYTaGZ2sf4R9PM7U9ZU+lLuaetPP/5Die3ToO1+u+MKtHs06qODB2zBnI/jBd4MPQm1VkY79Tb18gB+C62FdBFsZR6yeIo1YQiLJWMIiqVjQIu1YSCLNWFgijVjYIuhYYCKoWKAiiFgoopxYaKLUWOii2FgkophYp6F3r42W5A9s9OcgNvva8xQaysKXlFytoqdYmQH6tF3toSUo0INq9AAAAAElFTkSuQmCC");
+  left: 1.5rem;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAOCAYAAADjXQYbAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABSSURBVHgBdc7BDUAhCANQ6uK6yc+fwHgyLodGD0aUciJ5DVSEzF9aBIPeJYHB3MHA4A0bPVjIYE5QVbfxPvvlmoAQXWQBc/IOPP/OgFuGdTCBAWFONXBf+UT4AAAAAElFTkSuQmCC");
 }
 
 .DayPicker-NavButton--next {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAXRJREFUWAnN119ugjAcwPHWzJ1gnmxzB/BBE0n24m4xfNkTaOL7wOtsl3AXMMb+Vjaa1BG00N8fSEibPpAP3xAKKs2yjzTPH9RAjhEo9WzPr/Vm8zgE0+gXATAxxuxtqeJ9t5tIwv5AtQAApsfT6TPdbp+kUBcgVwvO51KqVhMkXKsVJFXrOkigVhCIs1Y4iKlWZxB1rX4gwlpRIIpa8SDkWmggrFq4IIRaJKCYWnSgnrXIQV1r8YD+1Vrn+bReagysIFfLABRt31v8oBu1xEBttfRbltmfjgEcWh9snUS2kNdBK6WN1vrOWxObWsz+fjxevsxmB1GQDfINWiev83nhaoiB/CoOU438oPrhXS0WpQ9xc1ZQWxWHqUYe0I0qrKCQKjygDlXIQV2r0IF6ViEBxVTBBSFUQQNhVYkHIVeJAtkNsbQ7c1LtzP6FsObhb2rCKv7NBIGoq4SDmKoEgTirXAcJVGkFSVVpgoSrXICGUMUH/QBZNSUy5XWUhwAAAABJRU5ErkJggg==");
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAOCAYAAADjXQYbAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABfSURBVHgBdY7BDYAgEATPjb35tgQrESsxVmB8Gns7jAYUjr15EGDmCLId1ywOiFGDF+BZvAB5wwKUBxvAPlUGvRBS0E5mVLUDn5RlGocAT5Df/qKSVnySiZd1P9vLxA3hgT+y8nbnXAAAAABJRU5ErkJggg==");
 }
 
 .DayPicker-NavButton--interactionDisabled {
@@ -78,8 +79,8 @@
 .DayPicker-Caption {
   padding: 0 0.5rem;
   display: table-caption;
-  text-align: left;
-  margin-bottom: 0.5rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
 }
 
 .DayPicker-Caption > div {
@@ -99,10 +100,11 @@
 
 .DayPicker-Weekday {
   display: table-cell;
-  padding: 0.5rem;
-  font-size: 0.875em;
+  padding: 1rem 2rem;
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #5b5b5c;
   text-align: center;
-  color: #8b9898;
 }
 
 .DayPicker-Weekday abbr[title] {
@@ -111,6 +113,9 @@
 }
 
 .DayPicker-Body {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #4a4a4a;
   display: table-row-group;
 }
 
@@ -120,7 +125,7 @@
 
 .DayPicker-Day {
   display: table-cell;
-  padding: 0.5rem;
+  padding: 1.5rem;
   text-align: center;
   cursor: pointer;
   vertical-align: middle;
@@ -161,7 +166,6 @@
 /* Default modifiers */
 
 .DayPicker-Day--today {
-  color: #d0021b;
   font-weight: 700;
 }
 
@@ -183,14 +187,13 @@
 }
 
 .DayPicker-Day--sunday:not(.DayPicker-Day--today) {
-  color: #dce0e0;
+  color: #5a0606;
 }
 
 .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
   position: relative;
-  color: #f0f8ff;
-  background-color: #4a90e2;
-  border-radius: 100%;
+  background-color: #effbff;
+  border: #00ace2 solid 1px;
 }
 
 .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
@@ -200,7 +203,7 @@
 .DayPicker:not(.DayPicker--interactionDisabled)
   .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
   background-color: #f0f8ff;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 
 /* DayPickerInput */
