@@ -5,7 +5,37 @@ import { withClickOutside } from "react-clickoutside";
 
 import "react-day-picker/lib/style.css";
 
+const WEEKDAYS_SHORT = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
+const WEEKDAYS_LONG = [
+  "Воскресенье",
+  "Понедельник",
+  "Вторник",
+  "Среда",
+  "Четверг",
+  "Пятница",
+  "Суббота"
+];
+const MONTHS = [
+  "Январь",
+  "Февраль",
+  "Март",
+  "Апрель",
+  "Май",
+  "Июнь",
+  "Июль",
+  "Август",
+  "Сентябрь",
+  "Октябрь",
+  "Ноябрь",
+  "Декабрь"
+];
+const LABELS = {
+  nextMonth: "следующий месяц",
+  previousMonth: "предыдущий месяц"
+};
+
 const Container = withClickOutside()(styled.div`
+  z-index: 9999;
   position: absolute;
   top: 0;
   left: 0;
@@ -24,7 +54,16 @@ class Picker extends React.Component {
   render() {
     return (
       <Container onClickOutside={this.props.onClickOutside}>
-        <DayPicker onDayClick={this.props.handleDayClick} />
+        <DayPicker
+          locale="ru"
+          months={MONTHS}
+          weekdaysLong={WEEKDAYS_LONG}
+          weekdaysShort={WEEKDAYS_SHORT}
+          firstDayOfWeek={1}
+          labels={LABELS}
+          onDayClick={this.props.onDayClick}
+          selectedDays={this.props.selectedDays}
+        />
       </Container>
     );
   }

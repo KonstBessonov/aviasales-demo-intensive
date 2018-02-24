@@ -233,8 +233,16 @@ class DirectionForm extends React.Component {
     this.setState({ isPicker: true, pickerField: pickerField });
 
   handleClickOutside = () => this.setState({ isPicker: false });
-  handleDayClick = day =>
-    this.setState(({ prevState }) => ({}[prevState.pickerField] = day));
+  handleDayClick = day => {
+    console.dir(day);
+    this.setState(prevState => {
+      const newState = {};
+      newState.isPicker = prevState.pickerField === "from";
+      newState[prevState.pickerField] = day;
+      newState.pickerField = "to";
+      return newState;
+    });
+  };
 
   render = () => {
     return (
@@ -265,6 +273,7 @@ class DirectionForm extends React.Component {
                 <DayPicker
                   onClickOutside={this.handleClickOutside}
                   onDayClick={this.handleDayClick}
+                  selectedDays={this.state.from}
                 />
               )}
           </InputWrapper>
@@ -285,6 +294,7 @@ class DirectionForm extends React.Component {
                 <DayPicker
                   onClickOutside={this.handleClickOutside}
                   onDayClick={this.handleDayClick}
+                  selectedDays={this.state.to}
                 />
               )}
           </InputWrapper>
