@@ -1,29 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import aero from "./aero.svg";
 
 import { BlueSection } from "../../assets";
-import Logo from "./Logo";
+import Logo from "../../UI/Logo";
 import Title from "./Title";
-import DirectionForm from "./DirectionForm";
+import DirectionForm from "../../Forms/DirectionForm";
 
 const Header = BlueSection.extend`
   min-height: 100vh;
   padding-bottom: 2rem;
-`;
-
-const SubmitButton = styled.button`
-  border-radius: 0.5rem;
-  background: #ff9241;
-  border: none;
-  font-size: 3rem;
-  font-weight: 900;
-  color: #ffffff;
-  padding: 2rem;
-  width: 100%;
-  box-sizing: border-box;
-  cursor: pointer;
 `;
 
 export default () => {
@@ -33,15 +17,6 @@ export default () => {
         <Logo />
         <Title />
         <DirectionForm />
-        <div className="row center-xs">
-          <div className="col-xs-12 col-md-6">
-            <Link to="/search">
-              <SubmitButton>
-                Найти билеты <img src={aero} alt="aero" />
-              </SubmitButton>
-            </Link>
-          </div>
-        </div>
       </div>
     </Header>
   );

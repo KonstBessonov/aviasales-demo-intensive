@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { minWidth } from "../../assets";
 
 const Filter = styled.div`
   padding: 2rem;
@@ -12,6 +13,9 @@ const Button = styled.button`
   border: none;
   border-radius: 3rem;
   padding: 1rem 3rem;
+  ${minWidth.md`
+    display: none;
+  `};
 `;
 
 export default () => {

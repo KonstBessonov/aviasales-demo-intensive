@@ -3,30 +3,30 @@ import styled from "styled-components";
 
 const Logo = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
 `;
+/* align-items: center; */
 
 const Image = styled.img`
-  width: 100%;
+  height: 36px;
+  width: 99px;
 `;
 
-const ImageContainer = styled.div`
+const ImageSmall = styled.img`
   border: 1px solid #dddddd;
   border-radius: 0.5rem;
   padding 0.5rem;
-  flex: 0 0 45%;
+  height: 36px;
+  width: 36px;
+  &:not(:first-child){
+    margin-left: 1.5rem 
+  }
 `;
 
 export default ({ airline }) => {
   if (Array.isArray(airline)) {
     return (
       <Logo>
-        {airline.map((airline, idx) => (
-          <ImageContainer>
-            <Image key={idx} src={airline} />
-          </ImageContainer>
-        ))}
+        {airline.map((airline, idx) => <ImageSmall key={idx} src={airline} />)}
       </Logo>
     );
   } else {

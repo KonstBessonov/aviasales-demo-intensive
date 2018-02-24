@@ -1,11 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+import { minWidth } from "../../../assets";
 
 const TopMark = styled.div`
   font-size: 1.75rem;
   font-weight: 900;
   color: white;
   padding: 1rem;
+  margin: 0 -8px;
+  ${minWidth.md`
+    display: none;
+  `};
 `;
 
 const Cheapest = TopMark.extend`
