@@ -1,6 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
+const formatCurrency = new Intl.NumberFormat("ru-RU", {
+  style: "currency",
+  currency: "RUB",
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0
+}).format;
+
 const CheckBoxWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -19,7 +26,9 @@ export const CheckBox = styled(
       <label>
         <input type="checkbox" checked={checked} onChange={onChange} /> {title}
       </label>
-      {value > 0 && <Value onClick={onValueClick}>{value} р.</Value>}
+      {value > 0 && (
+        <Value onClick={onValueClick}>{formatCurrency(value)}</Value>
+      )}
     </CheckBoxWrapper>
   )
 )``;

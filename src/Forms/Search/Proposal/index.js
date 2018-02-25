@@ -8,6 +8,13 @@ import Badges from "./Badges";
 import { Price, Opener } from "./UI";
 import { minWidth } from "../../../assets";
 
+const formatCurrency = new Intl.NumberFormat("ru-RU", {
+  style: "currency",
+  currency: "RUB",
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0
+}).format;
+
 const Proposal = styled.div`
   background-color: #ffffff;
   margin-bottom: 1rem;
@@ -88,13 +95,13 @@ export default ({ result }) => {
       <Container>
         <LeftColumn>
           <div>Baggage</div>
-          <Price>Купить за {result.price.toLocaleString()} ₽</Price>
+          <Price>Купить за {formatCurrency(result.price)}</Price>
           <Partner>на {result.partner}</Partner>
         </LeftColumn>
 
         <RightColumn>
           <PriceCarrier>
-            <InlinePrice>{result.price.toLocaleString()} ₽</InlinePrice>
+            <InlinePrice>{formatCurrency(result.price)}</InlinePrice>
             <Logo airline={result.airline} />
             <Badges badges={result.badges} />
             <CopyLink />
