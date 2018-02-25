@@ -21,10 +21,15 @@ const Header = styled(({ className, children, isOpen, onClick }) => {
   ${({ isOpen }) => (isOpen ? `padding: 0 0 2rem 0` : `padding: 0`)};
 `;
 
+const Badge = styled.span`
+  color: #a0b0b9;
+  padding-left: 1rem;
+`;
+
 class Section extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isOpen: false };
+    this.state = { isOpen: props.initialOpen };
   }
 
   handleClick = () => {
@@ -36,6 +41,7 @@ class Section extends React.Component {
       <div className={this.props.className}>
         <Header isOpen={this.state.isOpen} onClick={this.handleClick}>
           {this.props.title}
+          {this.props.badge !== undefined && <Badge>{this.props.badge}</Badge>}
         </Header>
         {this.state.isOpen === true && this.props.children}
       </div>

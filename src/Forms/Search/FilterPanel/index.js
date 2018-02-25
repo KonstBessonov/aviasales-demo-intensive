@@ -30,25 +30,33 @@ const ClearFilters = styled.button`
 export default () => {
   return (
     <FilterPanel>
-      <FilterSection title="ПЕРЕСАДКИ">
+      <FilterSection title="ПЕРЕСАДКИ" initialOpen>
         <CheckBox defaultChecked={false} title="Все" />
         <CheckBox defaultChecked={true} title="Без пересадок" value={7712} />
         <CheckBox defaultChecked={false} title="1 пересадка" value={11150} />
         <CheckBox defaultChecked={false} title="2 пересадки" value={16821} />
         <CheckBox defaultChecked={false} title="3 пересадки" value={23986} />
       </FilterSection>
-      <FilterSection title="ВРЕМЯ ВЫЛЕТА И ПРИБЫТИЯ">
+      <FilterSection title="ВРЕМЯ ВЫЛЕТА И ПРИБЫТИЯ" initialOpen>
         Панель фильтров
       </FilterSection>
       <FilterSection title="БАГАЖ">Панель фильтров</FilterSection>
       <FilterSection title="ДЛИТЕЛЬНОСТЬ ПЕРЕСАДКИ">
         Панель фильтров
       </FilterSection>
-      <FilterSection title="ВРЕМЯ В ПУТИ">Панель фильтров</FilterSection>
-      <FilterSection title="АВИАКОМПАНИИ">Панель фильтров</FilterSection>
+      <FilterSection title="ВРЕМЯ В ПУТИ" initialOpen>
+        Панель фильтров
+      </FilterSection>
+      <FilterSection title="АВИАКОМПАНИИ" initialOpen badge={43}>
+        Панель фильтров
+      </FilterSection>
       <FilterSection title="АЭРОПОРТЫ">Панель фильтров</FilterSection>
-      <FilterSection title="АЭРПОРТЫ ПЕРЕСАДКИ">Панель фильтров</FilterSection>
-      <FilterSection title="АГЕНТСТВА">Панель фильтров</FilterSection>
+      <FilterSection title="АЭРПОРТЫ ПЕРЕСАДКИ" badge={71}>
+        Панель фильтров
+      </FilterSection>
+      <FilterSection title="АГЕНТСТВА" badge={26}>
+        Панель фильтров
+      </FilterSection>
       <ClearFilters>СБРОСИТЬ ВСЕ ФИЛЬТРЫ</ClearFilters>
     </FilterPanel>
   );
