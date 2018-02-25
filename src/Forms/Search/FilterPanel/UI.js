@@ -16,18 +16,18 @@ const CheckBoxWrapper = styled.div`
   line-height: 4.5rem;
 `;
 
-const Value = styled.span`
+const Price = styled.span`
   color: #a0b0b9;
 `;
 
 export const CheckBox = styled(
-  ({ checked, title, value, onChange, onValueClick }) => (
+  ({ checked, title, price, onChange, onValueClick }) => (
     <CheckBoxWrapper>
       <label>
         <input type="checkbox" checked={checked} onChange={onChange} /> {title}
       </label>
-      {value > 0 && (
-        <Value onClick={onValueClick}>{formatCurrency(value)}</Value>
+      {price > 0 && (
+        <Price onClick={onValueClick}>{formatCurrency(price)}</Price>
       )}
     </CheckBoxWrapper>
   )
