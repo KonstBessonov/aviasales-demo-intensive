@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { minWidth } from "../../../assets";
+import Range from "rc-slider/lib/Range";
+import "rc-slider/assets/index.css";
 
+import { minWidth } from "../../../assets";
 import FilterSection from "./FilterSection";
-import { CheckBox } from "./UI";
+import { CheckBox, RangeFilter } from "./UI";
+import plane from "./plane.svg";
 
 const FilterPanel = styled.div`
   max-width: 38rem;
@@ -38,15 +41,70 @@ export default () => {
         <CheckBox defaultChecked={false} title="3 пересадки" price={23986} />
       </FilterSection>
       <FilterSection title="ВРЕМЯ ВЫЛЕТА И ПРИБЫТИЯ" initialOpen>
-        <h4>Москва - Барселона</h4>
-        <h4>Барселона - Москва</h4>
+        <h4>
+          Москва <img src={plane} alt="" /> Барселона
+        </h4>
+        <RangeFilter
+          title="Вылет из Москвы:"
+          startText="c 00:05, 24 фев"
+          endText="до 23:45, 24 фев"
+          min={0}
+          max={100}
+          defaultValue={[0, 100]}
+        />
+        <RangeFilter
+          title="Прибытие в Барселону:"
+          startText="c 03:05, 24 фев"
+          endText="до 13:50, 26 фев"
+          min={0}
+          max={100}
+          defaultValue={[0, 100]}
+        />
+        <h4>
+          Барселона <img src={plane} alt="" /> Москва
+        </h4>
+        <RangeFilter
+          title="Вылет из Барселоны:"
+          startText="c 06:00, 3 мар"
+          endText="до 23:45, 3 мар"
+          min={0}
+          max={100}
+          defaultValue={[0, 100]}
+        />
+        <RangeFilter
+          title="Прибытие в Москву:"
+          startText="c 15:00, 3 мар"
+          endText="до 09:55, 5 мар"
+          min={0}
+          max={100}
+          defaultValue={[0, 100]}
+        />
       </FilterSection>
       <FilterSection title="БАГАЖ">Панель фильтров</FilterSection>
       <FilterSection title="ДЛИТЕЛЬНОСТЬ ПЕРЕСАДКИ">
         Панель фильтров
       </FilterSection>
       <FilterSection title="ВРЕМЯ В ПУТИ" initialOpen>
-        Панель фильтров
+        <h4>
+          Москва <img src={plane} alt="" /> Барселона
+        </h4>
+        <RangeFilter
+          startText="от 4 ч 20 м"
+          endText="до 48 ч 50 м"
+          min={0}
+          max={100}
+          defaultValue={[0, 100]}
+        />
+        <h4>
+          Барселона <img src={plane} alt="" /> Москва
+        </h4>
+        <RangeFilter
+          startText="от 4 ч 10 м"
+          endText="до 41 ч 20 м"
+          min={0}
+          max={100}
+          defaultValue={[0, 100]}
+        />
       </FilterSection>
       <FilterSection title="АВИАКОМПАНИИ" initialOpen badge={43}>
         <CheckBox defaultChecked={false} title="Несколько авиакомпаний" />

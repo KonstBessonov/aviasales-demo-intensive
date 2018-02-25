@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import Range from "rc-slider/lib/Range";
+import "rc-slider/assets/index.css";
 
 const formatCurrency = new Intl.NumberFormat("ru-RU", {
   style: "currency",
@@ -32,3 +34,28 @@ export const CheckBox = styled(
     </CheckBoxWrapper>
   )
 )``;
+
+const RangeContainer = styled.div`
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+`;
+
+const SpaceBetween = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const RangeFilter = props => {
+  const { title, startText, endText, ...restProps } = props;
+  return (
+    <RangeContainer>
+      <span>{title}</span>
+      <SpaceBetween>
+        <span>{startText}</span>
+        <span>{endText}</span>
+      </SpaceBetween>
+      <Range {...restProps} />
+    </RangeContainer>
+  );
+};
