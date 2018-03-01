@@ -23,11 +23,15 @@ const SegmentWrapper = styled.div`
   display: flex;
   ${minWidth.md`
     justify-content: space-between;
+    padding: 1.5rem 1rem;
+    &:not(:last-child) {
+      border-bottom: 1px dashed #dddddd;
+    }
   `};
 `;
 
 const PlaneIcon = styled.img`
-  padding: 0 1rem 0 0;
+  padding: 0 1rem;
   ${minWidth.md`
     display: none
   `};

@@ -25,28 +25,20 @@ const Container = styled.div`
   flex-wrap: wrap;
 `;
 
-const InputBig = withRouter(styled.div`
+const InputBig = styled.div`
+  flex-grow: 1;
   flex-basis: 100%;
-  max-width: 100%;
   ${minWidth.md`
     flex-basis: 50%;
     max-width: 50%;
   `};
   ${minWidth.xl`
-    flex-basis: 25%;
-    max-width: 25%;
+    flex-basis: 18%;
   `};
-  ${({ location }) =>
-    location.pathname.includes("search") &&
-    css`
-      ${minWidth.xl`
-        flex-basis: 18.2%;
-        max-width: 18.2%;
-      `};
-    `};
-`);
+`;
 
-const InputSmall = withRouter(styled.div`
+const InputSmall = styled.div`
+  flex-grow: 1;
   flex-basis: 50%;
   max-width: 50%;
   ${minWidth.md`
@@ -54,33 +46,23 @@ const InputSmall = withRouter(styled.div`
     max-width: 25%;
   `};
   ${minWidth.xl`
-    flex-basis: 12.5%;
-    max-width: 12.5%;
+    flex-basis: 14.5%;
   `};
-  ${({ location }) =>
-    location.pathname.includes("search") &&
-    css`
-      ${minWidth.xl`
-        flex-basis: 14.5%;
-        max-width: 14.5%;
-      `};
-    `};
-`);
+`;
 
-const InputPax = withRouter(InputBig.extend`
-  ${({ location }) =>
-    location.pathname.includes("search") &&
+const InputPax = InputBig.extend`
+  ${({ compact }) =>
+    compact &&
     css`
       ${minWidth.md`
         flex-basis: 25%;
         max-width: 25%;
       `};
       ${minWidth.xl`
-        flex-basis: 17.2%;
-        max-width: 17.2%;
+        flex-basis: 17%;
       `};
     `};
-`);
+`;
 
 const InputWrapper = styled.div`
   display: flex;
@@ -115,10 +97,11 @@ const IATACode = styled.span`
 `;
 
 const InputButton = styled.button`
+  flex-shrink: 0;
   cursor: pointer;
   margin-right: 1rem;
   border: none;
-  width: 20px;
+  width: 24px;
   height: 24px;
   padding: 0;
 `;
@@ -166,24 +149,11 @@ const PopDownMark = styled.img`
   background: url(${popdown}) center no-repeat;
 `;
 
-const NavButton = withRouter(({ className, children, history, newPath }) => (
-  <button className={className} onClick={() => history.push(newPath)}>
-    {children}
-  </button>
-));
-
-const SubmitButton = withRouter(styled(NavButton)`
-  border-radius: 0.5rem;
-  background: #ff9241;
-  border: none;
-  font-size: 3rem;
-  font-weight: 900;
-  color: #ffffff;
-  padding: 1.5rem;
-  margin-top: 2rem;
+const SubmitWrapper = withRouter(styled.div`
+  display: flex;
   flex-grow: 1;
   flex-basis: 100%;
-  cursor: pointer;
+  margin-top: 2rem;
   ${minWidth.md`
     margin-top: 4rem;
     flex-basis: 40%;
@@ -191,34 +161,70 @@ const SubmitButton = withRouter(styled(NavButton)`
   `};
   ${minWidth.xl`
     margin-top: 6rem;
-    flex-basis: 30%;
-    max-width: 30%;
+    flex-basis: 25%;
   `};
-  ${({ location }) =>
-    location.pathname.includes("search") &&
+  ${({ compact }) =>
+    compact &&
     css`
       ${minWidth.md`
-        margin: 1px 0;
+        margin: 0;
         font-size: 2.5rem;
         flex-basis: 25%;
         max-width: 25%;
       `};
       ${minWidth.xl`
-        margin: 1px 0;
+        margin: 0;
         font-size: 2.5rem;
-        flex-basis: 17.2%;
-        max-width: 17.2%;
+        flex-basis: 17%;
       `};
     `};
 `);
 
-const SubmitButtonIcon = withRouter(styled.img`
-  ${({ location }) =>
-    location.pathname.includes("search") &&
+const NavButton = withRouter(({ className, children, history, newPath }) => (
+  <button className={className} onClick={() => history.push(newPath)}>
+    {children}
+  </button>
+));
+
+const SubmitButton = styled(NavButton)`
+  background: #ff9241;
+  border: none;
+  border-radius: 0.5rem;
+  flex-basis: 100%;
+  flex-grow: 1;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #ffffff;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  ${({ compact }) =>
+    compact &&
+    css`
+      ${minWidth.md`
+        margin: 1px;
+        padding: 1rem;
+        font-size: 2.5rem;
+      `};
+      ${minWidth.xl`
+        margin: 1px;
+        margin-left: 2rem;
+        padding: 1rem;
+        font-size: 2.5rem;
+      `};
+    `};
+`;
+
+const SubmitButtonIcon = styled.img`
+  margin-left: 3rem;
+  ${({ compact }) =>
+    compact &&
     css`
       display: none;
     `};
-`);
+`;
 
 class DirectionForm extends React.Component {
   constructor(props) {
@@ -265,7 +271,7 @@ class DirectionForm extends React.Component {
         </InputBig>
         <InputBig>
           <InputWrapper>
-            <PlaceInput value="" placeholder="Город прибытия" />
+            <PlaceInput placeholder="Город прибытия" />
             <IATACode />
           </InputWrapper>
         </InputBig>
@@ -308,7 +314,7 @@ class DirectionForm extends React.Component {
               )}
           </InputWrapper>
         </InputSmall>
-        <InputPax>
+        <InputPax compact={this.props.compact}>
           <InputWrapper>
             <PaxButton>
               1 пассажир, <PaxAdditional>эконом</PaxAdditional>
@@ -316,9 +322,12 @@ class DirectionForm extends React.Component {
             </PaxButton>
           </InputWrapper>
         </InputPax>
-        <SubmitButton newPath="/search">
-          Найти билеты <SubmitButtonIcon src={aero} alt="" />
-        </SubmitButton>
+        <SubmitWrapper compact={this.props.compact}>
+          <SubmitButton newPath="/search" compact={this.props.compact}>
+            Найти билеты{" "}
+            <SubmitButtonIcon src={aero} compact={this.props.compact} alt="" />
+          </SubmitButton>
+        </SubmitWrapper>
       </Container>
     );
   };

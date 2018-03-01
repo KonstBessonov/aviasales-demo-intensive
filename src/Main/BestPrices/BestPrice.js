@@ -3,6 +3,13 @@ import styled from "styled-components";
 
 import Header from "./Header";
 
+const formatCurrency = new Intl.NumberFormat("ru-RU", {
+  style: "currency",
+  currency: "RUB",
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0
+}).format;
+
 const BestPrice = styled.div`
   margin-top: 3rem;
   padding-bottom: 3rem;
@@ -16,37 +23,25 @@ const Row = styled.div`
 
 const CityText = styled.div`
   font-size: 2rem;
+  line-height: 2.5rem;
 `;
 
 const PriceText = styled.div`
   color: #00bae8;
   font-size: 2rem;
+  line-height: 2.5rem;
 `;
 
-export default props => {
+export default ({ data: { destination, prices } }) => {
   return (
-    <BestPrice last={props.last}>
-      <Header destination={props.data.destination} />
-      <Row>
-        <CityText>Из {props.data.prices[0].origin}</CityText>
-        <PriceText>от {props.data.prices[0].price} &#x20BD;</PriceText>
-      </Row>
-      <Row>
-        <CityText>Из {props.data.prices[1].origin}</CityText>
-        <PriceText>от {props.data.prices[1].price} &#x20BD;</PriceText>
-      </Row>
-      <Row>
-        <CityText>Из {props.data.prices[2].origin}</CityText>
-        <PriceText>от {props.data.prices[2].price} &#x20BD;</PriceText>
-      </Row>
-      <Row>
-        <CityText>Из {props.data.prices[3].origin}</CityText>
-        <PriceText>от {props.data.prices[3].price} &#x20BD;</PriceText>
-      </Row>
-      <Row>
-        <CityText>Из {props.data.prices[4].origin}</CityText>
-        <PriceText>от {props.data.prices[4].price} &#x20BD;</PriceText>
-      </Row>
+    <BestPrice>
+      <Header destination={destination} />
+      {prices.map(({ price, origin }) => (
+        <Row>
+          <CityText>Из {origin}</CityText>
+          <PriceText>от {formatCurrency(price)}</PriceText>
+        </Row>
+      ))}
     </BestPrice>
   );
 };

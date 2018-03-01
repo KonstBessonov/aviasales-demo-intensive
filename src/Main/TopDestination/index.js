@@ -21,6 +21,7 @@ const OriginText = styled.h2`
   font-weight: 500;
   line-height: 3rem;
   color: #4a4a4a;
+  margin-bottom: 7rem;
 `;
 
 const OriginCity = styled.button`
@@ -47,7 +48,7 @@ export default () => {
         <div className="row">
           <div className="col-xs-12 col-md-10 col-md-offset-1">
             <div className="row center-xs">
-              <div className="col-xs-12 col-md-8">
+              <div className="col-xs-12 col-md-8 col-xl-4">
                 <Compass src={compass} alt="compass" />
                 <OriginText>
                   Популярные направления перелетов из города{" "}

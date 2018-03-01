@@ -9,8 +9,10 @@ import Logo from "../../../UI/Logo";
 import back from "./back.svg";
 
 const SearchParams = BlueSection.extend`
-  display: flex;
-  flex-direction: column;
+  padding-bottom: 0;
+  ${minWidth.md`
+    padding-bottom: 3rem;
+  `};
 `;
 
 const Header = styled.div`
@@ -18,7 +20,7 @@ const Header = styled.div`
   display: flex;
   align-items: center;
   ${minWidth.md`
-  padding: 1rem;
+    padding: 1rem;
   `};
 `;
 
@@ -75,20 +77,20 @@ const DirectionFormContainer = styled.div`
 export default () => {
   return (
     <SearchParams>
-      <Header>
-        <Logo />
-        <Link to="/">
-          <Back />
-        </Link>
-        <ParamsTextWrapper>
-          <RouteText>Москва - Барселона</RouteText>
-          <DatePax>24 фев - 3 март, 1 пассажир</DatePax>
-        </ParamsTextWrapper>
-        <Currency>RUB </Currency>
-      </Header>
       <div className="container">
+        <Header>
+          <Logo />
+          <Link to="/">
+            <Back />
+          </Link>
+          <ParamsTextWrapper>
+            <RouteText>Москва - Барселона</RouteText>
+            <DatePax>24 фев - 3 март, 1 пассажир</DatePax>
+          </ParamsTextWrapper>
+          <Currency>RUB</Currency>
+        </Header>
         <DirectionFormContainer>
-          <DirectionForm />
+          <DirectionForm compact />
         </DirectionFormContainer>
       </div>
     </SearchParams>

@@ -5,7 +5,8 @@ import copy_link from "./copy-link.svg";
 import Logo from "./Logo.js";
 import { SegmentForward, SegmentReturn } from "./Segment";
 import Badges from "./Badges";
-import { Price, Opener } from "./UI";
+import Baggage from "./Baggage";
+import { Buy, Opener } from "./UI";
 import { minWidth } from "../../../assets";
 
 const formatCurrency = new Intl.NumberFormat("ru-RU", {
@@ -45,7 +46,7 @@ const LeftColumn = styled.div`
 `;
 
 const RightColumn = styled.div`
-  padding: 1rem 2rem;
+  padding: 1rem;
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
@@ -57,14 +58,20 @@ const PriceCarrier = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0;
   ${minWidth.md`
     justify-content: flex-start;
-
+    padding: 1rem 1rem 0 1rem;
   `};
 `;
 
-const InlinePrice = Price.extend`
+const InlinePrice = styled.span`
+  font-size: 2.75rem;
+  font-weight: bold;
+  color: #ff9241;
+  border: none;
+  text-align: center;
+  background: none;
   ${minWidth.md`
     display: none;
   `};
@@ -94,8 +101,8 @@ export default ({ result }) => {
     <Proposal>
       <Container>
         <LeftColumn>
-          <div>Baggage</div>
-          <Price>Купить за {formatCurrency(result.price)}</Price>
+          <Baggage handbag={5} baggage={20} />
+          <Buy>Купить за {formatCurrency(result.price)}</Buy>
           <Partner>на {result.partner}</Partner>
         </LeftColumn>
 

@@ -11,7 +11,7 @@ export const specialOffers = [
     text: "Билеты от 499 рублей! Специальное предложение от авиакомпании Победа"
   },
   {
-    name: "В Нью-Йорк от 20680 ₽",
+    name: "В Нью-Йорк от 20680 рублей",
     img: staral,
     partner: lufthansa,
     price: 20680,
@@ -20,7 +20,7 @@ export const specialOffers = [
       "Из Москвы в США от 20680 рублей! Специальное предложение от авиакомпании Lufthansa"
   },
   {
-    name: "В Лос-Анджелес от 22360 ₽",
+    name: "В Лос-Анджелес от 22360 рублей",
     img: staral,
     partner: lufthansa,
     price: 22360,

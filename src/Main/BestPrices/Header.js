@@ -5,6 +5,7 @@ const Header = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 3rem;
+  text-align: left;
 `;
 
 const Image = styled.img`
@@ -19,12 +20,14 @@ const Image = styled.img`
 const City = styled.div`
   font-size: 2.75rem;
   font-weight: bold;
+  line-height: 4rem;
 `;
 
 const Country = styled.div`
   font-size: 1.5rem;
   font-weight: 500;
   color: #a0b0b9;
+  line-height: 2.5rem;
 `;
 
 export default props => {

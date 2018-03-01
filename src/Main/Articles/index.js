@@ -23,6 +23,7 @@ const Text = styled.p`
 
 const MoreLink = styled.a`
   color: #00ace2;
+  text-decoration: none;
 `;
 
 export default () => {

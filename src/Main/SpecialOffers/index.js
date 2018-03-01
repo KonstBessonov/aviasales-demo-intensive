@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BlueSection } from "../../assets";
+import { BlueSection, minWidth } from "../../assets";
 
 import SpecialOffer from "./SpecialOffer";
 import { specialOffers } from "./data";
@@ -20,6 +20,10 @@ const Footer = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 4rem;
+  ${minWidth.md`
+    flex-direction: row;
+    justify-content: space-between;
+  `};
 `;
 
 const Link = styled.a`
@@ -44,27 +48,32 @@ export default () => {
           </div>
         </div>
         <div className="row">
-          <div className="col-xs-12 col-xl-10 col-xl-offset-1">
-            <div className="row between-xl">
-              <div className="col-xs-12 col-md-4 col-xl-4">
+          <div className="col-xs-12">
+            <div className="row center-xl">
+              <div className="col-xs-12 col-md-4 col-xl-3 col-xl-offset-1">
                 <SpecialOffer offer={specialOffers[0]} />
               </div>
-              <div className="col-xs-12 col-md-4 col-xl-4">
+              <div className="hidden-xs hidden-sm hidden-md hidden-lg col-xl" />
+              <div className="col-xs-12 col-md-4 col-xl-3">
                 <SpecialOffer offer={specialOffers[1]} />
               </div>
-              <div className="col-xs-12 col-md-4 col-xl-4">
+              <div className="hidden-xs hidden-sm hidden-md hidden-lg col-xl" />
+              <div className="col-xs-12 col-md-4 col-xl-3">
                 <SpecialOffer offer={specialOffers[2]} />
               </div>
+              <div className="hidden-xs hidden-sm hidden-md hidden-lg col-xl-1" />
             </div>
           </div>
         </div>
+        <div className="row">
+          <div className="col-xs-12 col-xl-10 col-xl-offset-1">
+            <Footer>
+              <Link href="#">Смотреть все спецпредложения</Link>
+              <StarNote>* средняя цена по направлению</StarNote>
+            </Footer>
+          </div>
+        </div>
       </div>
-      <Footer>
-        <Link href="#">Смотреть все спецпредложения</Link>
-        <StarNote>
-          <sup>*</sup>средняя цена по направлению
-        </StarNote>
-      </Footer>
     </SpecialOffers>
   );
 };

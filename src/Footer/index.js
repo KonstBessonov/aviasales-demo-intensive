@@ -51,7 +51,9 @@ const Link = styled.a`
 
 const Booking = styled.div`
   text-align: center;
+  margin-top: 3rem;
   ${minWidth.md`
+    margin-top: 4rem;
     text-align: left;
   `};
 `;
@@ -93,6 +95,9 @@ const AppLink = styled.a`
 
 const Copyright = styled.p`
   margin: 3rem 0;
+  ${minWidth.md`
+    margin: 4rem 0;
+  `};
 `;
 
 export default () => {

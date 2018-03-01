@@ -2,58 +2,24 @@ import React from "react";
 import styled from "styled-components";
 import { minWidth } from "../../../assets";
 
-const TopMark = styled.div`
+const marks = {
+  cheapest: { background: "#83d40b", text: "Самый дешевый", emoji: "🤑" },
+  fastest: { background: "#af7542", text: "Самый быстрый", emoji: "️⚡️" },
+  best: { background: "#c279d1", text: "Лучший билет", emoji: "😍" }
+};
+
+export const TopMark = styled(({ className, mark }) => (
+  <div className={className}>
+    {marks[mark].text} <span>{marks[mark].emoji}</span>
+  </div>
+))`
   font-size: 1.75rem;
   font-weight: 900;
   color: white;
   padding: 1rem;
   margin: 0 -8px;
+  background: ${({ mark }) => marks[mark].background};
   ${minWidth.md`
     display: none;
   `};
 `;
-
-const Cheapest = TopMark.extend`
-  background: #83d40b;
-`;
-
-const Fastest = TopMark.extend`
-  background: #af7542;
-`;
-
-const Best = TopMark.extend`
-  background: #c279d1;
-`;
-
-export const CheapestMark = () => {
-  return (
-    <Cheapest>
-      Самый дешевый{" "}
-      <span role="img" aria-label="Bucks eye">
-        🤑
-      </span>
-    </Cheapest>
-  );
-};
-
-export const FastestMark = () => {
-  return (
-    <Fastest>
-      Самый быстрый{" "}
-      <span role="img" aria-label="Lighting">
-        ⚡️
-      </span>
-    </Fastest>
-  );
-};
-
-export const BestMark = () => {
-  return (
-    <Best>
-      Самый лучший{" "}
-      <span role="img" aria-label="Love eye">
-        😍
-      </span>
-    </Best>
-  );
-};

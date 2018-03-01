@@ -8,7 +8,7 @@ import ScrollTop from "./ScrollTop";
 import FilterPanel from "./FilterPanel";
 import Filter from "./Filter";
 
-import { CheapestMark, FastestMark, BestMark } from "./TopMarks";
+import { TopMark } from "./TopMarks";
 import { results } from "./data";
 
 const Search = styled.div`
@@ -30,17 +30,17 @@ export default () => {
       <Helmet>
         <title>Результаты поиска</title>
       </Helmet>
+      <SearchParams />
       <div className="container">
-        <SearchParams />
         <ScrollTop />
         <Container>
           <FilterPanel />
           <Proposals>
-            <CheapestMark />
+            <TopMark mark="cheapest" />
             <Proposal result={results[0]} />
-            <FastestMark />
+            <TopMark mark="fastest" />
             <Proposal result={results[1]} />
-            <BestMark />
+            <TopMark mark="best" />
             <Proposal result={results[2]} />
             {results
               .slice(3)

@@ -1,3 +1,5 @@
+import React from "react";
+
 import earth from "./earth.svg";
 import palm from "./palm.svg";
 import cart from "./cart.svg";
@@ -16,12 +18,54 @@ import flag_ru from "./flag-ru.png";
 import flag_es from "./flag-es.png";
 
 export const category = {
-  anywhere: { text: "КУДА УГОДНО", img: earth },
-  sea: { text: "СОЛНЦЕ И МОРЕ", img: palm },
-  shop: { text: "ШОППИНГ, ГОРОД", img: cart },
-  culture: { text: "КУЛЬТУРА И ИСТОРИЯ", img: temple },
-  nightlife: { text: "НОЧНАЯ ЖИЗНЬ", img: glass },
-  child: { text: "ОТДЫХ С ДЕТЬМИ", img: baby }
+  anywhere: {
+    text: (
+      <span>
+        КУДА<br />УГОДНО
+      </span>
+    ),
+    img: earth
+  },
+  sea: {
+    text: (
+      <span>
+        СОЛНЦЕ<br />И МОРЕ
+      </span>
+    ),
+    img: palm
+  },
+  shop: {
+    text: (
+      <span>
+        ШОППИНГ,<br />ГОРОД
+      </span>
+    ),
+    img: cart
+  },
+  culture: {
+    text: (
+      <span>
+        КУЛЬТУРА<br />И ИСТОРИЯ
+      </span>
+    ),
+    img: temple
+  },
+  nightlife: {
+    text: (
+      <span>
+        НОЧНАЯ<br />ЖИЗНЬ
+      </span>
+    ),
+    img: glass
+  },
+  child: {
+    text: (
+      <span>
+        ОТДЫХ<br />С ДЕТЬМИ
+      </span>
+    ),
+    img: baby
+  }
 };
 
 export const destination = [

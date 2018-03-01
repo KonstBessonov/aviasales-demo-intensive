@@ -5,6 +5,7 @@ const Body = styled.div`
   color: #242424;
   background: #ffffff;
   padding: 1rem;
+  text-align: left;
 `;
 
 const Details = styled.div`
@@ -43,8 +44,10 @@ const Days = styled.div`
 `;
 
 const OfferText = styled.p`
+  font-size: 1.5rem;
   line-height: 2.5rem;
-  min-height: 12rem;
+  min-height: 8rem;
+  margin-bottom: 3rem;
 `;
 
 const Link = styled.a`

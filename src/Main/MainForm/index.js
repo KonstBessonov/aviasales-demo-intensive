@@ -16,7 +16,11 @@ export default () => {
       <div className="container">
         <Logo />
         <Title />
-        <DirectionForm />
+        <div className="row">
+          <div className="col-xs-12 col-md-10 col-md-offset-1">
+            <DirectionForm />
+          </div>
+        </div>
       </div>
     </Header>
   );

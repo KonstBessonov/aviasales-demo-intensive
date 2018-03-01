@@ -8,9 +8,12 @@ import phone_lg from "./phone-lg.png";
 const Wrapper = styled.div`
   height: 100%;
   position: relative;
+  padding: 0;
 `;
 
 const Picture = styled.picture`
+  padding: 0;
+  margin: 0;
   ${minWidth.md`
     position: absolute;
     bottom: 0;
