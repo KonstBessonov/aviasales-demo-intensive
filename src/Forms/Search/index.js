@@ -2,13 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import { Helmet } from "react-helmet";
 
+import { minWidth } from "../../assets";
+
 import SearchParams from "./SearchParams";
 import Proposal from "./Proposal";
 import ScrollTop from "./ScrollTop";
 import FilterPanel from "./FilterPanel";
 import Filter from "./Filter";
-
 import TopMark from "./TopMarks";
+
 import { results } from "./data";
 
 const Search = styled.div`
@@ -22,6 +24,21 @@ const Container = styled.div`
 
 const Proposals = styled.div`
   flex: 1 1 auto;
+`;
+
+const MoreResults = styled.button`
+  background-color: #00acde;
+  border: none;
+  border-radius: 0.5rem;
+  color: #ffffff;
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  margin-top: 1.5rem;
+  padding: 2rem;
+  width: 100%;
+  display: none;
+  ${minWidth.md`
+    display: unset;`};
 `;
 
 export default () => {
@@ -45,6 +62,7 @@ export default () => {
             {results
               .slice(3)
               .map((result, idx) => <Proposal key={idx} result={result} />)}
+            <MoreResults>ПОКАЗАТЬ ЕЩЁ 10 БИЛЕТОВ</MoreResults>
           </Proposals>
         </Container>
         <Filter />
