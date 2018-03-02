@@ -53,7 +53,7 @@ export default () => {
                 <OriginText>
                   Популярные направления перелетов из города{" "}
                   <OriginCity>
-                    Оренбург <Img src={pen} />
+                    Москва <Img src={pen} />
                   </OriginCity>
                 </OriginText>
               </div>

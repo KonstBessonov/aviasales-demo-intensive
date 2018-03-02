@@ -264,8 +264,8 @@ class DirectionForm extends React.Component {
       <Container>
         <InputBig>
           <InputWrapper>
-            <PlaceInput defaultValue="Оренбург" placeholder="Город вылета" />
-            <IATACode>REN</IATACode>
+            <PlaceInput defaultValue="Москва" placeholder="Город вылета" />
+            <IATACode>MOW</IATACode>
             <SwapPlaces />
           </InputWrapper>
         </InputBig>
