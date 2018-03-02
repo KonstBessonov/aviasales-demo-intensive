@@ -8,14 +8,33 @@ import russia_sm from "./images/russia_sm.png";
 import redw_sm from "./images/redw_sm.png";
 import some_sm from "./images/some_sm.png";
 
+export const partners = {
+  1: "Clickavia",
+  2: "Biletix",
+  3: "Svyaznoy Travel",
+  4: "Билетик Аэро",
+  5: "Авиакасса"
+};
+
+export const airports = {
+  VKO: { name: "Внуково", city: "MOW" },
+  SVO: { name: "Шереметьево", city: "MOW" },
+  BCN: { name: "Барселона", city: "BCN" },
+  CDG: { name: "Шарль-де-Голль", city: "PAR" }
+};
+
+export const cities = {
+  MOW: "Москва",
+  BCN: "Барселона",
+  PAR: "Париж"
+};
+
 export const results = [
   {
-    price: 7712,
+    prices: [{ partnerId: 1, price: 7712 }],
     airline: russia,
     badges: { isCharter: true },
-    partner: "Cliackavia",
-    handbags: 5,
-    baggage: "1PC15",
+    baggage: [{ handbag: 5, baggage: 15, selected: true }],
     segments: [
       {
         segmentAirports: ["VKO", "BCN"],
@@ -36,13 +55,19 @@ export const results = [
     ]
   },
   {
-    price: 9269,
+    prices: [
+      { partnerId: 2, price: 9269 },
+      { partnerId: 3, price: 9275 },
+      { partnerId: 4, price: 9587 },
+      { partnerId: 101, price: 10000 },
+      { partnerId: 102, price: 11000 },
+      { partnerId: 103, price: 12000 },
+      { partnerId: 104, price: 13000 }
+    ],
     ticketsRemain: 4,
     airline: fly,
     badges: { isCharter: true },
-    partner: "Biletix",
-    handbags: undefined,
-    baggage: "1PC20",
+    baggage: [{ handbag: 0, baggage: 20, selected: true }],
     segments: [
       {
         segmentAirports: ["VKO", "BCN"],
@@ -60,23 +85,13 @@ export const results = [
         arrival_date: "2018-03-03",
         duration: 255
       }
-    ],
-    others: [
-      { partner: "Svyaznoy Travel", price: 9275 },
-      { partner: "Билетик Аэро", price: 9587 },
-      { partner: "Other 1", price: 10000 },
-      { partner: "Other 2", price: 11000 },
-      { partner: "Other 3", price: 12000 },
-      { partner: "Other 4", price: 13000 }
     ]
   },
   {
-    price: 8029,
+    prices: [{ partnerId: 4, price: 8029 }],
     airline: nordw,
     badges: {},
-    partner: "Билетик Аэро",
-    handbags: 5,
-    baggage: "",
+    baggage: [{ handbag: 5, baggage: 0, selected: true }],
     segments: [
       {
         segmentAirports: ["VKO", "BCN"],
@@ -97,12 +112,13 @@ export const results = [
     ]
   },
   {
-    price: 8164,
+    prices: [{ partnerId: 5, price: 8164 }],
     airline: nordw2,
     badges: { isCharter: true },
-    partner: "Авиакасса",
-    handbags: 5,
-    baggage: "",
+    baggage: [
+      { handbag: 5, baggage: 0, selected: false },
+      { handbag: 5, baggage: 12, selected: true, extraCost: 136 }
+    ],
     segments: [
       {
         segmentAirports: ["VKO", "BCN"],
@@ -123,12 +139,20 @@ export const results = [
     ]
   },
   {
-    price: 8240,
+    prices: [
+      { partnerId: 4, price: 8240 },
+      { partnerId: 3, price: 9275 },
+      { partnerId: 4, price: 9587 },
+      { partnerId: 101, price: 10000 },
+      { partnerId: 102, price: 11000 },
+      { partnerId: 103, price: 12000 }
+    ],
     airline: redw,
     badges: { isCharter: true },
-    partner: "Билетик Аэро",
-    handbags: 10,
-    baggage: "",
+    baggage: [
+      { handbag: 10, baggage: 0, selected: false },
+      { handbag: 10, baggage: 20, selected: true, extraCost: 267 }
+    ],
     segments: [
       {
         segmentAirports: ["VKO", "BCN"],
@@ -146,22 +170,13 @@ export const results = [
         arrival_date: "2018-03-03",
         duration: 270
       }
-    ],
-    others: [
-      { partner: "Svyaznoy Travel", price: 9275 },
-      { partner: "Билетик Аэро", price: 9587 },
-      { partner: "Other 1", price: 10000 },
-      { partner: "Other 2", price: 11000 },
-      { partner: "Other 3", price: 12000 }
     ]
   },
   {
-    price: 9108,
+    prices: [{ partnerId: 1, price: 9108 }],
     airline: [redw_sm, russia_sm],
     badges: { isCharter: true },
-    partner: "Clickavia",
-    handbags: 10,
-    baggage: "1PC15",
+    baggage: [{ handbag: 10, baggage: 15, selected: true }],
     segments: [
       {
         segmentAirports: ["VKO", "BCN"],
@@ -182,12 +197,10 @@ export const results = [
     ]
   },
   {
-    price: 9485,
+    prices: [{ partnerId: 1, price: 9485 }],
     airline: [russia_sm, some_sm],
     badges: { isCharter: true },
-    partner: "Clickavia",
-    handbags: undefined,
-    baggage: "1PC15",
+    baggage: [{ handbag: 0, baggage: 15, selected: true }],
     segments: [
       {
         segmentAirports: ["VKO", "BCN"],

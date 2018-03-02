@@ -10,8 +10,7 @@ import plane_l from "./plane-l.svg";
 import segment_pin from "./segment-pin.svg";
 
 import Details from "./Details";
-
-const airportNames = { MOW: "Москва", BCN: "Барселона", CDG: "Шарль-де-Голль" };
+import { airports, cities } from "../../data";
 
 const formatDate = date =>
   format(parse(date), "D MMM YYYY, dd", { locale: ruLocale });
@@ -114,14 +113,19 @@ const Segment = ({ icon, data }) => {
           <Pin />
           <TimeText>{data.departure_time}</TimeText>
         </div>
-        <CityText>{airportNames[data.segmentAirports[0]]}</CityText>
+        <CityText>{cities[airports[data.segmentAirports[0]].city]}</CityText>
         <DateText>{formatDate(data.departure_date)}</DateText>
       </Departure>
       <Dash />
       <Arrival>
         <TimeText>{data.arrival_time}</TimeText>
         <CityText>
-          {airportNames[data.segmentAirports[data.segmentAirports.length - 1]]}
+          {
+            cities[
+              airports[data.segmentAirports[data.segmentAirports.length - 1]]
+                .city
+            ]
+          }
         </CityText>
         <DateText>{formatDate(data.arrival_date)}</DateText>
       </Arrival>

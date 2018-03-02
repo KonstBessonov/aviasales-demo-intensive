@@ -1,13 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import copy_link from "./copy-link.svg";
+import pluralize from "pluralize-ru";
+
+import { minWidth } from "../../../assets";
+import { partners } from "../data";
 
 import Logo from "./Logo.js";
 import { SegmentForward, SegmentReturn } from "./Segment";
 import Badges from "./Badges";
-import Baggage from "./Baggage";
+import { BaggageSection, BaggageData } from "./Baggage";
 import { Buy, Opener } from "./UI";
-import { minWidth } from "../../../assets";
+import OtherOffers from "./OtherOffers";
+
+import copy_link from "./copy-link.svg";
 
 const formatCurrency = new Intl.NumberFormat("ru-RU", {
   style: "currency",
@@ -15,6 +20,9 @@ const formatCurrency = new Intl.NumberFormat("ru-RU", {
   minimumFractionDigits: 0,
   maximumFractionDigits: 0
 }).format;
+
+const pluralizeTickets = qty =>
+  pluralize(qty, "%d билетов", "%d билет", "%d билета", "%d билетов");
 
 const Proposal = styled.div`
   background-color: #ffffff;
@@ -36,13 +44,25 @@ const LeftColumn = styled.div`
   text-align: center;
   flex: 0 0 25%;
   display: none;
-  padding: 1rem 3rem;
   ${minWidth.md`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     border-right: solid 1px #dddddd;
   `};
+`;
+
+const LastTickets = styled.div`
+  font-size: 1.5rem;
+  color: #ff654e;
+  line-height: 2.25rem;
+`;
+
+const BuySection = styled.div`
+  padding: 0 3rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 `;
 
 const RightColumn = styled.div`
@@ -101,14 +121,32 @@ export default ({ result }) => {
     <Proposal>
       <Container>
         <LeftColumn>
-          <Baggage handbag={5} baggage={20} />
-          <Buy>Купить за {formatCurrency(result.price)}</Buy>
-          <Partner>на {result.partner}</Partner>
+          <BaggageSection compact={result.baggage.length === 1}>
+            {result.baggage.map((data, idx) => (
+              <BaggageData
+                key={idx}
+                data={data}
+                compact={result.baggage.length === 1}
+              />
+            ))}
+          </BaggageSection>
+          <BuySection>
+            {result.ticketsRemain && (
+              <LastTickets>
+                Осталось {pluralizeTickets(result.ticketsRemain)}
+              </LastTickets>
+            )}
+            <Buy>Купить за {formatCurrency(result.prices[0].price)}</Buy>
+            <Partner>на {partners[result.prices[0].partnerId]}</Partner>
+            {result.prices.length > 1 && (
+              <OtherOffers prices={result.prices.slice(1)} />
+            )}
+          </BuySection>
         </LeftColumn>
 
         <RightColumn>
           <PriceCarrier>
-            <InlinePrice>{formatCurrency(result.price)}</InlinePrice>
+            <InlinePrice>{formatCurrency(result.prices[0].price)}</InlinePrice>
             <Logo airline={result.airline} />
             <Badges badges={result.badges} />
             <CopyLink />
