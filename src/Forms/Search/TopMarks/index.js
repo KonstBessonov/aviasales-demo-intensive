@@ -8,11 +8,7 @@ const marks = {
   best: { background: "#c279d1", text: "Лучший билет", emoji: "😍" }
 };
 
-export const TopMark = styled(({ className, mark }) => (
-  <div className={className}>
-    {marks[mark].text} <span>{marks[mark].emoji}</span>
-  </div>
-))`
+const TopMark = styled.div`
   font-size: 1.75rem;
   font-weight: 900;
   color: white;
@@ -23,3 +19,9 @@ export const TopMark = styled(({ className, mark }) => (
     display: none;
   `};
 `;
+
+export default ({ mark }) => (
+  <TopMark mark={mark}>
+    {marks[mark].text} <span>{marks[mark].emoji}</span>
+  </TopMark>
+);

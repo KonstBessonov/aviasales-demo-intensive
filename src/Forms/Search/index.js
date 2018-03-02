@@ -8,7 +8,7 @@ import ScrollTop from "./ScrollTop";
 import FilterPanel from "./FilterPanel";
 import Filter from "./Filter";
 
-import { TopMark } from "./TopMarks";
+import TopMark from "./TopMarks";
 import { results } from "./data";
 
 const Search = styled.div`
