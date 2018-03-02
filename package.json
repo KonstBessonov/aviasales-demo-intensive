@@ -6,6 +6,7 @@
     "date-fns": "^1.29.0",
     "flexboxgrid2": "^7.1.0",
     "normalize.css": "^8.0.0",
+    "pluralize-ru": "^1.0.1",
     "rc-slider": "^8.6.0",
     "react": "^16.2.0",
     "react-clickoutside": "^2.0.0",
