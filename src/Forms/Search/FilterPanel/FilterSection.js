@@ -43,8 +43,10 @@ class Section extends React.Component {
     this.state = { isOpen: !!props.initialOpen };
   }
 
-  handleClick = () => {
-    this.setState(prevState => ({ isOpen: !prevState.isOpen }));
+  handleClick = e => {
+    if (!e.defaultPrevented) {
+      this.setState(prevState => ({ isOpen: !prevState.isOpen }));
+    }
   };
 
   render() {
@@ -55,7 +57,12 @@ class Section extends React.Component {
           {this.props.badge && <Badge>{this.props.badge}</Badge>}
           <Spacer />
           {this.props.filterPresent && (
-            <ClearBtn onClick={this.handleClearClick} />
+            <ClearBtn
+              onClick={e => {
+                e.preventDefault();
+                this.handleClearClick && this.handleClearClick(e);
+              }}
+            />
           )}
         </Header>
         {this.state.isOpen && this.props.children}
