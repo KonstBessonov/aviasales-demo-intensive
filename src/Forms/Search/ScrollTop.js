@@ -40,7 +40,7 @@ const Filter = styled.button`
   ${minWidth.md`
     display: initial;
   `};
-  ${minWidth.lg`
+  ${minWidth.xl`
     display: none;
   `};
 `;
