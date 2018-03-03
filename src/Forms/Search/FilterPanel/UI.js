@@ -3,6 +3,9 @@ import styled from "styled-components";
 import Range from "rc-slider/lib/Range";
 import "rc-slider/assets/index.css";
 
+import checked from "./checked.svg";
+import unchecked from "./unchecked.svg";
+
 const formatCurrency = new Intl.NumberFormat("ru-RU", {
   style: "currency",
   currency: "RUB",
@@ -18,19 +21,51 @@ const CheckBoxWrapper = styled.div`
   line-height: 4.5rem;
 `;
 
+const Checkbox = styled.input`
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+`;
+
+const Check = styled.span`
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 0;
+  transition-duration: 0.1s;
+  background-image: url(${unchecked});
+`;
+
+const Label = styled.label`
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #4a4a4a;
+  line-height: 4.5rem;
+  padding-left: 3rem;
+  cursor: pointer;
+
+  & ${Checkbox}:checked ~ ${Check} {
+    background-image: url(${checked});
+  }
+`;
+
 const Price = styled.span`
+  cursor: pointer;
   color: #a0b0b9;
 `;
 
 export const CheckBox = styled(
   ({ checked, title, price, onChange, onValueClick }) => (
     <CheckBoxWrapper>
-      <label>
-        <input type="checkbox" checked={checked} onChange={onChange} /> {title}
-      </label>
-      {price > 0 && (
-        <Price onClick={onValueClick}>{formatCurrency(price)}</Price>
-      )}
+      <Label>
+        <span>{title}</span>
+        <Checkbox type="checkbox" checked={checked} onChange={onChange} />
+        <Check />
+      </Label>
+      <Price onClick={onValueClick}>{price > 0 && formatCurrency(price)}</Price>
     </CheckBoxWrapper>
   )
 )``;
