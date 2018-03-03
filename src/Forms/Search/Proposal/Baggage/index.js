@@ -6,12 +6,7 @@ import baggage from "./baggage.svg";
 import no_baggage from "./no-baggage.svg";
 import no_baggage_red from "./no-baggage-red.svg";
 
-const formatCurrency = new Intl.NumberFormat("ru-RU", {
-  style: "currency",
-  currency: "RUB",
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 0
-}).format;
+import FormattedCurrency from "../../../../UI/FormattedCurrency";
 
 const Baggage = styled.div`
   flex: 0 0 50%;
@@ -109,7 +104,9 @@ export const BaggageData = ({ data, compact }) => (
     </Badges>
     {compact ||
       !data.extraCost || (
-        <ExtraCost>- {formatCurrency(data.extraCost)}</ExtraCost>
+        <ExtraCost>
+          - <FormattedCurrency value={data.extraCost} />
+        </ExtraCost>
       )}
     {compact || !!data.baggage || <NoBaggage>Нет багажа</NoBaggage>}
   </Baggage>

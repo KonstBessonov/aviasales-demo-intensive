@@ -14,12 +14,7 @@ import OtherOffers from "./OtherOffers";
 
 import copy_link from "./copy-link.svg";
 
-const formatCurrency = new Intl.NumberFormat("ru-RU", {
-  style: "currency",
-  currency: "RUB",
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 0
-}).format;
+import FormattedCurrency from "../../../UI/FormattedCurrency";
 
 const pluralizeTickets = qty =>
   pluralize(qty, "%d билетов", "%d билет", "%d билета", "%d билетов");
@@ -136,7 +131,9 @@ export default ({ result }) => {
                 Осталось {pluralizeTickets(result.ticketsRemain)}
               </LastTickets>
             )}
-            <Buy>Купить за {formatCurrency(result.prices[0].price)}</Buy>
+            <Buy>
+              Купить за <FormattedCurrency value={result.prices[0].price} />
+            </Buy>
             <Partner>на {partners[result.prices[0].partnerId]}</Partner>
             {result.prices.length > 1 && (
               <OtherOffers prices={result.prices.slice(1)} />
@@ -146,7 +143,9 @@ export default ({ result }) => {
 
         <RightColumn>
           <PriceCarrier>
-            <InlinePrice>{formatCurrency(result.prices[0].price)}</InlinePrice>
+            <InlinePrice>
+              <FormattedCurrency value={result.prices[0].price} />
+            </InlinePrice>
             <Logo airline={result.airline} />
             <Badges badges={result.badges} />
             <CopyLink />

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import DayPicker from "react-day-picker";
 import { withClickOutside } from "react-clickoutside";
+import FormattedCurrency from "../../UI/FormattedCurrency";
 
 import "./daypicker.css";
 import switch_off from "./switch-off.svg";
@@ -86,7 +87,11 @@ const renderDay = (day, { disabled }) => {
   return (
     <div>
       <Day>{date}</Day>
-      {<Price>{dayPrices[date]}</Price>}
+      {dayPrices[date] && (
+        <Price>
+          <FormattedCurrency value={dayPrices[date]} />
+        </Price>
+      )}
     </div>
   );
 };

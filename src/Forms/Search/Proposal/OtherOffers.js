@@ -3,6 +3,8 @@ import styled from "styled-components";
 import pluralize from "pluralize-ru";
 import { partners } from "../data";
 
+import FormattedCurrency from "../../../UI/FormattedCurrency";
+
 const pluralizeOffers = qty =>
   pluralize(
     qty,
@@ -11,13 +13,6 @@ const pluralizeOffers = qty =>
     "%d предложения",
     "%d предложений"
   );
-
-const formatCurrency = new Intl.NumberFormat("ru-RU", {
-  style: "currency",
-  currency: "RUB",
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 0
-}).format;
 
 const OtherOffers = styled.div`
   color: #59bce5;
@@ -35,7 +30,7 @@ const OfferWrapper = styled.div`
 const Offer = ({ data }) => (
   <OfferWrapper>
     <span>{partners[data.partnerId]}</span>
-    <span>{formatCurrency(data.price)}</span>
+    <FormattedCurrency value={data.price} />
   </OfferWrapper>
 );
 

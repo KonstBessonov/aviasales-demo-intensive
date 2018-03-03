@@ -7,12 +7,7 @@ import checked from "./checked.svg";
 import unchecked from "./unchecked.svg";
 import clear from "./clear.svg";
 
-const formatCurrency = new Intl.NumberFormat("ru-RU", {
-  style: "currency",
-  currency: "RUB",
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 0
-}).format;
+import FormattedCurrency from "../../../UI/FormattedCurrency";
 
 const CheckBoxWrapper = styled.div`
   display: flex;
@@ -66,7 +61,9 @@ export const CheckBox = styled(
         <Checkbox type="checkbox" checked={checked} onChange={onChange} />
         <Check />
       </Label>
-      <Price onClick={onValueClick}>{price > 0 && formatCurrency(price)}</Price>
+      <Price onClick={onValueClick}>
+        {price > 0 && <FormattedCurrency value={price} />}
+      </Price>
     </CheckBoxWrapper>
   )
 )``;

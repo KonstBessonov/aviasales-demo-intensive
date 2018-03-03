@@ -2,13 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Header from "./Header";
-
-const formatCurrency = new Intl.NumberFormat("ru-RU", {
-  style: "currency",
-  currency: "RUB",
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 0
-}).format;
+import FormattedCurrency from "../../UI/FormattedCurrency";
 
 const BestPrice = styled.div`
   margin-top: 3rem;
@@ -39,7 +33,9 @@ export default ({ data: { destination, prices } }) => {
       {prices.map(({ price, origin }) => (
         <Row>
           <CityText>Из {origin}</CityText>
-          <PriceText>от {formatCurrency(price)}</PriceText>
+          <PriceText>
+            от <FormattedCurrency value={price} />
+          </PriceText>
         </Row>
       ))}
     </BestPrice>

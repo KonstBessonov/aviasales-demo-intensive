@@ -2,12 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { minWidth } from "../../assets";
 
-const formatCurrency = new Intl.NumberFormat("ru-RU", {
-  style: "currency",
-  currency: "RUB",
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 0
-}).format;
+import FormattedCurrency from "../../UI/FormattedCurrency";
 
 const Destination = styled.div`
   font-size: 1.5rem;
@@ -62,12 +57,6 @@ const RightColumn = styled.div`
   `};
 `;
 
-const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 0.5rem 2rem;
-`;
-
 const CityText = styled.div`
   font-size: 2.5rem;
   font-weight: bold;
@@ -104,7 +93,7 @@ export default props => {
         </LeftColumn>
         <RightColumn>
           <PriceText>
-            Найти от {formatCurrency(props.destination.price)}
+            Найти от <FormattedCurrency value={props.destination.price} />
           </PriceText>
           <DateText>{props.destination.date}</DateText>
         </RightColumn>
