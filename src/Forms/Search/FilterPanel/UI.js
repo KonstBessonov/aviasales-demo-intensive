@@ -5,6 +5,7 @@ import "rc-slider/assets/index.css";
 
 import checked from "./checked.svg";
 import unchecked from "./unchecked.svg";
+import clear from "./clear.svg";
 
 const formatCurrency = new Intl.NumberFormat("ru-RU", {
   style: "currency",
@@ -94,3 +95,12 @@ export const RangeFilter = props => {
     </RangeContainer>
   );
 };
+
+export const Clear = styled.img`
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(${clear});
+  border: none;
+  padding: 1rem;
+`;

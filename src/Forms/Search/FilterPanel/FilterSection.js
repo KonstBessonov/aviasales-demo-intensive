@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import arrow from "./arrow.svg";
+import { Clear } from "./UI";
 
 const OpenMark = styled(({ className, isOpen }) => (
   <img className={className} src={arrow} alt="" />
@@ -9,27 +10,37 @@ const OpenMark = styled(({ className, isOpen }) => (
   ${({ isOpen }) => isOpen && `transform: rotate(90deg);`};
 `;
 
-const Header = styled(({ className, children, isOpen, onClick }) => {
-  return (
-    <div className={className} onClick={onClick}>
-      <OpenMark isOpen={isOpen} />
-      {children}
-    </div>
-  );
-})`
+const HeaderWrapper = styled.div`
   cursor: pointer;
+  display: flex;
+  align-items: center;
   ${({ isOpen }) => (isOpen ? `padding: 0 0 2rem 0` : `padding: 0`)};
 `;
+
+const Header = ({ children, isOpen, onClick }) => {
+  return (
+    <HeaderWrapper onClick={onClick}>
+      <OpenMark isOpen={isOpen} />
+      {children}
+    </HeaderWrapper>
+  );
+};
 
 const Badge = styled.span`
   color: #a0b0b9;
   padding-left: 1rem;
 `;
 
+const ClearBtn = Clear.withComponent("btn");
+
+const Spacer = styled.span`
+  flex-grow: 1;
+`;
+
 class Section extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isOpen: props.initialOpen };
+    this.state = { isOpen: !!props.initialOpen };
   }
 
   handleClick = () => {
@@ -40,10 +51,14 @@ class Section extends React.Component {
     return (
       <div className={this.props.className}>
         <Header isOpen={this.state.isOpen} onClick={this.handleClick}>
-          {this.props.title}
-          {this.props.badge !== undefined && <Badge>{this.props.badge}</Badge>}
+          <span>{this.props.title}</span>
+          {this.props.badge && <Badge>{this.props.badge}</Badge>}
+          <Spacer />
+          {this.props.filterPresent && (
+            <ClearBtn onClick={this.handleClearClick} />
+          )}
         </Header>
-        {this.state.isOpen === true && this.props.children}
+        {this.state.isOpen && this.props.children}
       </div>
     );
   }

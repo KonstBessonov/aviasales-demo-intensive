@@ -5,7 +5,7 @@ import "rc-slider/assets/index.css";
 
 import { minWidth } from "../../../assets";
 import FilterSection from "./FilterSection";
-import { CheckBox, RangeFilter } from "./UI";
+import { CheckBox, RangeFilter, Clear } from "./UI";
 import plane from "./plane.svg";
 
 const FilterPanel = styled.div`
@@ -36,18 +36,20 @@ const ClearFilters = styled.button`
   width: 100%;
   background: none;
   border: none;
-  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export default () => {
   return (
     <FilterPanel>
-      <FilterSection title="ПЕРЕСАДКИ" initialOpen>
-        <CheckBox defaultChecked={false} title="Все" />
-        <CheckBox defaultChecked={true} title="Без пересадок" price={7712} />
-        <CheckBox defaultChecked={false} title="1 пересадка" price={11150} />
-        <CheckBox defaultChecked={false} title="2 пересадки" price={16821} />
-        <CheckBox defaultChecked={false} title="3 пересадки" price={23986} />
+      <FilterSection title="ПЕРЕСАДКИ" initialOpen filterPresent>
+        <CheckBox checked={false} title="Все" />
+        <CheckBox checked={true} title="Без пересадок" price={7712} />
+        <CheckBox checked={false} title="1 пересадка" price={11150} />
+        <CheckBox checked={false} title="2 пересадки" price={16821} />
+        <CheckBox checked={false} title="3 пересадки" price={23986} />
       </FilterSection>
       <FilterSection title="ВРЕМЯ ВЫЛЕТА И ПРИБЫТИЯ" initialOpen>
         <FilterHeader>
@@ -116,49 +118,33 @@ export default () => {
         />
       </FilterSection>
       <FilterSection title="АВИАКОМПАНИИ" initialOpen badge={43}>
-        <CheckBox defaultChecked={false} title="Несколько авиакомпаний" />
+        <CheckBox checked={false} title="Несколько авиакомпаний" />
         <span>
           Показывать билеты с перелетами, выполняемыми несколькими
           авиакомпаниями, включая выбранную
         </span>
         <div>
           <FilterHeader>Альянсы</FilterHeader>
-          <CheckBox defaultChecked={true} title="Все" />
-          <CheckBox defaultChecked={true} title="Star Alliance" price={11150} />
-          <CheckBox defaultChecked={true} title="OneWorld" price={12370} />
-          <CheckBox defaultChecked={true} title="SkyTeam" price={16290} />
+          <CheckBox checked={true} title="Все" />
+          <CheckBox checked={true} title="Star Alliance" price={11150} />
+          <CheckBox checked={true} title="OneWorld" price={12370} />
+          <CheckBox checked={true} title="SkyTeam" price={16290} />
         </div>
         <div>
           <FilterHeader>Авиакомпании</FilterHeader>
-          <CheckBox defaultChecked={true} title="Все" />
-          <CheckBox
-            defaultChecked={true}
-            title="Aegean Airlines"
-            price={20357}
-          />
+          <CheckBox checked={true} title="Все" />
+          <CheckBox checked={true} title="Aegean Airlines" price={20357} />
 
-          <CheckBox defaultChecked={true} title="Air Algerie" price={29105} />
-          <CheckBox defaultChecked={true} title="Air Europa" price={22202} />
-          <CheckBox defaultChecked={true} title="Air France" price={17050} />
-          <CheckBox defaultChecked={true} title="Air Moldova" price={22630} />
-          <CheckBox defaultChecked={true} title="Alitalia" price={22717} />
-          <CheckBox
-            defaultChecked={true}
-            title="Alitalia CityLiner"
-            price={20271}
-          />
-          <CheckBox defaultChecked={true} title="Belle Air" price={18371} />
-          <CheckBox
-            defaultChecked={true}
-            title="British Airways"
-            price={23839}
-          />
-          <CheckBox
-            defaultChecked={true}
-            title="Brussels Airlines"
-            price={11150}
-          />
-          <CheckBox defaultChecked={true} title="Bulgaria Air" price={20114} />
+          <CheckBox checked={true} title="Air Algerie" price={29105} />
+          <CheckBox checked={true} title="Air Europa" price={22202} />
+          <CheckBox checked={true} title="Air France" price={17050} />
+          <CheckBox checked={true} title="Air Moldova" price={22630} />
+          <CheckBox checked={true} title="Alitalia" price={22717} />
+          <CheckBox checked={true} title="Alitalia CityLiner" price={20271} />
+          <CheckBox checked={true} title="Belle Air" price={18371} />
+          <CheckBox checked={true} title="British Airways" price={23839} />
+          <CheckBox checked={true} title="Brussels Airlines" price={11150} />
+          <CheckBox checked={true} title="Bulgaria Air" price={20114} />
         </div>
       </FilterSection>
       <FilterSection title="АЭРОПОРТЫ">Панель фильтров</FilterSection>
@@ -168,7 +154,9 @@ export default () => {
       <FilterSection title="АГЕНТСТВА" badge={26}>
         Панель фильтров
       </FilterSection>
-      <ClearFilters>СБРОСИТЬ ВСЕ ФИЛЬТРЫ</ClearFilters>
+      <ClearFilters>
+        СБРОСИТЬ ВСЕ ФИЛЬТРЫ<Clear />
+      </ClearFilters>
     </FilterPanel>
   );
 };
