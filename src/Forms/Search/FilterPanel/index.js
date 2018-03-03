@@ -21,6 +21,15 @@ const FilterPanel = styled.div`
   `};
 `;
 
+const FilterHeader = styled.h4`
+  display: flex;
+  align-items: center;
+`;
+
+const PlaneIcon = styled.img`
+  padding: 0 1rem;
+`;
+
 const ClearFilters = styled.button`
   color: #00bde4;
   padding 2rem;
@@ -41,9 +50,9 @@ export default () => {
         <CheckBox defaultChecked={false} title="3 пересадки" price={23986} />
       </FilterSection>
       <FilterSection title="ВРЕМЯ ВЫЛЕТА И ПРИБЫТИЯ" initialOpen>
-        <h4>
-          Москва <img src={plane} alt="" /> Барселона
-        </h4>
+        <FilterHeader>
+          Москва <PlaneIcon src={plane} alt="" /> Барселона
+        </FilterHeader>
         <RangeFilter
           title="Вылет из Москвы:"
           startText="c 00:05, 24 фев"
@@ -60,9 +69,9 @@ export default () => {
           max={100}
           defaultValue={[0, 100]}
         />
-        <h4>
-          Барселона <img src={plane} alt="" /> Москва
-        </h4>
+        <FilterHeader>
+          Барселона <PlaneIcon src={plane} alt="" /> Москва
+        </FilterHeader>
         <RangeFilter
           title="Вылет из Барселоны:"
           startText="c 06:00, 3 мар"
@@ -85,9 +94,9 @@ export default () => {
         Панель фильтров
       </FilterSection>
       <FilterSection title="ВРЕМЯ В ПУТИ" initialOpen>
-        <h4>
-          Москва <img src={plane} alt="" /> Барселона
-        </h4>
+        <FilterHeader>
+          Москва <PlaneIcon src={plane} alt="" /> Барселона
+        </FilterHeader>
         <RangeFilter
           startText="от 4 ч 20 м"
           endText="до 48 ч 50 м"
@@ -95,9 +104,9 @@ export default () => {
           max={100}
           defaultValue={[0, 100]}
         />
-        <h4>
-          Барселона <img src={plane} alt="" /> Москва
-        </h4>
+        <FilterHeader>
+          Барселона <PlaneIcon src={plane} alt="" /> Москва
+        </FilterHeader>
         <RangeFilter
           startText="от 4 ч 10 м"
           endText="до 41 ч 20 м"
@@ -113,14 +122,14 @@ export default () => {
           авиакомпаниями, включая выбранную
         </span>
         <div>
-          <h4>Альянсы</h4>
+          <FilterHeader>Альянсы</FilterHeader>
           <CheckBox defaultChecked={true} title="Все" />
           <CheckBox defaultChecked={true} title="Star Alliance" price={11150} />
           <CheckBox defaultChecked={true} title="OneWorld" price={12370} />
           <CheckBox defaultChecked={true} title="SkyTeam" price={16290} />
         </div>
         <div>
-          <h4>Авиакомпании</h4>
+          <FilterHeader>Авиакомпании</FilterHeader>
           <CheckBox defaultChecked={true} title="Все" />
           <CheckBox
             defaultChecked={true}
