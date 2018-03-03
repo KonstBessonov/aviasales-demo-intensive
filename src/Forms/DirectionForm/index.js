@@ -260,6 +260,8 @@ class DirectionForm extends React.Component {
   };
 
   render = () => {
+    const { from, to } = this.state;
+    const modifiers = { start: from, end: to };
     return (
       <Container>
         <InputBig>
@@ -278,7 +280,7 @@ class DirectionForm extends React.Component {
         <InputSmall>
           <InputWrapper>
             <DateInput
-              value={formatDate(this.state.from)}
+              value={formatDate(from)}
               placeholder="Туда"
               onClick={() => this.handleDateInputClick("from")}
             />
@@ -288,7 +290,8 @@ class DirectionForm extends React.Component {
                 <DayPicker
                   onClickOutside={this.handleClickOutside}
                   onDayClick={this.handleDayClick}
-                  selectedDays={this.state.from}
+                  modifiers={modifiers}
+                  selectedDays={[{ from, to }]}
                 />
               )}
           </InputWrapper>
@@ -296,20 +299,18 @@ class DirectionForm extends React.Component {
         <InputSmall>
           <InputWrapper>
             <DateInput
-              value={formatDate(this.state.to)}
+              value={formatDate(to)}
               placeholder="Обратно"
               onClick={() => this.handleDateInputClick("to")}
             />
-            <ClearDate
-              value={this.state.to}
-              onClick={() => this.handleClearDateClick()}
-            />
+            <ClearDate value={to} onClick={() => this.handleClearDateClick()} />
             {this.state.isPicker &&
               this.state.pickerField === "to" && (
                 <DayPicker
                   onClickOutside={this.handleClickOutside}
                   onDayClick={this.handleDayClick}
-                  selectedDays={this.state.to}
+                  modifiers={modifiers}
+                  selectedDays={[from, { from, to }]}
                 />
               )}
           </InputWrapper>

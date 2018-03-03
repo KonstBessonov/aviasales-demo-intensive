@@ -31,7 +31,7 @@ const Badge = styled.span`
   padding-left: 1rem;
 `;
 
-const ClearBtn = Clear.withComponent("btn");
+const ClearBtn = Clear.withComponent("button");
 
 const Spacer = styled.span`
   flex-grow: 1;

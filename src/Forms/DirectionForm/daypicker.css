@@ -11,7 +11,6 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  padding-bottom: 1rem;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
@@ -65,11 +64,11 @@
 
 .DayPicker-NavButton--prev {
   left: 1.5rem;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAOCAYAAADjXQYbAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABSSURBVHgBdc7BDUAhCANQ6uK6yc+fwHgyLodGD0aUciJ5DVSEzF9aBIPeJYHB3MHA4A0bPVjIYE5QVbfxPvvlmoAQXWQBc/IOPP/OgFuGdTCBAWFONXBf+UT4AAAAAElFTkSuQmCC");
+  background-image: url("./prev-month.svg");
 }
 
 .DayPicker-NavButton--next {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAOCAYAAADjXQYbAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABfSURBVHgBdY7BDYAgEATPjb35tgQrESsxVmB8Gns7jAYUjr15EGDmCLId1ywOiFGDF+BZvAB5wwKUBxvAPlUGvRBS0E5mVLUDn5RlGocAT5Df/qKSVnySiZd1P9vLxA3hgT+y8nbnXAAAAABJRU5ErkJggg==");
+  background-image: url("./next-month.svg");
 }
 
 .DayPicker-NavButton--interactionDisabled {
@@ -100,7 +99,7 @@
 
 .DayPicker-Weekday {
   display: table-cell;
-  padding: 1rem 2rem;
+  padding: 1rem 2.25rem;
   font-size: 1.75rem;
   font-weight: bold;
   color: #5b5b5c;
@@ -125,11 +124,14 @@
 
 .DayPicker-Day {
   display: table-cell;
-  padding: 1.5rem;
+  padding: 1rem 1rem 1rem 0;
   text-align: center;
   cursor: pointer;
   vertical-align: middle;
   outline: none;
+  line-height: 2.5rem;
+  height: 6rem;
+  position: relative;
 }
 
 .DayPicker-WeekNumber {
@@ -177,50 +179,55 @@
 .DayPicker-Day--disabled {
   color: #dce0e0;
   cursor: default;
-  /* background-color: #eff1f1; */
-}
-
-/* Example modifiers */
-
-.DayPicker-Day--sunday {
-  background-color: #f7f8f8;
-}
-
-.DayPicker-Day--sunday:not(.DayPicker-Day--today) {
-  color: #5a0606;
-}
-
-.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
-  position: relative;
-  background-color: #effbff;
-  border: #00ace2 solid 1px;
-}
-
-.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
-  background-color: #51a0fa;
 }
 
 .DayPicker:not(.DayPicker--interactionDisabled)
   .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
   background-color: #f0f8ff;
-  /* border-radius: 50%; */
 }
 
-/* DayPickerInput */
-
-.DayPickerInput {
-  display: inline-block;
+.DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+  background-color: #f4f4f4;
+  z-index: -2;
 }
 
-.DayPickerInput-OverlayWrapper {
-  position: relative;
+.DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside):hover {
+  background-color: #cfd6dd;
+  z-index: -2;
 }
 
-.DayPickerInput-Overlay {
-  left: 0;
-  z-index: 1;
+.DayPicker-Day--start {
+  background: transparent;
+}
+.DayPicker-Day--end {
+  background: transparent;
+}
+
+.DayPicker-Day--start::after {
+  background-color: #f4f4f4;
+  content: "";
+  display: block;
+  background-image: url("./range-from.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
   position: absolute;
-  background: white;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  top: 0;
+  z-index: -1;
+}
+
+.DayPicker-Day--end::after {
+  content: "";
+  display: block;
+  background-image: url("./range-to.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -7px;
+  z-index: -1;
 }

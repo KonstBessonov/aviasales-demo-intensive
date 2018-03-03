@@ -4,6 +4,7 @@ import DayPicker from "react-day-picker";
 import { withClickOutside } from "react-clickoutside";
 
 import "./daypicker.css";
+import switch_off from "./switch-off.svg";
 
 const WEEKDAYS_SHORT = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
 const WEEKDAYS_LONG = [
@@ -45,15 +46,56 @@ const Container = withClickOutside()(styled.div`
   border-radius: 2px;
 `);
 
-class Picker extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.onClickOutside = props.onClickOutside;
-  // }
+const OneWay = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  margin: 2rem 3rem;
+`;
 
+const Switch = styled.button`
+  padding: 1.5rem 2.5rem;
+  margin-right: 2rem;
+  background: none;
+  background-position: center;
+  packground-repeat: no-repeat;
+  background-image: url(${switch_off});
+  border: none;
+  cursor: pointer;
+`;
+
+const Day = styled.div``;
+
+const Price = styled.div`
+  color: #00c455;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+`;
+
+const dayPrices = {
+  24: 43606,
+  25: 43606,
+  26: 41920,
+  27: 42140,
+  28: 42130
+};
+
+const renderDay = (day, { disabled }) => {
+  const date = day.getDate();
+  return (
+    <div>
+      <Day>{date}</Day>
+      {<Price>{dayPrices[date]}</Price>}
+    </div>
+  );
+};
+
+class Picker extends React.Component {
   render() {
+    const { onClickOutside, ...restProps } = this.props;
     return (
-      <Container onClickOutside={this.props.onClickOutside}>
+      <Container onClickOutside={onClickOutside}>
         <DayPicker
           locale="ru"
           months={MONTHS}
@@ -61,10 +103,14 @@ class Picker extends React.Component {
           weekdaysShort={WEEKDAYS_SHORT}
           firstDayOfWeek={1}
           labels={LABELS}
-          onDayClick={this.props.onDayClick}
-          selectedDays={this.props.selectedDays}
           disabledDays={[{ before: new Date() }]}
+          renderDay={renderDay}
+          {...restProps}
         />
+        <OneWay>
+          <Switch />
+          <span>Показать цены в одну сторону</span>
+        </OneWay>
       </Container>
     );
   }
