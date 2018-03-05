@@ -15,12 +15,26 @@ const SearchParams = BlueSection.extend`
   `};
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
+const LinkLogo = styled.div`
+  display: none;
+  ${minWidth.md`
+      text-decoration: none;
+      display: initial;
+    `};
+`;
+
 const Header = styled.div`
   padding: 2rem 1rem;
   display: flex;
   align-items: center;
   ${minWidth.md`
-    padding: 1rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem 0 5rem 0;
   `};
 `;
 
@@ -79,10 +93,12 @@ export default () => {
     <SearchParams>
       <div className="container">
         <Header>
-          <Logo />
-          <Link to="/">
+          <StyledLink to="/">
+            <LinkLogo>
+              <Logo />
+            </LinkLogo>
             <Back />
-          </Link>
+          </StyledLink>
           <ParamsTextWrapper>
             <RouteText>Москва - Барселона</RouteText>
             <DatePax>24 фев - 3 март, 1 пассажир</DatePax>

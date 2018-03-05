@@ -1,20 +1,27 @@
 import React from "react";
+import styled from "styled-components";
 
 import { BlueSection } from "../../assets";
 import Logo from "../../UI/Logo";
 import Title from "./Title";
 import DirectionForm from "../../Forms/DirectionForm";
 
-const Header = BlueSection.extend`
+const Main = BlueSection.extend`
   min-height: 100vh;
   padding-bottom: 2rem;
 `;
 
+const Header = styled.div`
+  padding-top: 1rem;
+`;
+
 export default () => {
   return (
-    <Header>
+    <Main>
       <div className="container">
-        <Logo />
+        <Header>
+          <Logo />
+        </Header>
         <Title />
         <div className="row">
           <div className="col-xs-12 col-md-10 col-md-offset-1">
@@ -22,6 +29,6 @@ export default () => {
           </div>
         </div>
       </div>
-    </Header>
+    </Main>
   );
 };
