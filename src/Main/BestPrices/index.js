@@ -55,8 +55,7 @@ export default () => {
           </div>
         </div>
         <div className="row center-md">
-          <div className="hidden-xs col-xl-1" />
-          <div className="col-xs-12 col-md-10 col-xl-3">
+          <div className="col-xs-12 col-md-10 col-xl-3 col-xl-offset-1">
             <BestPrice data={bestPrices[0]} />
           </div>
           <div className="col-xs-12 col-md-10 col-xl">
@@ -71,7 +70,7 @@ export default () => {
           <div className="col-xs-12 col-md-10 col-xl-3">
             <BestPrice data={bestPrices[2]} />
           </div>
-          <div className="hidden-xs col-xl-1" />
+          <div className="col-xl-1" />
         </div>
 
         <div className="row">
