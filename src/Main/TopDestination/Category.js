@@ -6,7 +6,6 @@ const Category = styled.button`
   transition: color 0.3s;
   border: none;
   padding: 0;
-  margin: -0.5rem;
   background: inherit;
   ${props =>
     props.isActive ||
@@ -29,7 +28,7 @@ const Image = styled.img`
 
 const Text = styled.div`
   padding-bottom: 0.5rem;
-  margin-bottom: 6rem;
+  margin-bottom: 2.5rem;
   margin-top: 1.5rem;
   line-height: 2.5rem;
   ${props =>
