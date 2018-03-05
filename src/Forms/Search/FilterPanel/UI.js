@@ -62,20 +62,18 @@ const Price = styled.span`
   color: #a0b0b9;
 `;
 
-export const CheckBox = styled(
-  ({ checked, title, price, onChange, onValueClick }) => (
-    <CheckBoxWrapper>
-      <Label>
-        <span>{title}</span>
-        <Checkbox type="checkbox" checked={checked} onChange={onChange} />
-        <Check />
-      </Label>
-      <Price onClick={onValueClick}>
-        {price > 0 && <FormattedCurrency value={price} />}
-      </Price>
-    </CheckBoxWrapper>
-  )
-)``;
+export const CheckBox = ({ checked, title, price, onChange, onValueClick }) => (
+  <CheckBoxWrapper>
+    <Label>
+      <span>{title}</span>
+      <Checkbox type="checkbox" checked={checked} onChange={onChange} />
+      <Check />
+    </Label>
+    <Price onClick={onValueClick}>
+      {price > 0 && <FormattedCurrency value={price} />}
+    </Price>
+  </CheckBoxWrapper>
+);
 
 const RangeContainer = styled.div`
   margin-top: 1.5rem;

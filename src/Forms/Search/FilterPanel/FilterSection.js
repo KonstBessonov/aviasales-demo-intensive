@@ -3,12 +3,14 @@ import styled from "styled-components";
 import arrow from "./arrow.svg";
 import { Clear } from "./UI";
 
-const OpenMark = styled(({ className, isOpen }) => (
-  <img className={className} src={arrow} alt="" />
-))`
+const OpenMarkStyled = styled.img`
   margin-right: 1rem;
   ${({ isOpen }) => isOpen && `transform: rotate(90deg);`};
 `;
+
+const OpenMark = ({ className, isOpen }) => (
+  <OpenMarkStyled isOpen={isOpen} src={arrow} alt="" />
+);
 
 const HeaderWrapper = styled.div`
   cursor: pointer;
