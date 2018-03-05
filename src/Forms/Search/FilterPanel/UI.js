@@ -2,12 +2,21 @@ import React from "react";
 import styled from "styled-components";
 import Range from "rc-slider/lib/Range";
 import "rc-slider/assets/index.css";
+import format from "date-fns/format";
+import ruLocale from "date-fns/locale/ru";
 
 import checked from "./checked.svg";
 import unchecked from "./unchecked.svg";
 import clear from "./clear.svg";
 
 import FormattedCurrency from "../../../UI/FormattedCurrency";
+
+const formatDate = date => {
+  if (date) return format(date, "HH:mm, D MMM", { locale: ruLocale });
+};
+
+const formatDuration = minutes =>
+  ((minutes / 60) ^ 0) + " ч " + minutes % 60 + " м ";
 
 const CheckBoxWrapper = styled.div`
   display: flex;
@@ -90,6 +99,28 @@ export const RangeFilter = props => {
       </SpaceBetween>
       <Range {...restProps} />
     </RangeContainer>
+  );
+};
+
+export const RangeFilterDate = props => {
+  const { startDate, endDate, ...restProps } = props;
+  return (
+    <RangeFilter
+      {...restProps}
+      startText={"c " + formatDate(startDate)}
+      endText={"до " + formatDate(endDate)}
+    />
+  );
+};
+
+export const RangeFilterDuration = props => {
+  const { minDuration, maxDuration, ...restProps } = props;
+  return (
+    <RangeFilter
+      {...restProps}
+      startText={"от " + formatDuration(minDuration)}
+      endText={"до " + formatDuration(maxDuration)}
+    />
   );
 };
 

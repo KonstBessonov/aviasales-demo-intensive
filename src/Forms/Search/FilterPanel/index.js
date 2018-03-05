@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Range from "rc-slider/lib/Range";
-import "rc-slider/assets/index.css";
 
 import { minWidth } from "../../../assets";
 import FilterSection from "./FilterSection";
-import { CheckBox, RangeFilter, Clear } from "./UI";
+import { CheckBox, RangeFilterDuration, RangeFilterDate, Clear } from "./UI";
 import plane from "./plane.svg";
 
 const FilterPanel = styled.div`
@@ -55,18 +53,18 @@ export default () => {
         <FilterHeader>
           Москва <PlaneIcon src={plane} alt="" /> Барселона
         </FilterHeader>
-        <RangeFilter
+        <RangeFilterDate
           title="Вылет из Москвы:"
-          startText="c 00:05, 24 фев"
-          endText="до 23:45, 24 фев"
+          startDate={1519412700000}
+          endDate={1519497900000}
           min={0}
           max={100}
           defaultValue={[0, 100]}
         />
-        <RangeFilter
+        <RangeFilterDate
           title="Прибытие в Барселону:"
-          startText="c 03:05, 24 фев"
-          endText="до 13:50, 26 фев"
+          startDate={1519423500000}
+          endDate={1519635000000}
           min={0}
           max={100}
           defaultValue={[0, 100]}
@@ -74,18 +72,18 @@ export default () => {
         <FilterHeader>
           Барселона <PlaneIcon src={plane} alt="" /> Москва
         </FilterHeader>
-        <RangeFilter
+        <RangeFilterDate
           title="Вылет из Барселоны:"
-          startText="c 06:00, 3 мар"
-          endText="до 23:45, 3 мар"
+          startDate={1520038800000}
+          endDate={1520102700000}
           min={0}
           max={100}
           defaultValue={[0, 100]}
         />
-        <RangeFilter
+        <RangeFilterDate
           title="Прибытие в Москву:"
-          startText="c 15:00, 3 мар"
-          endText="до 09:55, 5 мар"
+          startDate={1520071200000}
+          endDate={1520225700000}
           min={0}
           max={100}
           defaultValue={[0, 100]}
@@ -99,9 +97,9 @@ export default () => {
         <FilterHeader>
           Москва <PlaneIcon src={plane} alt="" /> Барселона
         </FilterHeader>
-        <RangeFilter
-          startText="от 4 ч 20 м"
-          endText="до 48 ч 50 м"
+        <RangeFilterDuration
+          minDuration={260}
+          maxDuration={2900}
           min={0}
           max={100}
           defaultValue={[0, 100]}
@@ -109,9 +107,9 @@ export default () => {
         <FilterHeader>
           Барселона <PlaneIcon src={plane} alt="" /> Москва
         </FilterHeader>
-        <RangeFilter
-          startText="от 4 ч 10 м"
-          endText="до 41 ч 20 м"
+        <RangeFilterDuration
+          minDuration={250}
+          maxDuration={2480}
           min={0}
           max={100}
           defaultValue={[0, 100]}
