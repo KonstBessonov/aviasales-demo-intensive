@@ -295,6 +295,7 @@ class DirectionForm extends React.Component {
   };
 
   handleClickOutside = () => this.setState({ isPicker: false });
+
   handleDayClick = (day, { disabled }) => {
     if (disabled) return;
     this.setState(prevState => {
