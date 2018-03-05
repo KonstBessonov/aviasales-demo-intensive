@@ -14,8 +14,9 @@ import clear_date from "./clear-date.svg";
 import popdown from "./popdn.svg";
 import aero from "./aero.svg";
 
-const formatDate = date =>
-  date === undefined ? "" : format(date, "D MMMM, dd", { locale: ruLocale });
+const formatDate = date => {
+  if (date) return format(date, "D MMMM, dd", { locale: ruLocale });
+};
 
 const Container = styled.div`
   font-size: 2rem;
@@ -50,7 +51,7 @@ const InputSmall = styled.div`
   `};
 `;
 
-const InputPax = InputBig.extend`
+const InputMedium = InputBig.extend`
   ${({ compact }) =>
     compact &&
     css`
@@ -67,11 +68,53 @@ const InputPax = InputBig.extend`
 const InputWrapper = styled.div`
   display: flex;
   align-items: center;
-  border-radius: 0.5rem;
+  border-radius: 0;
   color: #4a4a4a;
   background: #ffffff;
   position: relative;
   margin: 1px;
+`;
+
+const InputOrigin = InputWrapper.extend`
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  ${minWidth.md`
+    border-top-right-radius: 0;
+  `};
+  ${minWidth.xl`
+    border-bottom-left-radius: 0.5rem;
+  `};
+`;
+
+const InputDestination = InputWrapper.extend`
+  ${minWidth.md`
+    border-top-right-radius: 0.5rem;
+  `};
+  ${minWidth.xl`
+    border-top-right-radius: 0;
+  `};
+`;
+
+const InputDeparture = InputWrapper.extend`
+  ${minWidth.md`
+    border-bottom-left-radius: 0.5rem;
+  `};
+  ${minWidth.xl`
+    border-bottom-left-radius: 0;
+  `};
+`;
+
+const InputPax = InputWrapper.extend`
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  ${minWidth.md`
+    border-bottom-left-radius: 0;
+    ${({ compact }) => compact && `border-bottom-right-radius: 0;`}
+  `};
+  ${minWidth.xl`
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  `};
 `;
 
 const PlaceInput = styled.input`
@@ -207,12 +250,15 @@ const SubmitButton = styled(NavButton)`
         margin: 1px;
         padding: 1rem;
         font-size: 2.5rem;
+        border-radius: 0;
+        border-bottom-right-radius: 0.5rem;
       `};
       ${minWidth.xl`
         margin: 1px;
         margin-left: 2rem;
         padding: 1rem;
         font-size: 2.5rem;
+        border-radius: 0.5rem;
       `};
     `};
 `;
@@ -236,8 +282,9 @@ class DirectionForm extends React.Component {
       pickerField: "from"
     };
   }
+
   handleDateInputClick = pickerField =>
-    this.setState(prevState => ({ isPicker: true, pickerField: pickerField }));
+    this.setState({ isPicker: true, pickerField: pickerField });
 
   handleClearDateClick = () => {
     if (this.state.to) {
@@ -251,10 +298,11 @@ class DirectionForm extends React.Component {
   handleDayClick = (day, { disabled }) => {
     if (disabled) return;
     this.setState(prevState => {
-      const newState = {};
-      newState.isPicker = prevState.pickerField === "from";
-      newState[prevState.pickerField] = day;
-      newState.pickerField = "to";
+      const newState = {
+        isPicker: prevState.pickerField === "from",
+        [prevState.pickerField]: day,
+        pickerField: "to"
+      };
       return newState;
     });
   };
@@ -265,20 +313,20 @@ class DirectionForm extends React.Component {
     return (
       <Container>
         <InputBig>
-          <InputWrapper>
+          <InputOrigin>
             <PlaceInput defaultValue="Москва" placeholder="Город вылета" />
             <IATACode>MOW</IATACode>
             <SwapPlaces />
-          </InputWrapper>
+          </InputOrigin>
         </InputBig>
         <InputBig>
-          <InputWrapper>
+          <InputDestination>
             <PlaceInput placeholder="Город прибытия" />
             <IATACode />
-          </InputWrapper>
+          </InputDestination>
         </InputBig>
         <InputSmall>
-          <InputWrapper>
+          <InputDeparture>
             <DateInput
               value={formatDate(from)}
               placeholder="Туда"
@@ -294,7 +342,7 @@ class DirectionForm extends React.Component {
                   selectedDays={[{ from, to }]}
                 />
               )}
-          </InputWrapper>
+          </InputDeparture>
         </InputSmall>
         <InputSmall>
           <InputWrapper>
@@ -315,14 +363,14 @@ class DirectionForm extends React.Component {
               )}
           </InputWrapper>
         </InputSmall>
-        <InputPax compact={this.props.compact}>
-          <InputWrapper>
+        <InputMedium compact={this.props.compact}>
+          <InputPax compact={this.props.compact}>
             <PaxButton>
               1 пассажир, <PaxAdditional>эконом</PaxAdditional>
               <PopDownMark />
             </PaxButton>
-          </InputWrapper>
-        </InputPax>
+          </InputPax>
+        </InputMedium>
         <SubmitWrapper compact={this.props.compact}>
           <SubmitButton newPath="/search" compact={this.props.compact}>
             Найти билеты{" "}
