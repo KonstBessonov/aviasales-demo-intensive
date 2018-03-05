@@ -11,13 +11,14 @@ import ruLocaleData from "react-intl/locale-data/ru";
 
 import "./App.css";
 import { ThemeProvider } from "styled-components";
+import messages from "./messages";
 
 addLocaleData(ruLocaleData);
 
 class App extends Component {
   render() {
     return (
-      <IntlProvider locale="ru">
+      <IntlProvider locale="ru" messages={messages}>
         <ThemeProvider theme={theme}>
           <BrowserRouter>
             <div className="App">

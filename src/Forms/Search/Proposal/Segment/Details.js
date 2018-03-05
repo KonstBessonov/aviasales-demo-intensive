@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import styled from "styled-components";
 
 import { minWidth } from "../../../../assets";
+import FormattedDuration from "../../../../UI/FormattedDuration";
 import clock from "./clock.svg";
 import stop_point from "./stop-point.svg";
 import plane_takeoff from "./plane-takeoff.svg";
@@ -13,9 +14,6 @@ const getStopsText = airports => {
     return airports.slice(1, -1).join();
   }
 };
-
-const formatDuration = minutes =>
-  ((minutes / 60) ^ 0) + " ч " + minutes % 60 + " м ";
 
 const Details = styled.div`
   display: flex;
@@ -67,7 +65,7 @@ const Duration = styled(({ className, duration }) => (
     <ClockIcon src={clock} alt="" />
     <span>
       <DurationPrefix>Всего: </DurationPrefix>
-      {formatDuration(duration)}
+      <FormattedDuration duration={duration} />
     </span>
     <PlaneLanding />
   </div>

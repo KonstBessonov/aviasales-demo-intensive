@@ -10,13 +10,11 @@ import unchecked from "./unchecked.svg";
 import clear from "./clear.svg";
 
 import FormattedCurrency from "../../../UI/FormattedCurrency";
+import FormattedDuration from "../../../UI/FormattedDuration";
 
 const formatDate = date => {
   if (date) return format(date, "HH:mm, D MMM", { locale: ruLocale });
 };
-
-const formatDuration = minutes =>
-  ((minutes / 60) ^ 0) + " ч " + minutes % 60 + " м ";
 
 const CheckBoxWrapper = styled.div`
   display: flex;
@@ -116,8 +114,16 @@ export const RangeFilterDuration = props => {
   return (
     <RangeFilter
       {...restProps}
-      startText={"от " + formatDuration(minDuration)}
-      endText={"до " + formatDuration(maxDuration)}
+      startText={
+        <React.Fragment>
+          от <FormattedDuration duration={minDuration} />
+        </React.Fragment>
+      }
+      endText={
+        <React.Fragment>
+          до <FormattedDuration duration={maxDuration} />
+        </React.Fragment>
+      }
     />
   );
 };
