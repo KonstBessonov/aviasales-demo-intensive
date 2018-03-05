@@ -42,6 +42,7 @@ const Spacer = styled.span`
 class Section extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = { isOpen: !!props.initialOpen };
   }
 
