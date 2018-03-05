@@ -14,7 +14,7 @@ const getStopsText = airports => {
   }
 };
 
-const minutesToString = minutes =>
+const formatDuration = minutes =>
   ((minutes / 60) ^ 0) + " ч " + minutes % 60 + " м ";
 
 const Details = styled.div`
@@ -67,7 +67,7 @@ const Duration = styled(({ className, duration }) => (
     <ClockIcon src={clock} alt="" />
     <span>
       <DurationPrefix>Всего: </DurationPrefix>
-      {minutesToString(duration)}
+      {formatDuration(duration)}
     </span>
     <PlaneLanding />
   </div>

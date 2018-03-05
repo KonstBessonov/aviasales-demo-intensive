@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import format from "date-fns/format";
-import parse from "date-fns/parse";
 import ruLocale from "date-fns/locale/ru";
 
 import { minWidth } from "../../../../assets";
@@ -12,8 +11,13 @@ import segment_pin from "./segment-pin.svg";
 import Details from "./Details";
 import { airports, cities } from "../../data";
 
-const formatDate = date =>
-  format(parse(date), "D MMM YYYY, dd", { locale: ruLocale });
+const formatDate = date => {
+  if (date) return format(date, "D MMMM, dd", { locale: ruLocale });
+};
+
+const formatTime = date => {
+  if (date) return format(date, "HH:mm", { locale: ruLocale });
+};
 
 const SegmentWrapper = styled.div`
   padding: 0.5rem 0;
@@ -105,29 +109,25 @@ const Pin = styled.button`
 `;
 
 const Segment = ({ icon, data }) => {
+  const lastAirport = data.segmentAirports.length - 1;
   return (
     <SegmentWrapper>
       <PlaneIcon src={icon} alt="" />
       <Departure>
         <div>
           <Pin />
-          <TimeText>{data.departure_time}</TimeText>
+          <TimeText>{formatTime(data.departureDate)}</TimeText>
         </div>
         <CityText>{cities[airports[data.segmentAirports[0]].city]}</CityText>
-        <DateText>{formatDate(data.departure_date)}</DateText>
+        <DateText>{formatDate(data.departureDate)}</DateText>
       </Departure>
       <Dash />
       <Arrival>
-        <TimeText>{data.arrival_time}</TimeText>
+        <TimeText>{formatTime(data.arrivalDate)}</TimeText>
         <CityText>
-          {
-            cities[
-              airports[data.segmentAirports[data.segmentAirports.length - 1]]
-                .city
-            ]
-          }
+          {cities[airports[data.segmentAirports[lastAirport]].city]}
         </CityText>
-        <DateText>{formatDate(data.arrival_date)}</DateText>
+        <DateText>{formatDate(data.arrivalDate)}</DateText>
       </Arrival>
       <Details data={data} />
     </SegmentWrapper>

@@ -38,18 +38,14 @@ export const results = [
     segments: [
       {
         segmentAirports: ["VKO", "BCN"],
-        departure_time: "00:05",
-        departure_date: "2018-02-24",
-        arrival_time: "03:05",
-        arrival_date: "2018-02-24",
+        departureDate: 1519412700000,
+        arrivalDate: 1519423500000,
         duration: 300
       },
       {
         segmentAirports: ["BCN", "SVO"],
-        departure_time: "10:35",
-        arrival_time: "17:10",
-        departure_date: "2018-03-03",
-        arrival_date: "2018-03-03",
+        departureDate: 1520055300000,
+        arrivalDate: 1520079000000,
         duration: 275
       }
     ]
@@ -71,18 +67,14 @@ export const results = [
     segments: [
       {
         segmentAirports: ["VKO", "BCN"],
-        departure_time: "07:30",
-        departure_date: "2018-02-24",
-        arrival_time: "09:50",
-        arrival_date: "2018-02-24",
+        departureDate: 1519439400000,
+        arrivalDate: 1519447800000,
         duration: 260
       },
       {
         segmentAirports: ["BCN", "CDG", "SVO"],
-        departure_time: "11:20",
-        arrival_time: "17:35",
-        departure_date: "2018-03-03",
-        arrival_date: "2018-03-03",
+        departureDate: 1520058000000,
+        arrivalDate: 1520080500000,
         duration: 255
       }
     ]
@@ -95,18 +87,14 @@ export const results = [
     segments: [
       {
         segmentAirports: ["VKO", "BCN"],
-        departure_time: "00:15",
-        departure_date: "2018-02-24",
-        arrival_time: "03:10",
-        arrival_date: "2018-02-24",
+        departureDate: 1519413300000,
+        arrivalDate: 1519423800000,
         duration: 295
       },
       {
         segmentAirports: ["BCN", "SVO"],
-        departure_time: "10:45",
-        arrival_time: "17:15",
-        departure_date: "2018-03-03",
-        arrival_date: "2018-03-03",
+        departureDate: 1520055900000,
+        arrivalDate: 1520079300000,
         duration: 270
       }
     ]
@@ -122,18 +110,14 @@ export const results = [
     segments: [
       {
         segmentAirports: ["VKO", "BCN"],
-        departure_time: "00:15",
-        departure_date: "2018-02-24",
-        arrival_time: "03:10",
-        arrival_date: "2018-02-24",
+        departureDate: 1519413300000,
+        arrivalDate: 1519423800000,
         duration: 295
       },
       {
         segmentAirports: ["BCN", "SVO"],
-        departure_time: "10:45",
-        arrival_time: "17:15",
-        departure_date: "2018-03-03",
-        arrival_date: "2018-03-03",
+        departureDate: 1520055900000,
+        arrivalDate: 1520079300000,
         duration: 270
       }
     ]
@@ -156,18 +140,14 @@ export const results = [
     segments: [
       {
         segmentAirports: ["VKO", "BCN"],
-        departure_time: "00:15",
-        departure_date: "2018-02-24",
-        arrival_time: "03:10",
-        arrival_date: "2018-02-24",
+        departureDate: 1519413300000,
+        arrivalDate: 1519423800000,
         duration: 295
       },
       {
         segmentAirports: ["BCN", "SVO"],
-        departure_time: "10:45",
-        arrival_time: "17:15",
-        departure_date: "2018-03-03",
-        arrival_date: "2018-03-03",
+        departureDate: 1520055900000,
+        arrivalDate: 1520079300000,
         duration: 270
       }
     ]
@@ -180,18 +160,14 @@ export const results = [
     segments: [
       {
         segmentAirports: ["VKO", "BCN"],
-        departure_time: "00:15",
-        departure_date: "2018-02-24",
-        arrival_time: "03:10",
-        arrival_date: "2018-02-24",
+        departureDate: 1519413300000,
+        arrivalDate: 1519423800000,
         duration: 295
       },
       {
         segmentAirports: ["BCN", "SVO"],
-        departure_time: "10:45",
-        arrival_time: "17:15",
-        departure_date: "2018-03-03",
-        arrival_date: "2018-03-03",
+        departureDate: 1520055900000,
+        arrivalDate: 1520079300000,
         duration: 270
       }
     ]
@@ -204,18 +180,14 @@ export const results = [
     segments: [
       {
         segmentAirports: ["VKO", "BCN"],
-        departure_time: "00:15",
-        departure_date: "2018-02-24",
-        arrival_time: "03:10",
-        arrival_date: "2018-02-24",
+        departureDate: 1519413300000,
+        arrivalDate: 1519423800000,
         duration: 295
       },
       {
         segmentAirports: ["BCN", "SVO"],
-        departure_time: "10:45",
-        arrival_time: "17:15",
-        departure_date: "2018-03-03",
-        arrival_date: "2018-03-03",
+        departureDate: 1520055900000,
+        arrivalDate: 1520079300000,
         duration: 270
       }
     ]
