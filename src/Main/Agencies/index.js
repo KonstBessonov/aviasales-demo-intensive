@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { WhiteSection, minWidth } from "../../assets";
-import Slider from "./Slider";
+import { WhiteSection, minWidth } from '../../assets';
+import Slider from './Slider';
 
 const Agencies = WhiteSection.extend`
   padding: 3rem 0;
@@ -19,19 +19,15 @@ const Title = styled.h2`
   text-align: center;
 `;
 
-export default () => {
-  return (
-    <Agencies>
-      <div className="container">
-        <div className="row">
-          <div className="col-xs-12 col-xl-10 col-xl-offset-1">
-            <Title>
-              Дешевые авиабилеты от крупнейших авиакомпаний и агентств
-            </Title>
-            <Slider />
-          </div>
+export default () => (
+  <Agencies>
+    <div className="container">
+      <div className="row">
+        <div className="col-xs-12 col-xl-10 col-xl-offset-1">
+          <Title>Дешевые авиабилеты от крупнейших авиакомпаний и агентств</Title>
+          <Slider />
         </div>
       </div>
-    </Agencies>
-  );
-};
+    </div>
+  </Agencies>
+);

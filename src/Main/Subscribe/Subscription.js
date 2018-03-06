@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { minWidth } from "../../assets";
+import React from 'react';
+import styled from 'styled-components';
+import { minWidth } from '../../assets';
 
 const Subscription = styled.div`
   justify-content: center;
@@ -47,13 +47,11 @@ const Submit = styled.button`
   cursor: pointer;
 `;
 
-export default () => {
-  return (
-    <Subscription>
-      <Form>
-        <Email type="email" placeholder="Ваш email" />
-        <Submit>Подписаться</Submit>
-      </Form>
-    </Subscription>
-  );
-};
+export default () => (
+  <Subscription>
+    <Form>
+      <Email type="email" placeholder="Ваш email" />
+      <Submit>Подписаться</Submit>
+    </Form>
+  </Subscription>
+);

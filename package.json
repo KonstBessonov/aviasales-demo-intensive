@@ -7,6 +7,7 @@
     "flexboxgrid2": "^7.1.0",
     "normalize.css": "^8.0.0",
     "pluralize-ru": "^1.0.1",
+    "prop-types": "^15.6.1",
     "rc-slider": "^8.6.0",
     "react": "^16.2.0",
     "react-clickoutside": "^2.0.0",
@@ -25,5 +26,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "now deploy build && now alias"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "16.1.0"
   }
 }

@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { minWidth } from "../../assets";
+import React from 'react';
+import styled from 'styled-components';
+import { minWidth } from '../../assets';
 
 const Wrapper = styled.div`
   text-align: center;
@@ -35,11 +35,9 @@ const Subtitle = styled.h2`
   `};
 `;
 
-export default () => {
-  return (
-    <Wrapper>
-      <Title>Поиск дешевых авиабилетов</Title>
-      <Subtitle>Лучший способ купить авиабилеты дешево</Subtitle>
-    </Wrapper>
-  );
-};
+export default () => (
+  <Wrapper>
+    <Title>Поиск дешевых авиабилетов</Title>
+    <Subtitle>Лучший способ купить авиабилеты дешево</Subtitle>
+  </Wrapper>
+);

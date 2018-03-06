@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { minWidth } from "../assets";
-import logo from "./logo.svg";
+import React from 'react';
+import styled from 'styled-components';
+import { minWidth } from '../assets';
+import logo from './logo.svg';
 
 const Logo = styled.div``;
 
@@ -19,11 +19,9 @@ const Text = styled.span`
   `};
 `;
 
-export default () => {
-  return (
-    <Logo>
-      <Image src={logo} alt="logo" />
-      <Text> aviasales</Text>
-    </Logo>
-  );
-};
+export default () => (
+  <Logo>
+    <Image src={logo} alt="logo" />
+    <Text> aviasales</Text>
+  </Logo>
+);

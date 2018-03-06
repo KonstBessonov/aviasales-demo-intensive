@@ -1,7 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const Header = styled.div`
+const HeaderStyled = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,11 +22,18 @@ const Image = styled.img`
   margin-right: 2rem;
 `;
 
-export default props => {
-  return (
-    <Header>
-      <OfferName>{props.offer.name}</OfferName>
-      <Image src={props.offer.img} alt="" />
-    </Header>
-  );
+const Header = props => (
+  <HeaderStyled>
+    <OfferName>{props.offer.name}</OfferName>
+    <Image src={props.offer.img} alt="" />
+  </HeaderStyled>
+);
+
+Header.propTypes = {
+  offer: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    img: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  }).isRequired,
 };
+
+export default Header;

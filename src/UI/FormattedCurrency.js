@@ -1,12 +1,20 @@
-import React from "react";
-import { FormattedNumber } from "react-intl";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FormattedNumber } from 'react-intl';
 
-export default ({ value }) => (
+const Formatted = ({ value, ...restProps }) => (
   <FormattedNumber
-    style={`currency`}
+    style={String('currency')}
     currency="RUB"
     minimumFractionDigits={0}
     maximumFractionDigits={0}
     value={value}
+    {...restProps}
   />
 );
+
+Formatted.propTypes = {
+  value: PropTypes.number.isRequired,
+};
+
+export default Formatted;

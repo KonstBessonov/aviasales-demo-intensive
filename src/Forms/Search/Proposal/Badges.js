@@ -1,8 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { minWidth } from "../../../assets";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const Badges = styled.div`
+import { minWidth } from '../../../assets';
+
+const BadgesStyled = styled.div`
   justify-content: flex-end;
   flex-grow: 1;
   padding: 0 1.5rem;
@@ -21,6 +23,12 @@ const Badge = styled.span`
   padding: 0.5rem 1.5rem;
 `;
 
-export default ({ badges }) => (
-  <Badges>{badges.isCharter === true && <Badge>ЧАРТЕР</Badge>}</Badges>
+const Badges = ({ badges }) => (
+  <BadgesStyled>{!!badges.isCharter && <Badge>ЧАРТЕР</Badge>}</BadgesStyled>
 );
+
+Badges.propTypes = {
+  badges: PropTypes.shape({ isCharter: PropTypes.bool }).isRequired,
+};
+
+export default Badges;

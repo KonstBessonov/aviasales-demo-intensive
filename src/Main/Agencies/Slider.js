@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import arrow from "./arrow.svg";
-import aeroflot from "./aeroflot.png";
-import s7 from "./s7.png";
-import ott from "./ott.png";
-import korean from "./korean.png";
-import israel from "./israel.png";
-import dot_e from "./dot-e.svg";
-import dot_f from "./dot-f.svg";
+import React from 'react';
+import styled from 'styled-components';
+import arrow from './arrow.svg';
+import aeroflot from './aeroflot.png';
+import s7 from './s7.png';
+import ott from './ott.png';
+import korean from './korean.png';
+import israel from './israel.png';
+import dotEmpty from './dot-e.svg';
+import dotFull from './dot-f.svg';
 
 const Slider = styled.div`
   margin: 1rem 0;
@@ -55,34 +55,32 @@ const Indicator = styled.div`
 
 const PageDot = styled.button`
   border: none;
-  background: url(${props => (props.current ? dot_f : dot_e)}) center no-repeat;
+  background: url(${props => (props.current ? dotFull : dotEmpty)}) center no-repeat;
   width: 20px;
   height: 34px;
   padding: 0;
   cursor: pointer;
 `;
 
-export default () => {
-  return (
-    <Slider>
-      <Pages>
-        <Back />
-        <Page>
-          <Slides>
-            <Slide src={aeroflot} />
-            <Slide src={s7} />
-            <Slide src={ott} />
-            <Slide src={korean} />
-            <Slide src={israel} />
-          </Slides>
-        </Page>
-        <Forward />
-      </Pages>
-      <Indicator>
-        <PageDot current />
-        <PageDot />
-        <PageDot />
-      </Indicator>
-    </Slider>
-  );
-};
+export default () => (
+  <Slider>
+    <Pages>
+      <Back />
+      <Page>
+        <Slides>
+          <Slide src={aeroflot} />
+          <Slide src={s7} />
+          <Slide src={ott} />
+          <Slide src={korean} />
+          <Slide src={israel} />
+        </Slides>
+      </Page>
+      <Forward />
+    </Pages>
+    <Indicator>
+      <PageDot current />
+      <PageDot />
+      <PageDot />
+    </Indicator>
+  </Slider>
+);

@@ -1,21 +1,25 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import { withRouter } from "react-router-dom";
-import format from "date-fns/format";
-import ruLocale from "date-fns/locale/ru";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled, { css } from 'styled-components';
+import { withRouter } from 'react-router-dom';
+import format from 'date-fns/format';
+import ruLocale from 'date-fns/locale/ru';
 
-import { minWidth } from "../../assets";
+import { minWidth } from '../../assets';
 
-import DayPicker from "./DayPicker";
+import DayPicker from './DayPicker';
 
-import arrows from "./arrows.svg";
-import calendar from "./calendar.svg";
-import clear_date from "./clear-date.svg";
-import popdown from "./popdn.svg";
-import aero from "./aero.svg";
+import arrows from './arrows.svg';
+import calendar from './calendar.svg';
+import clearDate from './clear-date.svg';
+import popdown from './popdn.svg';
+import aero from './aero.svg';
 
-const formatDate = date => {
-  if (date) return format(date, "D MMMM, dd", { locale: ruLocale });
+const formatDate = (date) => {
+  if (date) {
+    return format(date, 'D MMMM, dd', { locale: ruLocale });
+  }
+  return null;
 };
 
 const Container = styled.div`
@@ -109,7 +113,7 @@ const InputPax = InputWrapper.extend`
   border-bottom-right-radius: 0.5rem;
   ${minWidth.md`
     border-bottom-left-radius: 0;
-    ${({ compact }) => compact && `border-bottom-right-radius: 0;`}
+    ${({ compact }) => compact && 'border-bottom-right-radius: 0;'}
   `};
   ${minWidth.xl`
     border-top-right-radius: 0.5rem;
@@ -158,9 +162,7 @@ const Calendar = InputButton.extend`
 `;
 
 const ClearDate = InputButton.extend`
-  background: url(${({ value }) =>
-      value === undefined ? calendar : clear_date})
-    center no-repeat;
+  background: url(${({ value }) => (value === undefined ? calendar : clearDate)}) center no-repeat;
 `;
 
 const PaxButton = styled.button`
@@ -223,7 +225,9 @@ const SubmitWrapper = withRouter(styled.div`
     `};
 `);
 
-const NavButton = withRouter(({ className, children, history, newPath }) => (
+const NavButton = withRouter(({
+  className, children, history, newPath,
+}) => (
   <button className={className} onClick={() => history.push(newPath)}>
     {children}
   </button>
@@ -273,24 +277,31 @@ const SubmitButtonIcon = styled.img`
 `;
 
 class DirectionForm extends React.Component {
+  static defaultProps = {
+    compact: false,
+  };
+
+  static propTypes = {
+    compact: PropTypes.bool,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
       from: new Date(),
       to: undefined,
       isPicker: false,
-      pickerField: "from"
+      pickerField: 'from',
     };
   }
 
-  handleDateInputClick = pickerField =>
-    this.setState({ isPicker: true, pickerField: pickerField });
+  handleDateInputClick = pickerField => this.setState({ pickerField, isPicker: true });
 
   handleClearDateClick = () => {
     if (this.state.to) {
       this.setState({ to: undefined, isPicker: false });
     } else {
-      this.handleDateInputClick("to");
+      this.handleDateInputClick('to');
     }
   };
 
@@ -298,11 +309,11 @@ class DirectionForm extends React.Component {
 
   handleDayClick = (day, { disabled }) => {
     if (disabled) return;
-    this.setState(prevState => {
+    this.setState((prevState) => {
       const newState = {
-        isPicker: prevState.pickerField === "from",
+        isPicker: prevState.pickerField === 'from',
         [prevState.pickerField]: day,
-        pickerField: "to"
+        pickerField: 'to',
       };
       return newState;
     });
@@ -331,11 +342,11 @@ class DirectionForm extends React.Component {
             <DateInput
               value={formatDate(from)}
               placeholder="Туда"
-              onClick={() => this.handleDateInputClick("from")}
+              onClick={() => this.handleDateInputClick('from')}
             />
-            <Calendar onClick={() => this.handleDateInputClick("from")} />
+            <Calendar onClick={() => this.handleDateInputClick('from')} />
             {this.state.isPicker &&
-              this.state.pickerField === "from" && (
+              this.state.pickerField === 'from' && (
                 <DayPicker
                   onClickOutside={this.handleClickOutside}
                   onDayClick={this.handleDayClick}
@@ -350,11 +361,11 @@ class DirectionForm extends React.Component {
             <DateInput
               value={formatDate(to)}
               placeholder="Обратно"
-              onClick={() => this.handleDateInputClick("to")}
+              onClick={() => this.handleDateInputClick('to')}
             />
             <ClearDate value={to} onClick={() => this.handleClearDateClick()} />
             {this.state.isPicker &&
-              this.state.pickerField === "to" && (
+              this.state.pickerField === 'to' && (
                 <DayPicker
                   onClickOutside={this.handleClickOutside}
                   onDayClick={this.handleDayClick}
@@ -374,8 +385,7 @@ class DirectionForm extends React.Component {
         </InputMedium>
         <SubmitWrapper compact={this.props.compact}>
           <SubmitButton newPath="/search" compact={this.props.compact}>
-            Найти билеты{" "}
-            <SubmitButtonIcon src={aero} compact={this.props.compact} alt="" />
+            Найти билеты <SubmitButtonIcon src={aero} compact={this.props.compact} alt="" />
           </SubmitButton>
         </SubmitWrapper>
       </Container>

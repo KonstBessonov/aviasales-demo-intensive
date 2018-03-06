@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { minWidth } from "../../assets";
-import filter from "./filter.svg";
+import React from 'react';
+import styled from 'styled-components';
+import { minWidth } from '../../assets';
+import filter from './filter.svg';
 
 const TopSeparator = styled.div`
   padding: 4rem;
@@ -45,11 +45,9 @@ const Filter = styled.button`
   `};
 `;
 
-export default () => {
-  return (
-    <TopSeparator>
-      <ScrollTop onClick={() => window.scrollTo(0, 0)}>НАВЕРХ</ScrollTop>
-      <Filter />
-    </TopSeparator>
-  );
-};
+export default () => (
+  <TopSeparator>
+    <ScrollTop onClick={() => window.scrollTo(0, 0)}>НАВЕРХ</ScrollTop>
+    <Filter />
+  </TopSeparator>
+);

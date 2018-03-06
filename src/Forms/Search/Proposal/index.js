@@ -1,25 +1,25 @@
-import React from "react";
-import styled from "styled-components";
-import pluralize from "pluralize-ru";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import pluralize from 'pluralize-ru';
 
-import { minWidth } from "../../../assets";
-import { partners } from "../data";
+import { minWidth } from '../../../assets';
+import { partners } from '../data';
 
-import Logo from "./Logo.js";
-import { SegmentForward, SegmentReturn } from "./Segment";
-import Badges from "./Badges";
-import { BaggageSection, BaggageData } from "./Baggage";
-import { Buy, Opener } from "./UI";
-import OtherOffers from "./OtherOffers";
+import Logo from './Logo';
+import { SegmentForward, SegmentReturn } from './Segment';
+import Badges from './Badges';
+import { BaggageSection, BaggageData } from './Baggage';
+import { Buy, Opener } from './UI';
+import OtherOffers from './OtherOffers';
 
-import copy_link from "./copy-link.svg";
+import copyLink from './copy-link.svg';
 
-import FormattedCurrency from "../../../UI/FormattedCurrency";
+import FormattedCurrency from '../../../UI/FormattedCurrency';
 
-const pluralizeTickets = qty =>
-  pluralize(qty, "%d билетов", "%d билет", "%d билета", "%d билетов");
+const pluralizeTickets = qty => pluralize(qty, '%d билетов', '%d билет', '%d билета', '%d билетов');
 
-const Proposal = styled.div`
+const ProposalStyled = styled.div`
   background-color: #ffffff;
   margin-bottom: 1rem;
   margin-left: -8px;
@@ -104,57 +104,53 @@ const CopyLink = styled.button`
   background: none;
   background-position-x: center;
   background-repeat: no-repeat;
-  background-image: url(${copy_link});
+  background-image: url(${copyLink});
   display: none;
   ${minWidth.md`
     display: initial;
   `};
 `;
 
-export default ({ result }) => {
-  return (
-    <Proposal>
-      <Container>
-        <LeftColumn>
-          <BaggageSection compact={result.baggage.length === 1}>
-            {result.baggage.map((data, idx) => (
-              <BaggageData
-                key={idx}
-                data={data}
-                compact={result.baggage.length === 1}
-              />
-            ))}
-          </BaggageSection>
-          <BuySection>
-            {result.ticketsRemain && (
-              <LastTickets>
-                Осталось {pluralizeTickets(result.ticketsRemain)}
-              </LastTickets>
-            )}
-            <Buy>
-              Купить за <FormattedCurrency value={result.prices[0].price} />
-            </Buy>
-            <Partner>на {partners[result.prices[0].partnerId]}</Partner>
-            {result.prices.length > 1 && (
-              <OtherOffers prices={result.prices.slice(1)} />
-            )}
-          </BuySection>
-        </LeftColumn>
+const Proposal = ({ result }) => (
+  <ProposalStyled>
+    <Container>
+      <LeftColumn>
+        <BaggageSection compact={result.baggage.length === 1}>
+          {result.baggage.map(data => (
+            <BaggageData key={data.id} data={data} compact={result.baggage.length === 1} />
+          ))}
+        </BaggageSection>
+        <BuySection>
+          {result.ticketsRemain && (
+            <LastTickets>Осталось {pluralizeTickets(result.ticketsRemain)}</LastTickets>
+          )}
+          <Buy>
+            Купить за <FormattedCurrency value={result.prices[0].price} />
+          </Buy>
+          <Partner>на {partners[result.prices[0].partnerId]}</Partner>
+          {result.prices.length > 1 && <OtherOffers prices={result.prices.slice(1)} />}
+        </BuySection>
+      </LeftColumn>
 
-        <RightColumn>
-          <PriceCarrier>
-            <InlinePrice>
-              <FormattedCurrency value={result.prices[0].price} />
-            </InlinePrice>
-            <Logo airline={result.airline} />
-            <Badges badges={result.badges} />
-            <CopyLink />
-          </PriceCarrier>
-          <SegmentForward data={result.segments[0]} />
-          <SegmentReturn data={result.segments[1]} />
-        </RightColumn>
-        <Opener />
-      </Container>
-    </Proposal>
-  );
+      <RightColumn>
+        <PriceCarrier>
+          <InlinePrice>
+            <FormattedCurrency value={result.prices[0].price} />
+          </InlinePrice>
+          <Logo airline={result.airline} />
+          <Badges badges={result.badges} />
+          <CopyLink />
+        </PriceCarrier>
+        <SegmentForward data={result.segments[0]} />
+        <SegmentReturn data={result.segments[1]} />
+      </RightColumn>
+      <Opener />
+    </Container>
+  </ProposalStyled>
+);
+
+Proposal.propTypes = {
+  result: PropTypes.shape({}).isRequired,
 };
+
+export default Proposal;

@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { minWidth } from "../../assets";
+import React from 'react';
+import styled from 'styled-components';
+import { minWidth } from '../../assets';
 
 const Filter = styled.div`
   padding: 2rem;
@@ -18,10 +18,8 @@ const Button = styled.button`
   `};
 `;
 
-export default () => {
-  return (
-    <Filter>
-      <Button>Фильтровать</Button>
-    </Filter>
-  );
-};
+export default () => (
+  <Filter>
+    <Button>Фильтровать</Button>
+  </Filter>
+);

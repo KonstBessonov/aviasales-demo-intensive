@@ -1,21 +1,21 @@
-import React, { Fragment } from "react";
-import styled from "styled-components";
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import { minWidth } from "../../../../assets";
-import FormattedDuration from "../../../../UI/FormattedDuration";
-import clock from "./clock.svg";
-import stop_point from "./stop-point.svg";
-import plane_takeoff from "./plane-takeoff.svg";
+import { minWidth } from '../../../../assets';
+import FormattedDuration from '../../../../UI/FormattedDuration';
+import clock from './clock.svg';
+import stopPoint from './stop-point.svg';
+import planeTakeoff from './plane-takeoff.svg';
 
-const getStopsText = airports => {
+const getStopsText = (airports) => {
   if (airports.length === 2) {
-    return "Прямой";
-  } else {
-    return airports.slice(1, -1).join();
+    return 'Прямой';
   }
+  return airports.slice(1, -1).join();
 };
 
-const Details = styled.div`
+const DetailsStyled = styled.div`
   display: flex;
   order: 4;
   flex-grow: 1;
@@ -36,7 +36,7 @@ const ClockIcon = styled.img`
 `;
 
 const PlaneTakeoff = styled(({ className }) => (
-  <img className={className} src={plane_takeoff} alt="" />
+  <img className={className} src={planeTakeoff} alt="" />
 ))`
   width: 16px;
   height: 16px;
@@ -88,9 +88,7 @@ const Stops = styled.div`
   `};
 `;
 
-const StopPoint = styled(({ className }) => (
-  <img src={stop_point} className={className} alt="" />
-))`
+const StopPoint = styled(({ className }) => <img src={stopPoint} className={className} alt="" />)`
   width: 11px;
   height: 11px;
 `;
@@ -105,8 +103,8 @@ const StopsLine = styled(({ className, airports }) => (
   <div className={className}>
     <StopPoint />
     <FlightLine />
-    {airports.slice(1, -1).map((airline, idx) => (
-      <Fragment key={idx}>
+    {airports.slice(1, -1).map(airport => (
+      <Fragment key={airport}>
         <StopPoint />
         <FlightLine />
       </Fragment>
@@ -121,13 +119,9 @@ const StopsLine = styled(({ className, airports }) => (
   `};
 `;
 
-const SegmentAirports = styled(({ className, airports }) => {
-  return (
-    <div className={className}>
-      {airports.map((airport, idx) => <span key={idx}>{airport}</span>)}
-    </div>
-  );
-})`
+const SegmentAirports = styled(({ className, airports }) => (
+  <div className={className}>{airports.map(airport => <span key={airport}>{airport}</span>)}</div>
+))`
   color: #4a4a4a;
   font-size: 1.25rem;
   display: none;
@@ -138,13 +132,17 @@ const SegmentAirports = styled(({ className, airports }) => {
   `};
 `;
 
-export default ({ data }) => {
-  return (
-    <Details>
-      <Duration duration={data.duration} />
-      <Stops>{getStopsText(data.segmentAirports)}</Stops>
-      <StopsLine airports={data.segmentAirports} />
-      <SegmentAirports airports={data.segmentAirports} />
-    </Details>
-  );
+const Details = ({ data }) => (
+  <DetailsStyled>
+    <Duration duration={data.duration} />
+    <Stops>{getStopsText(data.segmentAirports)}</Stops>
+    <StopsLine airports={data.segmentAirports} />
+    <SegmentAirports airports={data.segmentAirports} />
+  </DetailsStyled>
+);
+
+Details.propTypes = {
+  data: PropTypes.shape({}).isRequired,
 };
+
+export default Details;

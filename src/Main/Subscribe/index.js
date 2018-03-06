@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import post from "./post.png";
+import React from 'react';
+import styled from 'styled-components';
+import post from './post.png';
 
-import { WhiteSection, minWidth } from "../../assets";
-import Title from "./Title";
-import Socials from "./Socials";
-import Subscription from "./Subscription";
+import { WhiteSection, minWidth } from '../../assets';
+import Title from './Title';
+import Socials from './Socials';
+import Subscription from './Subscription';
 
 const Subscribe = WhiteSection.extend`
   padding: 3rem 0;
@@ -27,20 +27,18 @@ const Wrapper = styled.div`
   `};
 `;
 
-export default () => {
-  return (
-    <Subscribe>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12 col-xl-10 col-xl-offset-1">
-            <Wrapper>
-              <Title />
-              <Socials />
-              <Subscription />
-            </Wrapper>
-          </div>
+export default () => (
+  <Subscribe>
+    <div className="container">
+      <div className="row">
+        <div className="col-md-12 col-xl-10 col-xl-offset-1">
+          <Wrapper>
+            <Title />
+            <Socials />
+            <Subscription />
+          </Wrapper>
         </div>
       </div>
-    </Subscribe>
-  );
-};
+    </div>
+  </Subscribe>
+);

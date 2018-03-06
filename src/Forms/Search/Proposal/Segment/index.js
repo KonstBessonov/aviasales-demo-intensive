@@ -1,22 +1,25 @@
-import React from "react";
-import styled from "styled-components";
-import format from "date-fns/format";
-import ruLocale from "date-fns/locale/ru";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import format from 'date-fns/format';
+import ruLocale from 'date-fns/locale/ru';
 
-import { minWidth } from "../../../../assets";
-import plane_r from "./plane-r.svg";
-import plane_l from "./plane-l.svg";
-import segment_pin from "./segment-pin.svg";
+import { minWidth } from '../../../../assets';
+import planeRight from './plane-r.svg';
+import planeLeft from './plane-l.svg';
+import segmentPin from './segment-pin.svg';
 
-import Details from "./Details";
-import { airports, cities } from "../../data";
+import Details from './Details';
+import { airports, cities } from '../../data';
 
-const formatDate = date => {
-  if (date) return format(date, "D MMMM, dd", { locale: ruLocale });
+const formatDate = (date) => {
+  if (date) return format(date, 'D MMMM, dd', { locale: ruLocale });
+  return undefined;
 };
 
-const formatTime = date => {
-  if (date) return format(date, "HH:mm", { locale: ruLocale });
+const formatTime = (date) => {
+  if (date) return format(date, 'HH:mm', { locale: ruLocale });
+  return undefined;
 };
 
 const SegmentWrapper = styled.div`
@@ -98,7 +101,7 @@ const Dash = styled(({ className }) => <span className={className}>-</span>)`
 const Pin = styled.button`
   padding: 3rem 1.5rem 0 1.5rem;
   background: none;
-  background-image: url(${segment_pin});
+  background-image: url(${segmentPin});
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
@@ -124,9 +127,7 @@ const Segment = ({ icon, data }) => {
       <Dash />
       <Arrival>
         <TimeText>{formatTime(data.arrivalDate)}</TimeText>
-        <CityText>
-          {cities[airports[data.segmentAirports[lastAirport]].city]}
-        </CityText>
+        <CityText>{cities[airports[data.segmentAirports[lastAirport]].city]}</CityText>
         <DateText>{formatDate(data.arrivalDate)}</DateText>
       </Arrival>
       <Details data={data} />
@@ -134,10 +135,19 @@ const Segment = ({ icon, data }) => {
   );
 };
 
-export const SegmentForward = ({ data }) => {
-  return <Segment icon={plane_r} data={data} />;
+Segment.propTypes = {
+  icon: PropTypes.string.isRequired,
+  data: PropTypes.shape({}).isRequired,
 };
 
-export const SegmentReturn = ({ data }) => {
-  return <Segment icon={plane_l} data={data} />;
+export const SegmentForward = ({ data }) => <Segment icon={planeRight} data={data} />;
+
+SegmentForward.propTypes = {
+  data: PropTypes.shape({}).isRequired,
+};
+
+export const SegmentReturn = ({ data }) => <Segment icon={planeLeft} data={data} />;
+
+SegmentReturn.propTypes = {
+  data: PropTypes.shape({}).isRequired,
 };
