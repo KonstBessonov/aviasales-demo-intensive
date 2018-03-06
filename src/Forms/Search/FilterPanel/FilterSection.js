@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -90,17 +90,19 @@ class Section extends React.Component {
     return (
       <div className={this.props.className}>
         <Header isOpen={this.state.isOpen} onClick={this.handleClick}>
-          <span>{this.props.title}</span>
-          {!!this.props.badge && <Badge>{this.props.badge}</Badge>}
-          <Spacer />
-          {this.props.filterPresent && (
-            <ClearBtn
-              onClick={(e) => {
-                e.preventDefault();
-                if (this.handleClearClick) this.handleClearClick(e);
-              }}
-            />
-          )}
+          <Fragment>
+            <span>{this.props.title}</span>
+            {!!this.props.badge && <Badge>{this.props.badge}</Badge>}
+            <Spacer />
+            {this.props.filterPresent && (
+              <ClearBtn
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (this.handleClearClick) this.handleClearClick(e);
+                }}
+              />
+            )}
+          </Fragment>
         </Header>
         {this.state.isOpen && this.props.children}
       </div>

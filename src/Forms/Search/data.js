@@ -33,7 +33,7 @@ export const results = [
   {
     id: 1,
     prices: [{ partnerId: 1, price: 7712 }],
-    airline: russia,
+    carriers: russia,
     badges: { isCharter: true },
     baggage: [
       {
@@ -70,7 +70,7 @@ export const results = [
       { partnerId: 104, price: 13000 },
     ],
     ticketsRemain: 4,
-    airline: fly,
+    carriers: fly,
     badges: { isCharter: true },
     baggage: [
       {
@@ -98,7 +98,7 @@ export const results = [
   {
     id: 3,
     prices: [{ partnerId: 4, price: 8029 }],
-    airline: nordw,
+    carriers: nordw,
     badges: {},
     baggage: [
       {
@@ -126,7 +126,7 @@ export const results = [
   {
     id: 4,
     prices: [{ partnerId: 5, price: 8164 }],
-    airline: nordw2,
+    carriers: nordw2,
     badges: { isCharter: true },
     baggage: [
       {
@@ -168,7 +168,7 @@ export const results = [
       { partnerId: 102, price: 11000 },
       { partnerId: 103, price: 12000 },
     ],
-    airline: redw,
+    carriers: redw,
     badges: { isCharter: true },
     baggage: [
       {
@@ -203,7 +203,7 @@ export const results = [
   {
     id: 6,
     prices: [{ partnerId: 1, price: 9108 }],
-    airline: [redwSmall, russiaSmall],
+    carriers: [redwSmall, russiaSmall],
     badges: { isCharter: true },
     baggage: [
       {
@@ -231,7 +231,7 @@ export const results = [
   {
     id: 7,
     prices: [{ partnerId: 1, price: 9485 }],
-    airline: [russiaSmall, someSmall],
+    carriers: [russiaSmall, someSmall],
     badges: { isCharter: true },
     baggage: [
       {

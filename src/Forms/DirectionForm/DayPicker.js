@@ -6,7 +6,7 @@ import { withClickOutside } from 'react-clickoutside';
 
 import FormattedCurrency from '../../UI/FormattedCurrency';
 import './daypicker.css';
-import switch_off from './switch-off.svg';
+import switchOff from './switch-off.svg';
 
 const WEEKDAYS_SHORT = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
 const WEEKDAYS_LONG = [
@@ -60,7 +60,7 @@ const Switch = styled.button`
   background: none;
   background-position: center;
   packground-repeat: no-repeat;
-  background-image: url(${switch_off});
+  background-image: url(${switchOff});
   border: none;
   cursor: pointer;
 `;

@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const Logo = styled.div`
+const LogoStyled = styled.div`
   display: flex;
 `;
-/* align-items: center; */
 
 const Image = styled.img`
   height: 36px;
@@ -22,18 +22,21 @@ const ImageSmall = styled.img`
   }
 `;
 
-export default ({ airline }) => {
-  if (Array.isArray(airline)) {
+const Logo = ({ carriers }) => {
+  if (Array.isArray(carriers)) {
     return (
-      <Logo>
-        {airline.map((airline, idx) => <ImageSmall key={idx} src={airline} />)}
-      </Logo>
-    );
-  } else {
-    return (
-      <Logo>
-        <Image src={airline} />
-      </Logo>
+      <LogoStyled>{carriers.map(carrier => <ImageSmall key={carrier} src={carrier} />)}</LogoStyled>
     );
   }
+  return (
+    <LogoStyled>
+      <Image src={carriers} />
+    </LogoStyled>
+  );
 };
+
+Logo.propTypes = {
+  carriers: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]).isRequired,
+};
+
+export default Logo;

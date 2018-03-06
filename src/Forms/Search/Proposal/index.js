@@ -137,7 +137,7 @@ const Proposal = ({ result }) => (
           <InlinePrice>
             <FormattedCurrency value={result.prices[0].price} />
           </InlinePrice>
-          <Logo airline={result.airline} />
+          <Logo carriers={result.carriers} />
           <Badges badges={result.badges} />
           <CopyLink />
         </PriceCarrier>

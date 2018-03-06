@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import opener from "./opener.svg";
-import { minWidth } from "../../../assets";
+import styled from 'styled-components';
+import opener from './opener.svg';
+import { minWidth } from '../../../assets';
 
 export const Buy = styled.button`
   font-size: 2rem;

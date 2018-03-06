@@ -16,10 +16,8 @@ import popdown from './popdn.svg';
 import aero from './aero.svg';
 
 const formatDate = (date) => {
-  if (date) {
-    return format(date, 'D MMMM, dd', { locale: ruLocale });
-  }
-  return null;
+  if (date) return format(date, 'D MMMM, dd', { locale: ruLocale });
+  return undefined;
 };
 
 const Container = styled.div`
