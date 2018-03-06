@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import { minWidth } from "../../assets";
+import React from 'react';
+import styled from 'styled-components';
+import { minWidth } from '../../assets';
 
-import twi from "./twi.svg";
-import fb from "./fb.svg";
-import vk from "./vk.svg";
-import rss from "./rss.svg";
+import twi from './twi.svg';
+import fb from './fb.svg';
+import vk from './vk.svg';
+import rss from './rss.svg';
 
 const Socials = styled.div`
   text-align: center;
@@ -29,13 +29,11 @@ const Button = styled.button`
   margin: 0 0.5rem;
 `;
 
-export default () => {
-  return (
-    <Socials>
-      <Button img={twi} />
-      <Button img={fb} />
-      <Button img={vk} />
-      <Button img={rss} />
-    </Socials>
-  );
-};
+export default () => (
+  <Socials>
+    <Button img={twi} />
+    <Button img={fb} />
+    <Button img={vk} />
+    <Button img={rss} />
+  </Socials>
+);

@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const WhiteSection = styled.section`
   font-size: 2rem;
@@ -15,7 +15,7 @@ const displaySizes = {
   sm: 576,
   md: 768,
   lg: 992,
-  xl: 1200
+  xl: 1200,
 };
 
 export const minWidth = Object.keys(displaySizes).reduce((acc, label) => {
@@ -24,7 +24,7 @@ export const minWidth = Object.keys(displaySizes).reduce((acc, label) => {
       ${css(...args)};
     }
   `;
-  acc[label].asString = "screen and (min-width: " + displaySizes[label] + "px)";
+  acc[label].asString = `screen and (min-width: ${displaySizes[label]} px)`;
 
   return acc;
 }, {});
@@ -39,5 +39,5 @@ export const theme = {
     #02abdb 33.81%,
     #196ebd 122.26%
   );`,
-  hover: "#fd8a27"
+  hover: '#fd8a27',
 };

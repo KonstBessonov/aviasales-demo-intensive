@@ -1,21 +1,21 @@
-import React from "react";
+import React from 'react';
 
-import earth from "./earth.svg";
-import palm from "./palm.svg";
-import cart from "./cart.svg";
-import temple from "./temple.svg";
-import glass from "./glass.svg";
-import baby from "./baby.svg";
+import earth from './earth.svg';
+import palm from './palm.svg';
+import cart from './cart.svg';
+import temple from './temple.svg';
+import glass from './glass.svg';
+import baby from './baby.svg';
 
-import krasnodar from "./city-krasnodar.jpg";
-import adler from "./city-adler.jpg";
-import spb from "./city-spb.jpg";
-import minvody from "./city-minvody.jpg";
-import simferopol from "./city-simferopol.jpg";
-import barcelona from "./city-barcelona.jpg";
+import krasnodar from './city-krasnodar.jpg';
+import adler from './city-adler.jpg';
+import spb from './city-spb.jpg';
+import minvody from './city-minvody.jpg';
+import simferopol from './city-simferopol.jpg';
+import barcelona from './city-barcelona.jpg';
 
-import flag_ru from "./flag-ru.png";
-import flag_es from "./flag-es.png";
+import flagRu from './flag-ru.png';
+import flagEs from './flag-es.png';
 
 export const category = {
   anywhere: {
@@ -24,7 +24,7 @@ export const category = {
         КУДА<br />УГОДНО
       </span>
     ),
-    img: earth
+    img: earth,
   },
   sea: {
     text: (
@@ -32,7 +32,7 @@ export const category = {
         СОЛНЦЕ<br />И МОРЕ
       </span>
     ),
-    img: palm
+    img: palm,
   },
   shop: {
     text: (
@@ -40,7 +40,7 @@ export const category = {
         ШОППИНГ,<br />ГОРОД
       </span>
     ),
-    img: cart
+    img: cart,
   },
   culture: {
     text: (
@@ -48,7 +48,7 @@ export const category = {
         КУЛЬТУРА<br />И ИСТОРИЯ
       </span>
     ),
-    img: temple
+    img: temple,
   },
   nightlife: {
     text: (
@@ -56,7 +56,7 @@ export const category = {
         НОЧНАЯ<br />ЖИЗНЬ
       </span>
     ),
-    img: glass
+    img: glass,
   },
   child: {
     text: (
@@ -64,57 +64,57 @@ export const category = {
         ОТДЫХ<br />С ДЕТЬМИ
       </span>
     ),
-    img: baby
-  }
+    img: baby,
+  },
 };
 
 export const destination = [
   {
     img: krasnodar,
-    city: "Краснодар",
-    country: "РОССИЯ",
-    flag: flag_ru,
+    city: 'Краснодар',
+    country: 'РОССИЯ',
+    flag: flagRu,
     price: 1212,
-    date: "18 марта"
+    date: '18 марта',
   },
   {
     img: adler,
-    city: "Сочи (Адлер)",
-    country: "РОССИЯ",
-    flag: flag_ru,
+    city: 'Сочи (Адлер)',
+    country: 'РОССИЯ',
+    flag: flagRu,
     price: 1334,
-    date: "27 марта"
+    date: '27 марта',
   },
   {
     img: spb,
-    city: "Санкт-Петербург",
-    country: "РОССИЯ",
-    flag: flag_ru,
+    city: 'Санкт-Петербург',
+    country: 'РОССИЯ',
+    flag: flagRu,
     price: 1508,
-    date: "19 февраля"
+    date: '19 февраля',
   },
   {
     img: minvody,
-    city: "Минеральные воды",
-    country: "РОССИЯ",
-    flag: flag_ru,
+    city: 'Минеральные воды',
+    country: 'РОССИЯ',
+    flag: flagRu,
     price: 2074,
-    date: "13 марта"
+    date: '13 марта',
   },
   {
     img: simferopol,
-    city: "Симферополь (Крым)",
-    country: "КРЫМ",
-    flag: flag_ru,
+    city: 'Симферополь (Крым)',
+    country: 'КРЫМ',
+    flag: flagRu,
     price: 2407,
-    date: "13 марта"
+    date: '13 марта',
   },
   {
     img: barcelona,
-    city: "Барселона",
-    country: "ИСПАНИЯ",
-    flag: flag_es,
+    city: 'Барселона',
+    country: 'ИСПАНИЯ',
+    flag: flagEs,
     price: 4247,
-    date: "24 марта"
-  }
+    date: '24 марта',
+  },
 ];

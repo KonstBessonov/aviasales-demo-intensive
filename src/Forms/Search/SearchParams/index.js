@@ -1,12 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-import DirectionForm from "../../DirectionForm";
+import DirectionForm from '../../DirectionForm';
 
-import { BlueSection, minWidth } from "../../../assets";
-import Logo from "../../../UI/Logo";
-import back from "./back.svg";
+import { BlueSection, minWidth } from '../../../assets';
+import Logo from '../../../UI/Logo';
+import back from './back.svg';
 
 const SearchParams = BlueSection.extend`
   padding-bottom: 0;
@@ -88,27 +88,25 @@ const DirectionFormContainer = styled.div`
   `};
 `;
 
-export default () => {
-  return (
-    <SearchParams>
-      <div className="container">
-        <Header>
-          <StyledLink to="/">
-            <LinkLogo>
-              <Logo />
-            </LinkLogo>
-            <Back />
-          </StyledLink>
-          <ParamsTextWrapper>
-            <RouteText>Москва - Барселона</RouteText>
-            <DatePax>24 фев - 3 март, 1 пассажир</DatePax>
-          </ParamsTextWrapper>
-          <Currency>RUB</Currency>
-        </Header>
-        <DirectionFormContainer>
-          <DirectionForm compact />
-        </DirectionFormContainer>
-      </div>
-    </SearchParams>
-  );
-};
+export default () => (
+  <SearchParams>
+    <div className="container">
+      <Header>
+        <StyledLink to="/">
+          <LinkLogo>
+            <Logo />
+          </LinkLogo>
+          <Back />
+        </StyledLink>
+        <ParamsTextWrapper>
+          <RouteText>Москва - Барселона</RouteText>
+          <DatePax>24 фев - 3 март, 1 пассажир</DatePax>
+        </ParamsTextWrapper>
+        <Currency>RUB</Currency>
+      </Header>
+      <DirectionFormContainer>
+        <DirectionForm compact />
+      </DirectionFormContainer>
+    </div>
+  </SearchParams>
+);

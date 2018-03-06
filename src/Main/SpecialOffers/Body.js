@@ -1,7 +1,10 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const Body = styled.div`
+import FormattedCurrency from '../../UI/FormattedCurrency';
+
+const BodyStyled = styled.div`
   color: #242424;
   background: #ffffff;
   padding: 1rem;
@@ -50,7 +53,7 @@ const OfferText = styled.p`
   margin-bottom: 3rem;
 `;
 
-const Link = styled.a`
+const LinkStyled = styled.a`
   display: block;
   border: 2px solid #cd1f27;
   border-radius: 0.5rem;
@@ -62,23 +65,34 @@ const Link = styled.a`
   padding: 1.2rem;
 `;
 
-export default props => {
-  return (
-    <Body>
-      <Details>
-        <ImageWrapper>
-          <Image src={props.offer.partner} alt="" />
-        </ImageWrapper>
-        <PriceDayWrapper>
-          <Price>
-            от<PriceSpan> {props.offer.price} ₽</PriceSpan>
-          </Price>
-          <Days>Осталось {props.offer.days} дней</Days>
-        </PriceDayWrapper>
-      </Details>
+const Body = ({
+  offer: {
+    partner, price, days, text,
+  },
+}) => (
+  <BodyStyled>
+    <Details>
+      <ImageWrapper>
+        <Image src={partner} alt="" />
+      </ImageWrapper>
+      <PriceDayWrapper>
+        <Price>
+          от{' '}
+          <PriceSpan>
+            <FormattedCurrency value={price} />
+          </PriceSpan>
+        </Price>
+        <Days>Осталось {days} дней</Days>
+      </PriceDayWrapper>
+    </Details>
 
-      <OfferText>{props.offer.text}</OfferText>
-      <Link href="#">Узнать подробности</Link>
-    </Body>
-  );
+    <OfferText>{text}</OfferText>
+    <LinkStyled href="#">Узнать подробности</LinkStyled>
+  </BodyStyled>
+);
+
+Body.propTypes = {
+  offer: PropTypes.shape({}).isRequired,
 };
+
+export default Body;

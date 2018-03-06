@@ -1,17 +1,17 @@
-import React from "react";
-import styled from "styled-components";
-import { Helmet } from "react-helmet";
+import React from 'react';
+import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 
-import { minWidth } from "../../assets";
+import { minWidth } from '../../assets';
 
-import SearchParams from "./SearchParams";
-import Proposal from "./Proposal";
-import ScrollTop from "./ScrollTop";
-import FilterPanel from "./FilterPanel";
-import Filter from "./Filter";
-import TopMark from "./TopMarks";
+import SearchParams from './SearchParams';
+import Proposal from './Proposal';
+import ScrollTop from './ScrollTop';
+import FilterPanel from './FilterPanel';
+import Filter from './Filter';
+import TopMark from './TopMarks';
 
-import { results } from "./data";
+import { results } from './data';
 
 const Search = styled.div`
   background-color: #eaeaea;
@@ -41,32 +41,28 @@ const MoreResults = styled.button`
     display: unset;`};
 `;
 
-export default () => {
-  return (
-    <Search>
-      <Helmet>
-        <title>Результаты поиска</title>
-      </Helmet>
-      <SearchParams />
-      <div className="container">
-        <ScrollTop />
-        <Container>
-          <FilterPanel />
-          <Proposals>
-            <TopMark mark="cheapest" />
-            <Proposal result={results[0]} />
-            <TopMark mark="fastest" />
-            <Proposal result={results[1]} />
-            <TopMark mark="best" />
-            <Proposal result={results[2]} />
-            {results
-              .slice(3)
-              .map((result, idx) => <Proposal key={idx} result={result} />)}
-            <MoreResults>ПОКАЗАТЬ ЕЩЁ 10 БИЛЕТОВ</MoreResults>
-          </Proposals>
-        </Container>
-        <Filter />
-      </div>
-    </Search>
-  );
-};
+export default () => (
+  <Search>
+    <Helmet>
+      <title>Результаты поиска</title>
+    </Helmet>
+    <SearchParams />
+    <div className="container">
+      <ScrollTop />
+      <Container>
+        <FilterPanel />
+        <Proposals>
+          <TopMark mark="cheapest" />
+          <Proposal result={results[0]} />
+          <TopMark mark="fastest" />
+          <Proposal result={results[1]} />
+          <TopMark mark="best" />
+          <Proposal result={results[2]} />
+          {results.slice(3).map(result => <Proposal key={result.id} result={result} />)}
+          <MoreResults>ПОКАЗАТЬ ЕЩЁ 10 БИЛЕТОВ</MoreResults>
+        </Proposals>
+      </Container>
+      <Filter />
+    </div>
+  </Search>
+);

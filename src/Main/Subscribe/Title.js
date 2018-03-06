@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { minWidth } from "../../assets";
+import React from 'react';
+import styled from 'styled-components';
+import { minWidth } from '../../assets';
 
 const Wrapper = styled.div`
   flex-basis: 50%;
@@ -23,14 +23,11 @@ const Subtitle = styled.h3`
   width: ;
 `;
 
-export default () => {
-  return (
-    <Wrapper>
-      <Title>Хотите знать всё о скидках на авиабилеты?</Title>
-      <Subtitle>
-        Вы можете подписаться на нашу рассылку<br />через соцсети или по
-        электронной почте.
-      </Subtitle>
-    </Wrapper>
-  );
-};
+export default () => (
+  <Wrapper>
+    <Title>Хотите знать всё о скидках на авиабилеты?</Title>
+    <Subtitle>
+      Вы можете подписаться на нашу рассылку<br />через соцсети или по электронной почте.
+    </Subtitle>
+  </Wrapper>
+);

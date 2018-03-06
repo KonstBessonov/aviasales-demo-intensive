@@ -1,10 +1,11 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import Header from "./Header";
-import FormattedCurrency from "../../UI/FormattedCurrency";
+import Header from './Header';
+import FormattedCurrency from '../../UI/FormattedCurrency';
 
-const BestPrice = styled.div`
+const BestPriceStyled = styled.div`
   margin-top: 3rem;
   padding-bottom: 3rem;
 `;
@@ -26,18 +27,28 @@ const PriceText = styled.div`
   line-height: 2.5rem;
 `;
 
-export default ({ data: { destination, prices } }) => {
-  return (
-    <BestPrice>
-      <Header destination={destination} />
-      {prices.map(({ price, origin }) => (
-        <Row>
-          <CityText>Из {origin}</CityText>
-          <PriceText>
-            от <FormattedCurrency value={price} />
-          </PriceText>
-        </Row>
-      ))}
-    </BestPrice>
-  );
+const BestPrice = ({ data: { destination, prices } }) => (
+  <BestPriceStyled>
+    <Header destination={destination} />
+    {prices.map(({ origin, price }) => (
+      <Row>
+        <CityText>Из {origin}</CityText>
+        <PriceText>
+          от <FormattedCurrency value={price} />
+        </PriceText>
+      </Row>
+    ))}
+  </BestPriceStyled>
+);
+
+BestPrice.propTypes = {
+  data: PropTypes.shape({
+    destination: PropTypes.shape({}).isRequired,
+    prices: PropTypes.arrayOf(PropTypes.shape({
+      origin: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+    })).isRequired,
+  }).isRequired,
 };
+
+export default BestPrice;

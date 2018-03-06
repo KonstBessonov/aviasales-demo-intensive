@@ -1,19 +1,21 @@
-import React from "react";
-import styled from "styled-components";
-import Range from "rc-slider/lib/Range";
-import "rc-slider/assets/index.css";
-import format from "date-fns/format";
-import ruLocale from "date-fns/locale/ru";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Range from 'rc-slider/lib/Range';
+import 'rc-slider/assets/index.css';
+import format from 'date-fns/format';
+import ruLocale from 'date-fns/locale/ru';
 
-import checked from "./checked.svg";
-import unchecked from "./unchecked.svg";
-import clear from "./clear.svg";
+import boxChecked from './checked.svg';
+import boxUnchecked from './unchecked.svg';
+import clear from './clear.svg';
 
-import FormattedCurrency from "../../../UI/FormattedCurrency";
-import FormattedDuration from "../../../UI/FormattedDuration";
+import FormattedCurrency from '../../../UI/FormattedCurrency';
+import FormattedDuration from '../../../UI/FormattedDuration';
 
-const formatDate = date => {
-  if (date) return format(date, "HH:mm, D MMM", { locale: ruLocale });
+const formatDate = (date) => {
+  if (date) return format(date, 'HH:mm, D MMM', { locale: ruLocale });
+  return undefined;
 };
 
 const CheckBoxWrapper = styled.div`
@@ -36,7 +38,7 @@ const Check = styled.span`
   height: 18px;
   left: 0;
   transition-duration: 0.1s;
-  background-image: url(${unchecked});
+  background-image: url(${boxUnchecked});
 `;
 
 const Label = styled.label`
@@ -51,7 +53,7 @@ const Label = styled.label`
   cursor: pointer;
 
   & ${Checkbox}:checked ~ ${Check} {
-    background-image: url(${checked});
+    background-image: url(${boxChecked});
   }
 `;
 
@@ -60,18 +62,32 @@ const Price = styled.span`
   color: #a0b0b9;
 `;
 
-export const CheckBox = ({ checked, title, price, onChange, onValueClick }) => (
+export const CheckBox = ({
+  checked, title, price, onChange, onValueClick,
+}) => (
   <CheckBoxWrapper>
     <Label>
       <span>{title}</span>
       <Checkbox type="checkbox" checked={checked} onChange={onChange} />
       <Check />
     </Label>
-    <Price onClick={onValueClick}>
-      {price > 0 && <FormattedCurrency value={price} />}
-    </Price>
+    <Price onClick={onValueClick}>{price > 0 && <FormattedCurrency value={price} />}</Price>
   </CheckBoxWrapper>
 );
+
+CheckBox.defaultProps = {
+  checked: false,
+  price: 0,
+  onValueClick: undefined,
+};
+
+CheckBox.propTypes = {
+  checked: PropTypes.bool,
+  price: PropTypes.number,
+  title: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onValueClick: PropTypes.func,
+};
 
 const RangeContainer = styled.div`
   margin-top: 1.5rem;
@@ -84,48 +100,63 @@ const SpaceBetween = styled.div`
   justify-content: space-between;
 `;
 
-export const RangeFilter = props => {
-  const { title, startText, endText, ...restProps } = props;
-  return (
-    <RangeContainer>
-      <span>{title}</span>
-      <SpaceBetween>
-        <span>{startText}</span>
-        <span>{endText}</span>
-      </SpaceBetween>
-      <Range {...restProps} />
-    </RangeContainer>
-  );
+export const RangeFilter = ({
+  title, startText, endText, ...restProps
+}) => (
+  <RangeContainer>
+    <span>{title}</span>
+    <SpaceBetween>
+      <span>{startText}</span>
+      <span>{endText}</span>
+    </SpaceBetween>
+    <Range {...restProps} />
+  </RangeContainer>
+);
+
+RangeFilter.defaultProps = {
+  title: '',
+  startText: '',
+  endText: '',
 };
 
-export const RangeFilterDate = props => {
-  const { startDate, endDate, ...restProps } = props;
-  return (
-    <RangeFilter
-      {...restProps}
-      startText={"c " + formatDate(startDate)}
-      endText={"до " + formatDate(endDate)}
-    />
-  );
+RangeFilter.propTypes = {
+  title: PropTypes.string,
+  startText: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  endText: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 
-export const RangeFilterDuration = props => {
-  const { minDuration, maxDuration, ...restProps } = props;
-  return (
-    <RangeFilter
-      {...restProps}
-      startText={
-        <React.Fragment>
-          от <FormattedDuration duration={minDuration} />
-        </React.Fragment>
-      }
-      endText={
-        <React.Fragment>
-          до <FormattedDuration duration={maxDuration} />
-        </React.Fragment>
-      }
-    />
-  );
+export const RangeFilterDate = ({ startDate, endDate, ...restProps }) => (
+  <RangeFilter
+    {...restProps}
+    startText={`c ${formatDate(startDate)}`}
+    endText={`до ${formatDate(endDate)}`}
+  />
+);
+
+RangeFilterDate.propTypes = {
+  startDate: PropTypes.number.isRequired,
+  endDate: PropTypes.number.isRequired,
+};
+
+export const RangeFilterDuration = ({ minDuration, maxDuration, ...restProps }) => (
+  <RangeFilter
+    {...restProps}
+    startText={
+      <React.Fragment>
+        от <FormattedDuration duration={minDuration} />
+      </React.Fragment>
+    }
+    endText={
+      <React.Fragment>
+        до <FormattedDuration duration={maxDuration} />
+      </React.Fragment>
+    }
+  />
+);
+
+RangeFilterDuration.propTypes = {
+  minDuration: PropTypes.number.isRequired,
+  maxDuration: PropTypes.number.isRequired,
 };
 
 export const Clear = styled.img`

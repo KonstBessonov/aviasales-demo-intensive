@@ -1,7 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const Header = styled.div`
+const HeaderStyled = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 3rem;
@@ -30,16 +31,24 @@ const Country = styled.div`
   line-height: 2.5rem;
 `;
 
-export default props => {
-  return (
-    <Header>
-      <div>
-        <Image src={props.destination.flag} alt="" />
-      </div>
-      <div>
-        <City>{props.destination.city}</City>
-        <Country>{props.destination.country}</Country>
-      </div>
-    </Header>
-  );
+const Header = ({ destination: { flag, city, country } }) => (
+  <HeaderStyled>
+    <div>
+      <Image src={flag} alt="" />
+    </div>
+    <div>
+      <City>{city}</City>
+      <Country>{country}</Country>
+    </div>
+  </HeaderStyled>
+);
+
+Header.propTypes = {
+  destination: PropTypes.shape({
+    flag: PropTypes.element.isRequired,
+    city: PropTypes.string.isRequired,
+    country: PropTypes.string.isRequired,
+  }).isRequired,
 };
+
+export default Header;

@@ -1,12 +1,13 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled, { css } from 'styled-components';
 
-import handbag from "./handbag.svg";
-import baggage from "./baggage.svg";
-import no_baggage from "./no-baggage.svg";
-import no_baggage_red from "./no-baggage-red.svg";
+import hasHandbag from './handbag.svg';
+import hasBaggage from './baggage.svg';
+import noBaggage from './no-baggage.svg';
+import noBaggageRed from './no-baggage-red.svg';
 
-import FormattedCurrency from "../../../../UI/FormattedCurrency";
+import FormattedCurrency from '../../../../UI/FormattedCurrency';
 
 const Baggage = styled.div`
   flex: 0 0 50%;
@@ -32,7 +33,7 @@ const Badges = styled.div`
 
 const NoBaggage = styled.span`
   font-size: 1.25rem;
-  color: ${({ active }) => (active ? `#DADADA` : `#9AB0B9`)};
+  color: ${({ active }) => (active ? '#DADADA' : '#9AB0B9')};
 `;
 
 const ExtraCost = styled.span`
@@ -50,7 +51,7 @@ const BadgeContainer = styled.div`
   }
 `;
 
-const HandbagIcon = () => <img src={handbag} alt="" />;
+const HandbagIcon = () => <img src={hasHandbag} alt="" />;
 
 const HandbagText = styled.span`
   color: #9ab0b9;
@@ -62,9 +63,27 @@ const HandbagText = styled.span`
   margin-right: auto;
 `;
 
+const getBaggageIcon = (weight, selected) => {
+  if (weight) return hasBaggage;
+  if (selected) return noBaggageRed;
+  return noBaggage;
+};
+
 const BaggageIcon = ({ weight, selected }) => (
-  <img src={weight ? baggage : selected ? no_baggage_red : no_baggage} alt="" />
+  <img
+    src={getBaggageIcon(weight, selected)}
+    alt=""
+  />
 );
+
+BaggageIcon.defaultProps = {
+  selected: false,
+};
+
+BaggageIcon.propTypes = {
+  weight: PropTypes.number.isRequired,
+  selected: PropTypes.bool,
+};
 
 const BaggageText = styled.span`
   color: #9ab0b9;
@@ -79,9 +98,17 @@ const BaggageText = styled.span`
 const HandbagBadge = ({ weight }) => (
   <BadgeContainer dimmed={!weight}>
     <HandbagIcon />
-    <HandbagText>{weight || "?"}</HandbagText>
+    <HandbagText>{weight || '?'}</HandbagText>
   </BadgeContainer>
 );
+
+HandbagBadge.defaultProps = {
+  weight: 0,
+};
+
+HandbagBadge.propTypes = {
+  weight: PropTypes.number,
+};
 
 const BaggageBadge = ({ weight, selected }) => (
   <BadgeContainer>
@@ -90,24 +117,48 @@ const BaggageBadge = ({ weight, selected }) => (
   </BadgeContainer>
 );
 
+BaggageBadge.defaultProps = {
+  weight: 0,
+  selected: false,
+};
+
+BaggageBadge.propTypes = {
+  weight: PropTypes.number,
+  selected: PropTypes.bool,
+};
+
 export const BaggageSection = styled.div`
   display: flex;
   justify-content: center;
-  ${({ compact }) => compact || `margin-bottom: 1rem;`};
+  ${({ compact }) => compact || 'margin-bottom: 1rem;'};
 `;
 
-export const BaggageData = ({ data, compact }) => (
-  <Baggage selected={data.selected}>
+export const BaggageData = ({
+  data: {
+    handbag, baggage, selected, extraCost,
+  }, compact,
+}) => (
+  <Baggage selected={selected}>
     <Badges>
-      <HandbagBadge weight={data.handbag} selected={data.selected} />
-      <BaggageBadge weight={data.baggage} selected={data.selected} />
+      <HandbagBadge weight={handbag} selected={selected} />
+      <BaggageBadge weight={baggage} selected={selected} />
     </Badges>
     {compact ||
-      !data.extraCost || (
+      !extraCost || (
         <ExtraCost>
-          - <FormattedCurrency value={data.extraCost} />
+          - <FormattedCurrency value={extraCost} />
         </ExtraCost>
       )}
-    {compact || !!data.baggage || <NoBaggage>Нет багажа</NoBaggage>}
+    {compact || !!baggage || <NoBaggage>Нет багажа</NoBaggage>}
   </Baggage>
 );
+
+BaggageData.defaultProps = {
+  data: {},
+  compact: false,
+};
+
+BaggageData.propTypes = {
+  data: PropTypes.shape({}),
+  compact: PropTypes.bool,
+};

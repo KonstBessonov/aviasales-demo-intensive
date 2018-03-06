@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { minWidth } from "../../assets";
+import React from 'react';
+import styled from 'styled-components';
+import { minWidth } from '../../assets';
 
-import phone_sm from "./phone-sm.png";
-import phone_lg from "./phone-lg.png";
+import phoneSmall from './phone-sm.png';
+import phoneLarge from './phone-lg.png';
 
 const Wrapper = styled.div`
   height: 100%;
@@ -27,13 +27,11 @@ const Img = styled.img`
   left: 0;
 `;
 
-export default () => {
-  return (
-    <Wrapper>
-      <Picture>
-        <source srcSet={phone_lg} media={minWidth.md.asString} />
-        <Img src={phone_sm} alt="" />
-      </Picture>
-    </Wrapper>
-  );
-};
+export default () => (
+  <Wrapper>
+    <Picture>
+      <source srcSet={phoneLarge} media={minWidth.md.asString} />
+      <Img src={phoneSmall} alt="" />
+    </Picture>
+  </Wrapper>
+);

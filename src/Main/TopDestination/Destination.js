@@ -1,10 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import { minWidth } from "../../assets";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { minWidth } from '../../assets';
 
-import FormattedCurrency from "../../UI/FormattedCurrency";
+import FormattedCurrency from '../../UI/FormattedCurrency';
 
-const Destination = styled.div`
+const DestinationStyled = styled.div`
   font-size: 1.5rem;
   border-radius: 1rem;
   color: #5b5b5c;
@@ -81,23 +82,27 @@ const DateText = styled.div`
   line-height: 2.5rem;
 `;
 
-export default props => {
-  return (
-    <Destination>
-      <Overlay src={props.destination.img} />
-      <Details>
-        <Flag src={props.destination.flag} alt="" />
-        <LeftColumn>
-          <CityText>{props.destination.city}</CityText>
-          <CountryText>{props.destination.country}</CountryText>
-        </LeftColumn>
-        <RightColumn>
-          <PriceText>
-            Найти от <FormattedCurrency value={props.destination.price} />
-          </PriceText>
-          <DateText>{props.destination.date}</DateText>
-        </RightColumn>
-      </Details>
-    </Destination>
-  );
+const Destination = ({ destination }) => (
+  <DestinationStyled>
+    <Overlay src={destination.img} />
+    <Details>
+      <Flag src={destination.flag} alt="" />
+      <LeftColumn>
+        <CityText>{destination.city}</CityText>
+        <CountryText>{destination.country}</CountryText>
+      </LeftColumn>
+      <RightColumn>
+        <PriceText>
+          Найти от <FormattedCurrency value={destination.price} />
+        </PriceText>
+        <DateText>{destination.date}</DateText>
+      </RightColumn>
+    </Details>
+  </DestinationStyled>
+);
+
+Destination.propTypes = {
+  destination: PropTypes.shape({}).isRequired,
 };
+
+export default Destination;

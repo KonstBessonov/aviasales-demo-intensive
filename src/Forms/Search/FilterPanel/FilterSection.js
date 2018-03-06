@@ -1,31 +1,48 @@
-import React from "react";
-import styled from "styled-components";
-import arrow from "./arrow.svg";
-import { Clear } from "./UI";
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+import arrow from './arrow.svg';
+import { Clear } from './UI';
 
 const OpenMarkStyled = styled.img`
   margin-right: 1rem;
-  ${({ isOpen }) => isOpen && `transform: rotate(90deg);`};
+  ${({ isOpen }) => isOpen && 'transform: rotate(90deg);'};
 `;
 
-const OpenMark = ({ className, isOpen }) => (
-  <OpenMarkStyled isOpen={isOpen} src={arrow} alt="" />
-);
+const OpenMark = ({ isOpen }) => <OpenMarkStyled isOpen={isOpen} src={arrow} alt="" />;
+
+OpenMark.defaultProps = {
+  isOpen: false,
+};
+
+OpenMark.propTypes = {
+  isOpen: PropTypes.bool,
+};
 
 const HeaderWrapper = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
-  ${({ isOpen }) => (isOpen ? `padding: 0 0 2rem 0` : `padding: 0`)};
+  ${({ isOpen }) => (isOpen ? 'padding: 0 0 2rem 0' : 'padding: 0')};
 `;
 
-const Header = ({ children, isOpen, onClick }) => {
-  return (
-    <HeaderWrapper onClick={onClick}>
-      <OpenMark isOpen={isOpen} />
-      {children}
-    </HeaderWrapper>
-  );
+const Header = ({ children, isOpen, onClick }) => (
+  <HeaderWrapper onClick={onClick}>
+    <OpenMark isOpen={isOpen} />
+    {children}
+  </HeaderWrapper>
+);
+
+Header.defaultProps = {
+  isOpen: false,
+  onClick: undefined,
+};
+
+Header.propTypes = {
+  children: PropTypes.element.isRequired,
+  isOpen: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 const Badge = styled.span`
@@ -33,20 +50,37 @@ const Badge = styled.span`
   padding-left: 1rem;
 `;
 
-const ClearBtn = Clear.withComponent("button");
+const ClearBtn = Clear.withComponent('button');
 
 const Spacer = styled.span`
   flex-grow: 1;
 `;
 
 class Section extends React.Component {
+  static defaultProps = {
+    initialOpen: false,
+    className: '',
+    title: '',
+    badge: 0,
+    filterPresent: false,
+  };
+
+  static propTypes = {
+    initialOpen: PropTypes.bool,
+    className: PropTypes.string,
+    title: PropTypes.string,
+    badge: PropTypes.number,
+    filterPresent: PropTypes.bool,
+    children: PropTypes.element.isRequired,
+  };
+
   constructor(props) {
     super(props);
 
     this.state = { isOpen: !!props.initialOpen };
   }
 
-  handleClick = e => {
+  handleClick = (e) => {
     if (!e.defaultPrevented) {
       this.setState(prevState => ({ isOpen: !prevState.isOpen }));
     }
@@ -56,17 +90,19 @@ class Section extends React.Component {
     return (
       <div className={this.props.className}>
         <Header isOpen={this.state.isOpen} onClick={this.handleClick}>
-          <span>{this.props.title}</span>
-          {this.props.badge && <Badge>{this.props.badge}</Badge>}
-          <Spacer />
-          {this.props.filterPresent && (
-            <ClearBtn
-              onClick={e => {
-                e.preventDefault();
-                this.handleClearClick && this.handleClearClick(e);
-              }}
-            />
-          )}
+          <Fragment>
+            <span>{this.props.title}</span>
+            {!!this.props.badge && <Badge>{this.props.badge}</Badge>}
+            <Spacer />
+            {this.props.filterPresent && (
+              <ClearBtn
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (this.handleClearClick) this.handleClearClick(e);
+                }}
+              />
+            )}
+          </Fragment>
         </Header>
         {this.state.isOpen && this.props.children}
       </div>
