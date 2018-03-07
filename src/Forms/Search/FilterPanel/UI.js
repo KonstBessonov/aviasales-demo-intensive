@@ -109,7 +109,7 @@ export const RangeFilter = ({
       <span>{startText}</span>
       <span>{endText}</span>
     </SpaceBetween>
-    <Range {...restProps} />
+    <Range defaultValue={[0, 100]} min={0} max={100} allowCross={false} {...restProps} />
   </RangeContainer>
 );
 
