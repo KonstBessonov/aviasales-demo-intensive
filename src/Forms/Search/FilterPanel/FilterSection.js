@@ -25,6 +25,7 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   ${({ isOpen }) => (isOpen ? 'padding: 0 0 2rem 0' : 'padding: 0')};
+  position: relative;
 `;
 
 const Header = ({ children, isOpen, onClick }) => (
@@ -50,7 +51,11 @@ const Badge = styled.span`
   padding-left: 1rem;
 `;
 
-const ClearBtn = Clear.withComponent('button');
+const ClearBtn = Clear.withComponent('button').extend`
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+`;
 
 const Spacer = styled.span`
   flex-grow: 1;
@@ -63,6 +68,7 @@ class Section extends React.Component {
     title: '',
     badge: 0,
     filterPresent: false,
+    onClearClick: undefined,
   };
 
   static propTypes = {
@@ -72,6 +78,7 @@ class Section extends React.Component {
     badge: PropTypes.number,
     filterPresent: PropTypes.bool,
     children: PropTypes.element.isRequired,
+    onClearClick: PropTypes.func,
   };
 
   constructor(props) {
@@ -98,7 +105,7 @@ class Section extends React.Component {
               <ClearBtn
                 onClick={(e) => {
                   e.preventDefault();
-                  if (this.handleClearClick) this.handleClearClick(e);
+                  if (this.props.onClearClick) this.props.onClearClick(e);
                 }}
               />
             )}

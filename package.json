@@ -5,6 +5,7 @@
   "dependencies": {
     "date-fns": "^1.29.0",
     "flexboxgrid2": "^7.1.0",
+    "lodash": "^4.17.5",
     "normalize.css": "^8.0.0",
     "pluralize-ru": "^1.0.1",
     "prop-types": "^15.6.1",
