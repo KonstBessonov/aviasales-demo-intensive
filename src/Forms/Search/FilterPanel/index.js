@@ -61,6 +61,9 @@ const setAllChecked = (arr, checked) => arr.map(cur => setChecked(cur, checked))
 
 const isAllChecked = arr => arr.every(cur => cur.checked);
 
+const calculateRangeValue = ({ range, value }, side) =>
+  range[0] + (((range[1] - range[0]) / 100) * value[side]);
+
 class FilterPanel extends React.Component {
   constructor(props) {
     super(props);
@@ -92,7 +95,12 @@ class FilterPanel extends React.Component {
       stopsFilter: toggleElementChecked(setAllChecked(oldFilter, false), idx),
     }));
 
-  handleRangeValueChange = (segment, direction, value) => {};
+  handleRangeValueChange = (segment, direction, value) =>
+    this.setState(({ departureArrivalTimeFilter: oldFilter }) => {
+      const newFilter = [...oldFilter];
+      newFilter[segment][direction].value = value; // УБРАТЬ МУТАБЕЛЬНОСТЬ!
+      return { departureArrivalTimeFilter: newFilter };
+    });
 
   render() {
     return (
@@ -129,8 +137,8 @@ class FilterPanel extends React.Component {
             </FilterHeader>
             <RangeFilterDate
               title="Вылет из Москвы:"
-              startDate={this.state.departureArrivalTimeFilter[0].departure.range[0]}
-              endDate={this.state.departureArrivalTimeFilter[0].departure.range[1]}
+              startDate={calculateRangeValue(this.state.departureArrivalTimeFilter[0].departure, 0)}
+              endDate={calculateRangeValue(this.state.departureArrivalTimeFilter[0].departure, 1)}
               value={this.state.departureArrivalTimeFilter[0].departure.value}
               onChange={value => this.handleRangeValueChange(0, 'departure', value)}
             />
